@@ -1,0 +1,69 @@
+#---------------------------------------------------------
+# Aspirantes de la bolsa de empleo
+#---------------------------------------------------------
+
+total.aspirantes = 9
+
+aspirante1.nombre = 1
+aspirante1.profesion = Administrador
+aspirante1.experiencia = 1
+aspirante1.edad = 1
+aspirante1.telefono = 1
+aspirante1.imagen = 1
+
+aspirante2.nombre = 2
+aspirante2.profesion = Administrador
+aspirante2.experiencia = 2
+aspirante2.edad = 2
+aspirante2.telefono = 2
+aspirante2.imagen = 2
+
+aspirante3.nombre = 3
+aspirante3.profesion = Administrador
+aspirante3.experiencia = 3
+aspirante3.edad = 3
+aspirante3.telefono = 3
+aspirante3.imagen = 3
+
+aspirante4.nombre = 4
+aspirante4.profesion = Administrador
+aspirante4.experiencia = 4
+aspirante4.edad = 4
+aspirante4.telefono = 4
+aspirante4.imagen = 4
+
+aspirante5.nombre = 5
+aspirante5.profesion = Administrador
+aspirante5.experiencia = 5
+aspirante5.edad = 5
+aspirante5.telefono = 5
+aspirante5.imagen = 5
+
+aspirante6.nombre = 6
+aspirante6.profesion = Administrador
+aspirante6.experiencia = 6
+aspirante6.edad = 6
+aspirante6.telefono = 6
+aspirante6.imagen = 6
+
+aspirante7.nombre = 7
+aspirante7.profesion = Administrador
+aspirante7.experiencia = 7
+aspirante7.edad = 7
+aspirante7.telefono = 7
+aspirante7.imagen = 7
+
+aspirante8.nombre = 8
+aspirante8.profesion = Administrador
+aspirante8.experiencia = 8
+aspirante8.edad = 8
+aspirante8.telefono = 8
+aspirante8.imagen = 8
+
+aspirante9.nombre = 9
+aspirante9.profesion = Administrador
+aspirante9.experiencia = 9
+aspirante9.edad = 9
+aspirante9.telefono = 9
+aspirante9.imagen = 9
+
