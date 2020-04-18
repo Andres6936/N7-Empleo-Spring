@@ -1,14 +1,14 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: BolsaDeEmpleoTest.java,v 1.8 2007/04/12 03:43:58 carl-veg Exp $
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (BogotÃ³ - Colombia)
+ * Departamento de IngenierÃ³a de Sistemas y ComputaciÃ³n
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
  * Ejercicio: n7_empleo
  * Autor: Milena Vela - 21-abr-2006
- * Modificación: Silvia de la Torre -07-jul-2006
+ * ModificaciÃ³n: Silvia de la Torre -07-jul-2006
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
@@ -28,7 +28,7 @@ import uniandes.cupi2.empleo.mundo.Aspirante;
 import uniandes.cupi2.empleo.mundo.BolsaDeEmpleo;
 
 /**
- * Esta es la clase usada para verificar que los métodos de la clase BolsaDeEmpleo estén correctamente implementados
+ * Esta es la clase usada para verificar que los mÃ³todos de la clase BolsaDeEmpleo estÃ³n correctamente implementados
  */
 public class BolsaDeEmpleoTest extends TestCase
 {
@@ -47,7 +47,7 @@ public class BolsaDeEmpleoTest extends TestCase
     private int cantidadAspirantes;
 
     // -----------------------------------------------------------------
-    // Métodos
+    // MÃ³todos
     // -----------------------------------------------------------------
 
     /**
@@ -71,7 +71,7 @@ public class BolsaDeEmpleoTest extends TestCase
     }
 
     /**
-     * Crea una bolsa de empleo vacía
+     * Crea una bolsa de empleo vacÃ³a
      */
     private void setupEscenario3( )
     {
@@ -80,12 +80,12 @@ public class BolsaDeEmpleoTest extends TestCase
     }
 
     /**
-     * Verifica el método agregarAspirante agregando correctamente un aspirante. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica el mÃ³todo agregarAspirante agregando correctamente un aspirante. <br>
+     * <b> MÃ³todos a probar: </b> <br>
      * agregarAspirante, buscarAspirante, darAspirante. <br>
-     * <b> Objetivo: </b> Probar que el método agregarAspirante() sea capaz de registrar un aspirante en la bolsa de empleo. <br>
+     * <b> Objetivo: </b> Probar que el mÃ³todo agregarAspirante() sea capaz de registrar un aspirante en la bolsa de empleo. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al buscar (por nombre) un aspirante previamente agregado se debe obtener una posición diferente de -1 (se debe encontrar) y los datos del aspirante en esa posición
+     * 1. Al buscar (por nombre) un aspirante previamente agregado se debe obtener una posiciÃ³n diferente de -1 (se debe encontrar) y los datos del aspirante en esa posiciÃ³n
      * deben corresponder a los del aspirante con el nombre correspondiente. <br>
      * 
      */
@@ -118,24 +118,24 @@ public class BolsaDeEmpleoTest extends TestCase
             int pos = bolsa.buscarAspirante( nombre );
             Aspirante aspirante = ( Aspirante )bolsa.darAspirantes( ).get( pos );
 
-            assertTrue( "El aspirante no se agregó de forma correcta", agregado );
-            assertEquals( "El aspirante no se agregó de forma correcta", cont - 1, pos );
-            assertEquals( "El aspirante no se agregó de forma correcta", nombre, aspirante.darNombre( ) );
-            assertEquals( "El aspirante no se agregó de forma correcta", profesion, aspirante.darProfesion( ) );
-            assertEquals( "El aspirante no se agregó de forma correcta", experiencia, aspirante.darAniosExperiencia( ) );
-            assertEquals( "El aspirante no se agregó de forma correcta", edad, aspirante.darEdad( ) );
-            assertEquals( "El aspirante no se agregó de forma correcta", telefono, aspirante.darTelefono( ) );
-            assertEquals( "El aspirante no se agregó de forma correcta", imagen, aspirante.darImagen( ) );
+            assertTrue( "El aspirante no se agregÃ³ de forma correcta", agregado );
+            assertEquals( "El aspirante no se agregÃ³ de forma correcta", cont - 1, pos );
+            assertEquals( "El aspirante no se agregÃ³ de forma correcta", nombre, aspirante.darNombre( ) );
+            assertEquals( "El aspirante no se agregÃ³ de forma correcta", profesion, aspirante.darProfesion( ) );
+            assertEquals( "El aspirante no se agregÃ³ de forma correcta", experiencia, aspirante.darAniosExperiencia( ) );
+            assertEquals( "El aspirante no se agregÃ³ de forma correcta", edad, aspirante.darEdad( ) );
+            assertEquals( "El aspirante no se agregÃ³ de forma correcta", telefono, aspirante.darTelefono( ) );
+            assertEquals( "El aspirante no se agregÃ³ de forma correcta", imagen, aspirante.darImagen( ) );
         }
     }
 
     /**
-     * Verifica el método agregarAspirante agregando un aspirante con nombre repetido. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica el mÃ³todo agregarAspirante agregando un aspirante con nombre repetido. <br>
+     * <b> MÃ³todos a probar: </b> <br>
      * agregarAspirante, buscarAspirante, darAspirante. <br>
-     * <b> Objetivo: </b> Probar que el método agregarAspirante() no agregue un aspirante en la bolsa de empleo cuando su nombre ya pertenece a otro aspirante registrado. <br>
+     * <b> Objetivo: </b> Probar que el mÃ³todo agregarAspirante() no agregue un aspirante en la bolsa de empleo cuando su nombre ya pertenece a otro aspirante registrado. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al agregar un aspirante con nombre repetido el número de aspirantes se debe mantener igual y la información de los aspirantes existentes no debe haberse alterado.
+     * 1. Al agregar un aspirante con nombre repetido el nÃ³mero de aspirantes se debe mantener igual y la informaciÃ³n de los aspirantes existentes no debe haberse alterado.
      */
     public void testAgregarAspirante2( )
     {
@@ -148,7 +148,7 @@ public class BolsaDeEmpleoTest extends TestCase
 
         int i = Integer.parseInt( nombreAspirante );
         boolean agregado = bolsa.agregarAspirante( nombreAspirante, nombreAspirante, i, i, nombreAspirante, nombreAspirante );
-        assertFalse( "El aspirante no debería haberse agregado", agregado );
+        assertFalse( "El aspirante no deberÃ³a haberse agregado", agregado );
 
         String nombre;
         String profesion;
@@ -157,7 +157,7 @@ public class BolsaDeEmpleoTest extends TestCase
         String telefono;
         String imagen;
 
-        // Busca un aspirante y verifica que sus datos estén correctos
+        // Busca un aspirante y verifica que sus datos estÃ³n correctos
         for( int cont = 0; cont < cantidadAspirantes; cont++ )
         {
             nombre = "" + ( cont + 1 );
@@ -169,24 +169,24 @@ public class BolsaDeEmpleoTest extends TestCase
 
             Aspirante aspirante = ( Aspirante )bolsa.darAspirantes( ).get( cont );
 
-            assertEquals( "El aspirante no se agregó de forma correcta", nombre, aspirante.darNombre( ) );
-            assertEquals( "El aspirante no se agregó de forma correcta", profesion, aspirante.darProfesion( ) );
-            assertEquals( "El aspirante no se agregó de forma correcta", experiencia, aspirante.darAniosExperiencia( ) );
-            assertEquals( "El aspirante no se agregó de forma correcta", edad, aspirante.darEdad( ) );
-            assertEquals( "El aspirante no se agregó de forma correcta", telefono, aspirante.darTelefono( ) );
-            assertEquals( "El aspirante no se agregó de forma correcta", imagen, aspirante.darImagen( ) );
+            assertEquals( "El aspirante no se agregÃ³ de forma correcta", nombre, aspirante.darNombre( ) );
+            assertEquals( "El aspirante no se agregÃ³ de forma correcta", profesion, aspirante.darProfesion( ) );
+            assertEquals( "El aspirante no se agregÃ³ de forma correcta", experiencia, aspirante.darAniosExperiencia( ) );
+            assertEquals( "El aspirante no se agregÃ³ de forma correcta", edad, aspirante.darEdad( ) );
+            assertEquals( "El aspirante no se agregÃ³ de forma correcta", telefono, aspirante.darTelefono( ) );
+            assertEquals( "El aspirante no se agregÃ³ de forma correcta", imagen, aspirante.darImagen( ) );
         }
 
     }
 
     /**
-     * Verifica el método buscarAspirante buscando un aspirante que se sabe que debería encontrarse. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica el mÃ³todo buscarAspirante buscando un aspirante que se sabe que deberÃ³a encontrarse. <br>
+     * <b> MÃ³todos a probar: </b> <br>
      * buscarAspirante. <br>
-     * <b> Objetivo: </b> Probar que el método buscarAspirante() sea capaz de encontrar aspirantes registrados en la bolsa de empleo. <br>
+     * <b> Objetivo: </b> Probar que el mÃ³todo buscarAspirante() sea capaz de encontrar aspirantes registrados en la bolsa de empleo. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al buscar un aspirante previamente agregado se debe obtener una posición diferente de -1. <br>
-     * 2. Al buscar un aspirante que no exista la posición retornada debe ser -1.
+     * 1. Al buscar un aspirante previamente agregado se debe obtener una posiciÃ³n diferente de -1. <br>
+     * 2. Al buscar un aspirante que no exista la posiciÃ³n retornada debe ser -1.
      * 
      */
     public void testBuscarAspirante( )
@@ -201,24 +201,24 @@ public class BolsaDeEmpleoTest extends TestCase
         bolsa.ordenarPorProfesion( );
 
         int posicion = bolsa.buscarAspirante( nombreAspirante );
-        assertTrue( "No se encontró el aspirante", posicion != -1 );
+        assertTrue( "No se encontrÃ³ el aspirante", posicion != - 1 );
 
         aspirantes = bolsa.darAspirantes( );
         Aspirante an = ( Aspirante )aspirantes.get( posicion );
-        assertEquals( "No se encontró el aspirante buscado", an.darNombre( ), nombreAspirante );
+        assertEquals( "No se encontrÃ³ el aspirante buscado", an.darNombre( ), nombreAspirante );
 
         posicion = bolsa.buscarAspirante( "el aspirante no existe" );
-        assertEquals( "No se encontró el aspirante buscado", -1, posicion );
+        assertEquals( "No se encontrÃ³ el aspirante buscado", - 1, posicion );
     }
 
     /**
-     * Verifica el método buscarBinarioPorNombre buscando un aspirante que se sabe que debería encontrarse. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica el mÃ³todo buscarBinarioPorNombre buscando un aspirante que se sabe que deberÃ³a encontrarse. <br>
+     * <b> MÃ³todos a probar: </b> <br>
      * buscarBinarioPorNombre. <br>
-     * <b> Objetivo: </b> Probar que el método buscarBinarioPorNombre() sea capaz de encontrar aspirantes registrados en la exposición. <br>
+     * <b> Objetivo: </b> Probar que el mÃ³todo buscarBinarioPorNombre() sea capaz de encontrar aspirantes registrados en la exposiciÃ³n. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al buscar un aspirante previamente agregado se debe obtener una posición diferente de -1. <br>
-     * 2. Al buscar un aspirante que no exista la posición retornada debe ser -1.
+     * 1. Al buscar un aspirante previamente agregado se debe obtener una posiciÃ³n diferente de -1. <br>
+     * 2. Al buscar un aspirante que no exista la posiciÃ³n retornada debe ser -1.
      * 
      */
     public void testBuscarBinarioPorNombre( )
@@ -234,43 +234,43 @@ public class BolsaDeEmpleoTest extends TestCase
         String nombreAspirante = aspirante.darNombre( );
 
         int posicion = bolsa.buscarBinarioPorNombre( nombreAspirante );
-        assertTrue( "No se encontró el aspirante", posicion != -1 );
+        assertTrue( "No se encontrÃ³ el aspirante", posicion != - 1 );
 
         Aspirante aspiranteNuevo = ( Aspirante )aspirantes.get( posicion );
-        assertEquals( "No se encontró el aspirante buscado", aspiranteNuevo.darNombre( ), nombreAspirante );
+        assertEquals( "No se encontrÃ³ el aspirante buscado", aspiranteNuevo.darNombre( ), nombreAspirante );
 
         // Busca el aspirante del medio
         aspirante = ( Aspirante )aspirantes.get( cantidadAspirantes / 2 );
         nombreAspirante = aspirante.darNombre( );
 
         posicion = bolsa.buscarBinarioPorNombre( nombreAspirante );
-        assertTrue( "No se encontró el aspirante", posicion != -1 );
+        assertTrue( "No se encontrÃ³ el aspirante", posicion != - 1 );
 
         aspiranteNuevo = ( Aspirante )aspirantes.get( posicion );
-        assertEquals( "No se encontró el aspirante buscado", aspiranteNuevo.darNombre( ), nombreAspirante );
+        assertEquals( "No se encontrÃ³ el aspirante buscado", aspiranteNuevo.darNombre( ), nombreAspirante );
 
         // Busca el aspirante del final
         aspirante = ( Aspirante )aspirantes.get( cantidadAspirantes - 1 );
         nombreAspirante = aspirante.darNombre( );
 
         posicion = bolsa.buscarBinarioPorNombre( nombreAspirante );
-        assertTrue( "No se encontró el aspirante", posicion != -1 );
+        assertTrue( "No se encontrÃ³ el aspirante", posicion != - 1 );
 
         aspiranteNuevo = ( Aspirante )aspirantes.get( posicion );
-        assertEquals( "No se encontró el aspirante buscado", aspiranteNuevo.darNombre( ), nombreAspirante );
+        assertEquals( "No se encontrÃ³ el aspirante buscado", aspiranteNuevo.darNombre( ), nombreAspirante );
 
         // Busca un aspirante que no existe
         posicion = bolsa.buscarAspirante( "el aspirante no existe" );
-        assertEquals( "No se encontró el aspirante buscado", -1, posicion );
+        assertEquals( "No se encontrÃ³ el aspirante buscado", - 1, posicion );
     }
 
     /**
-     * Verifica el método para ordenar por años de experiencia. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica el mÃ³todo para ordenar por aÃ³os de experiencia. <br>
+     * <b> MÃ³todos a probar: </b> <br>
      * ordenarPorAniosDeExperiencia. <br>
-     * <b> Objetivo: </b> Probar que el método ordenarPorAniosDeExperiencia() ordena la bolsa de empleo de forma correcta (en orden ascendente por años de experiencia). <br>
+     * <b> Objetivo: </b> Probar que el mÃ³todo ordenarPorAniosDeExperiencia() ordena la bolsa de empleo de forma correcta (en orden ascendente por aÃ³os de experiencia). <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al ordenar la bolsa de empleo por años de experiencia el aspirante con menor experiencia debe quedar de primero y el de mayor experiencia de último.
+     * 1. Al ordenar la bolsa de empleo por aÃ³os de experiencia el aspirante con menor experiencia debe quedar de primero y el de mayor experiencia de Ã³ltimo.
      * 
      */
     public void testOrdenarPorAniosDeExperiencia( )
@@ -286,17 +286,17 @@ public class BolsaDeEmpleoTest extends TestCase
             Aspirante a0 = ( Aspirante )aspirantes.get( i - 1 );
             Aspirante a1 = ( Aspirante )aspirantes.get( i );
 
-            assertTrue( "No se ordenó bien por años de experiencia", a0.darAniosExperiencia( ) <= a1.darAniosExperiencia( ) );
+            assertTrue( "No se ordenÃ³ bien por aÃ³os de experiencia", a0.darAniosExperiencia( ) <= a1.darAniosExperiencia( ) );
         }
     }
 
     /**
-     * Verifica el método para ordenar por edad. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica el mÃ³todo para ordenar por edad. <br>
+     * <b> MÃ³todos a probar: </b> <br>
      * ordenarPorEdad. <br>
-     * <b> Objetivo: </b> Probar que el método ordenarPorEdad() ordena la bolsa de empleo de forma correcta (en orden ascendente por edad). <br>
+     * <b> Objetivo: </b> Probar que el mÃ³todo ordenarPorEdad() ordena la bolsa de empleo de forma correcta (en orden ascendente por edad). <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al ordenar la bolsa de empleo por edad el aspirante con menor edad debe quedar de primero y el de mayor edad de último.
+     * 1. Al ordenar la bolsa de empleo por edad el aspirante con menor edad debe quedar de primero y el de mayor edad de Ã³ltimo.
      * 
      */
     public void testOrdenarPorEdad( )
@@ -311,17 +311,17 @@ public class BolsaDeEmpleoTest extends TestCase
             Aspirante a0 = ( Aspirante )aspirantes.get( i - 1 );
             Aspirante a1 = ( Aspirante )aspirantes.get( i );
 
-            assertTrue( "No se ordenó bien por edad", a0.darEdad( ) <= a1.darEdad( ) );
+            assertTrue( "No se ordenÃ³ bien por edad", a0.darEdad( ) <= a1.darEdad( ) );
         }
     }
 
     /**
-     * Verifica el método de ordenar por profesión. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica el mÃ³todo de ordenar por profesiÃ³n. <br>
+     * <b> MÃ³todos a probar: </b> <br>
      * ordenarPorProfesion. <br>
-     * <b> Objetivo: </b> Probar que el método ordenarPorProfesion() ordena la bolsa de empleo de forma correcta (en orden ascendente por profesión). <br>
+     * <b> Objetivo: </b> Probar que el mÃ³todo ordenarPorProfesion() ordena la bolsa de empleo de forma correcta (en orden ascendente por profesiÃ³n). <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al ordenar la bolsa de empleo por profesión los aspirantes deben quedar ordenados por orden alfabético de acuerdo a su profesión. <br>
+     * 1. Al ordenar la bolsa de empleo por profesiÃ³n los aspirantes deben quedar ordenados por orden alfabÃ³tico de acuerdo a su profesiÃ³n. <br>
      * 
      */
     public void testOrdenarPorProfesion( )
@@ -336,18 +336,18 @@ public class BolsaDeEmpleoTest extends TestCase
             Aspirante a0 = ( Aspirante )aspirantes.get( i - 1 );
             Aspirante a1 = ( Aspirante )aspirantes.get( i );
 
-            assertTrue( "No se ordenó bien por profesión", a0.darProfesion( ).compareTo( a1.darProfesion( ) ) <= 0 );
+            assertTrue( "No se ordenÃ³ bien por profesiÃ³n", a0.darProfesion( ).compareTo( a1.darProfesion( ) ) <= 0 );
         }
     }
 
     /**
-     * Verifica que el método que busca el aspirante más joven funcione correctamente. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica que el mÃ³todo que busca el aspirante mÃ³s joven funcione correctamente. <br>
+     * <b> MÃ³todos a probar: </b> <br>
      * buscarAspiranteMasJoven. <br>
-     * <b> Objetivo: </b> Probar que el método buscarAspiranteMasJoven() retorna el aspirante correcto (el que tiene menor edad). <br>
+     * <b> Objetivo: </b> Probar que el mÃ³todo buscarAspiranteMasJoven() retorna el aspirante correcto (el que tiene menor edad). <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al buscar el aspirante con menor edad se debe obtener la posición del aspirante con la edad menor en la bolsa de empleo. <br>
-     * 2. Al buscar el aspirante con menor edad en una bolsa vacía la posición retornada debe ser -1.
+     * 1. Al buscar el aspirante con menor edad se debe obtener la posiciÃ³n del aspirante con la edad menor en la bolsa de empleo. <br>
+     * 2. Al buscar el aspirante con menor edad en una bolsa vacÃ³a la posiciÃ³n retornada debe ser -1.
      * 
      */
     public void testBuscarAspiranteMasJoven( )
@@ -363,7 +363,7 @@ public class BolsaDeEmpleoTest extends TestCase
         aspirantes = bolsa.darAspirantes( );
         Aspirante menorOrdenamiento = ( Aspirante )aspirantes.get( 0 );
 
-        assertEquals( "El aspirante de menor edad (el más joven) no es el correcto", menorBusqueda, menorOrdenamiento );
+        assertEquals( "El aspirante de menor edad (el mÃ³s joven) no es el correcto", menorBusqueda, menorOrdenamiento );
 
         setupEscenario3( );
         posMenor = bolsa.buscarAspiranteMasJoven( );
@@ -372,13 +372,13 @@ public class BolsaDeEmpleoTest extends TestCase
     }
 
     /**
-     * Verifica que el método que busca el aspirante de mayor experiencia funcione correctamente. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica que el mÃ³todo que busca el aspirante de mayor experiencia funcione correctamente. <br>
+     * <b> MÃ³todos a probar: </b> <br>
      * buscarAspiranteMayorExperiencia. <br>
-     * <b> Objetivo: </b> Probar que el método buscarAspiranteMayorExperiencia() retorna el aspirante correcto (el que tiene mayor experiencia). <br>
+     * <b> Objetivo: </b> Probar que el mÃ³todo buscarAspiranteMayorExperiencia() retorna el aspirante correcto (el que tiene mayor experiencia). <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al buscar el aspirante con mayor experiencia se debe obtener la posición del aspirante con la experiencia más grande en la bolsa de empleo. <br>
-     * 2. Al buscar el aspirante con mayor experiencia en una bolsa vacía la posición retornada debe ser -1.
+     * 1. Al buscar el aspirante con mayor experiencia se debe obtener la posiciÃ³n del aspirante con la experiencia mÃ³s grande en la bolsa de empleo. <br>
+     * 2. Al buscar el aspirante con mayor experiencia en una bolsa vacÃ³a la posiciÃ³n retornada debe ser -1.
      * 
      */
     public void testBuscarAspiranteMayorExperiencia( )
@@ -403,12 +403,12 @@ public class BolsaDeEmpleoTest extends TestCase
     }
 
     /**
-     * Verifica que el método que contrata un aspirante funcione correctamente. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica que el mÃ³todo que contrata un aspirante funcione correctamente. <br>
+     * <b> MÃ³todos a probar: </b> <br>
      * contratarAspirante. <br>
-     * <b> Objetivo: </b> Probar que el método contratarAspirante() elimina al aspirante de la lista. <br>
+     * <b> Objetivo: </b> Probar que el mÃ³todo contratarAspirante() elimina al aspirante de la lista. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al buscar el aspirante que se contrató la posición retornada debe ser -1. <br>
+     * 1. Al buscar el aspirante que se contratÃ³ la posiciÃ³n retornada debe ser -1. <br>
      * 
      */
     public void testContratarAspirante( )
@@ -424,18 +424,18 @@ public class BolsaDeEmpleoTest extends TestCase
 
         bolsa.contratarAspirante( nombreAspirante );
         int posicionEncontrado = bolsa.buscarAspirante( nombreAspirante );
-        assertTrue( "No se contrató bien al aspirante", posicionEncontrado == -1 );
+        assertTrue( "No se contratÃ³ bien al aspirante", posicionEncontrado == - 1 );
     }
 
     /**
-     * Verifica que el método que un aspirante por su experiencia. <br>
-     * <b> Métodos a probar: </b> <br>
+     * Verifica que el mÃ³todo que un aspirante por su experiencia. <br>
+     * <b> MÃ³todos a probar: </b> <br>
      * eliminarAspirantesPorExperiencia. <br>
-     * <b> Objetivo: </b> Probar que el método eliminarAspirantesPorExperiencia() elimina correctamente los aspirantes de la lista. <br>
-     * de acuerdo a los años de experiencia dados. <br>
+     * <b> Objetivo: </b> Probar que el mÃ³todo eliminarAspirantesPorExperiencia() elimina correctamente los aspirantes de la lista. <br>
+     * de acuerdo a los aÃ³os de experiencia dados. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Se sabe que el número de aspirantes con menos de X años de experiencia es Z. Al eliminar por experiencia los<br>
-     * los participantes con menos de X años de experiencia se deben borrar Z aspirantes.
+     * 1. Se sabe que el nÃ³mero de aspirantes con menos de X aÃ³os de experiencia es Z. Al eliminar por experiencia los<br>
+     * los participantes con menos de X aÃ³os de experiencia se deben borrar Z aspirantes.
      * 
      */
     public void testEliminarAspirantesPorExperiencia( )
@@ -448,17 +448,17 @@ public class BolsaDeEmpleoTest extends TestCase
 
         setupEscenario1( );
 
-        assertEquals( "Se debió eliminar 1 aspirante", 1, bolsa.eliminarAspirantesPorExperiencia( 2 ) );
-        assertEquals( "Se debió eliminar 1 aspirante", cantidadAspirantes - 1, bolsa.darAspirantes( ).size( ) );
+        assertEquals( "Se debiÃ³ eliminar 1 aspirante", 1, bolsa.eliminarAspirantesPorExperiencia( 2 ) );
+        assertEquals( "Se debiÃ³ eliminar 1 aspirante", cantidadAspirantes - 1, bolsa.darAspirantes( ).size( ) );
     }
 
     // -----------------------------------------------------------------
-    // Métodos Auxiliares
+    // MÃ³todos Auxiliares
     // -----------------------------------------------------------------
 
     /**
      * Carga los aspirantes de la bolsa de empleo especificada a partir de un archivo de propiedades.
-     * @param archivo es el nombre del archivo de propiedades que contiene la información de los aspirantes
+     * @param archivo es el nombre del archivo de propiedades que contiene la informaciÃ³n de los aspirantes
      */
     private void cargarAspirantes( String archivo )
     {

@@ -1,2 +1,2 @@
-Las im醙enes de los aspirantes fueron tomadas de http://office.microsoft.com/en-us/clipart/
-Las im醙en del t韙ulo fue tomada de la galer韆 de Microsoft Office
+Las im贸genes de los aspirantes fueron tomadas de http://office.microsoft.com/en-us/clipart/
+Las im贸gen del t贸tulo fue tomada de la galer贸a de Microsoft Office

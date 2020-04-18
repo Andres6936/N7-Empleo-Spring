@@ -1,7 +1,7 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: Aspirante.java,v 1.9 2007/04/12 03:43:58 carl-veg Exp $ 
- * Universidad de los Andes (Bogot· - Colombia)
- * Departamento de IngenierÌa de Sistemas y ComputaciÛn 
+ * Universidad de los Andes (Bogot√≥ - Colombia)
+ * Departamento de Ingenier√≥a de Sistemas y Computaci√≥n
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
@@ -29,22 +29,22 @@ public class Aspirante
     // -----------------------------------------------------------------
 
     /**
-     * Indica que la profesiÛn es ADMINISTRADOR
+     * Indica que la profesi√≥n es ADMINISTRADOR
      */
     public static final String ADMINISTRADOR = "Administrador";
 
     /**
-     * Indica que la profesiÛn es INGENIERO INDUSTRIAL
+     * Indica que la profesi√≥n es INGENIERO INDUSTRIAL
      */
     public static final String INGENIERO_INDUSTRIAL = "Ingeniero Industrial";
 
     /**
-     * Indica que la profesiÛn es contador
+     * Indica que la profesi√≥n es contador
      */
     public static final String CONTADOR = "Contador";
 
     /**
-     * Indica que la profesiÛn es economista
+     * Indica que la profesi√≥n es economista
      */
     public static final String ECONOMISTA = "Economista";
 
@@ -58,12 +58,12 @@ public class Aspirante
     private String nombre;
 
     /**
-     * La profesiÛn del aspirante
+     * La profesi√≥n del aspirante
      */
     private String profesion;
 
     /**
-     * Los aÒos de experiencia del aspirante
+     * Los a√≥os de experiencia del aspirante
      */
     private int aniosExperiencia;
 
@@ -73,7 +73,7 @@ public class Aspirante
     private int edad;
 
     /**
-     * El telÈfono del aspirante
+     * El tel√≥fono del aspirante
      */
     private String telefono;
 
@@ -87,12 +87,12 @@ public class Aspirante
     // -----------------------------------------------------------------
 
     /**
-     * Construye un nuevo aspirante con los par·metros indicados
+     * Construye un nuevo aspirante con los par√≥metros indicados
      * @param nombreA El nombre del aspirante - nombreA != null
-     * @param profesionA La profesiÛn del aspirante - profesionA pertenece a { ADMINISTRADOR, INGENIERO_INDUSTRIAL, CONTADOR, ECONOMISTA }
-     * @param aniosExperienciaA AÒos de experiencia del aspirante - aniosExperienciaA > 0
+     * @param profesionA La profesi√≥n del aspirante - profesionA pertenece a { ADMINISTRADOR, INGENIERO_INDUSTRIAL, CONTADOR, ECONOMISTA }
+     * @param aniosExperienciaA A√≥os de experiencia del aspirante - aniosExperienciaA > 0
      * @param edadA La edad del aspirante - edadA > 0
-     * @param telefonoA El telÈfono del aspirante - telefonoA != null
+     * @param telefonoA El tel√≥fono del aspirante - telefonoA != null
      * @param imagenA La ruta a la imagen del aspirante - imagenA != null
      */
     public Aspirante( String nombreA, String profesionA, int aniosExperienciaA, int edadA, String telefonoA, String imagenA )
@@ -109,7 +109,7 @@ public class Aspirante
     }
 
     // -----------------------------------------------------------------
-    // MÈtodos
+    // M√≥todos
     // -----------------------------------------------------------------
 
     /**
@@ -122,7 +122,7 @@ public class Aspirante
     }
 
     /**
-     * Retorna la profesiÛn del aspirante
+     * Retorna la profesi√≥n del aspirante
      * @return profesion
      */
     public String darProfesion( )
@@ -131,7 +131,7 @@ public class Aspirante
     }
 
     /**
-     * Retorna los aÒos de experiencia del aspirante
+     * Retorna los a√≥os de experiencia del aspirante
      * @return aniosExperiencia
      */
     public int darAniosExperiencia( )
@@ -149,7 +149,7 @@ public class Aspirante
     }
 
     /**
-     * Retorna el telÈfono del aspirante
+     * Retorna el tel√≥fono del aspirante
      * @return telefono
      */
     public String darTelefono( )
@@ -167,11 +167,11 @@ public class Aspirante
     }
 
     /**
-     * Compara dos aspirantes seg˙n el nombre. <br>
-     * @param a es el aspirante contra el que se est· comparando - a !=null
+     * Compara dos aspirantes seg√≥n el nombre. <br>
+     * @param a es el aspirante contra el que se est√≥ comparando - a !=null
      * @return Retorna 0 si los aspirantes tienen el mismo nombre. <br>
-     *         Retorna -1 si el aspirante a tiene una valor mayor lexicogr·ficamente para el nombre. <br>
-     *         Retorna 1 si el aspirante a tiene una valor menor lexicogr·ficamente para el nombre. <br>
+     *         Retorna -1 si el aspirante a tiene una valor mayor lexicogr√≥ficamente para el nombre. <br>
+     *         Retorna 1 si el aspirante a tiene una valor menor lexicogr√≥ficamente para el nombre. <br>
      */
     public int compararPorNombre( Aspirante a )
     {
@@ -185,11 +185,11 @@ public class Aspirante
     }
 
     /**
-     * Compara dos aspirantes seg˙n la profesiÛn
-     * @param a El aspirante contra el que se est· comparando - a!=null
-     * @return Retorna 0 si los aspirantes tienen la misma profesiÛn. <br>
-     *         Retorna -1 si el aspirante a tiene una valor mayor lexicogr·ficamente para la profesiÛn. <br>
-     *         Retorna 1 si el aspirantes a tiene una valor menor lexicogr·ficamente para la profesiÛn. <br>
+     * Compara dos aspirantes seg√≥n la profesi√≥n
+     * @param a El aspirante contra el que se est√≥ comparando - a!=null
+     * @return Retorna 0 si los aspirantes tienen la misma profesi√≥n. <br>
+     *         Retorna -1 si el aspirante a tiene una valor mayor lexicogr√≥ficamente para la profesi√≥n. <br>
+     *         Retorna 1 si el aspirantes a tiene una valor menor lexicogr√≥ficamente para la profesi√≥n. <br>
      */
     public int compararPorProfesion( Aspirante a )
     {
@@ -203,11 +203,11 @@ public class Aspirante
     }
 
     /**
-     * Compara dos aspirantes seg˙n los aÒos de experiencia
-     * @param a El aspirante contra el que se est· comparando - a!=null
-     * @return Retorna 0 si los aspirantes tienen los mismos aÒos de experiencia. <br>
-     *         Retorna -1 si el aspirante a tiene m·s aÒos de experiencia. <br>
-     *         Retorna 1 si el aspirante a tiene menos aÒos de experiencia. <br>
+     * Compara dos aspirantes seg√≥n los a√≥os de experiencia
+     * @param a El aspirante contra el que se est√≥ comparando - a!=null
+     * @return Retorna 0 si los aspirantes tienen los mismos a√≥os de experiencia. <br>
+     *         Retorna -1 si el aspirante a tiene m√≥s a√≥os de experiencia. <br>
+     *         Retorna 1 si el aspirante a tiene menos a√≥os de experiencia. <br>
      */
     public int compararPorAniosExperiencia( Aspirante a )
     {
@@ -221,8 +221,8 @@ public class Aspirante
     }
 
     /**
-     * Compara dos aspirantes seg˙n la edad
-     * @param a El aspirante contra el que se est· comparando - a!=null
+     * Compara dos aspirantes seg√≥n la edad
+     * @param a El aspirante contra el que se est√≥ comparando - a!=null
      * @return Retorna 0 si los aspirantes tienen la misma edad. <br>
      *         Retorna -1 si el aspirante a es mayor. <br>
      *         Retorna 1 si el aspirantes a es menor. <br>
@@ -238,8 +238,8 @@ public class Aspirante
     }
 
     /**
-     * Retorna una cadena con el nombre del aspirante, su profesiÛn y los aÒos de experiencia
-     * @return InformaciÛn del aspirante en una cadena con el formato "<nombre> - <profesion>"
+     * Retorna una cadena con el nombre del aspirante, su profesi√≥n y los a√≥os de experiencia
+     * @return Informaci√≥n del aspirante en una cadena con el formato "<nombre> - <profesion>"
      */
     public String toString( )
     {
@@ -262,7 +262,7 @@ public class Aspirante
     private void verificarInvariante( )
     {
         assert ( nombre != null ) : "nombre no puede ser null";
-        assert ( profesion.equals( ADMINISTRADOR ) || profesion.equals( INGENIERO_INDUSTRIAL ) || profesion.equals( CONTADOR ) || profesion.equals( ECONOMISTA ) ) : "La profesiÛn debe ser uno de los valores v·lidos";
+        assert ( profesion.equals( ADMINISTRADOR ) || profesion.equals( INGENIERO_INDUSTRIAL ) || profesion.equals( CONTADOR ) || profesion.equals( ECONOMISTA ) ) : "La profesi√≥n debe ser uno de los valores v√≥lidos";
         assert ( aniosExperiencia > 0 ) : "aniosExperiencia no puede ser 0";
         assert ( edad > 0 ) : "edad no puede ser 0";
         assert ( telefono != null ) : "telefono no puede ser null";

@@ -1,7 +1,7 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: PanelAgregarAspirante.java,v 1.5 2006/11/23 19:12:57 da-romer Exp $ 
- * Universidad de los Andes (Bogot· - Colombia)
- * Departamento de IngenierÌa de Sistemas y ComputaciÛn 
+ * Universidad de los Andes (Bogot√≥ - Colombia)
+ * Departamento de Ingenier√≥a de Sistemas y Computaci√≥n
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
@@ -59,12 +59,12 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * El combo para seleccionar la profesiÛn del aspirante
+     * El combo para seleccionar la profesi√≥n del aspirante
      */
     private JComboBox comboProfesiones;
 
     /**
-     * Es el campo para los aÒos de experiencia del aspirante
+     * Es el campo para los a√≥os de experiencia del aspirante
      */
     private JTextField txtAniosExperiencia;
 
@@ -74,7 +74,7 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
     private JTextField txtImagen;
 
     /**
-     * Es el campo para el telÈfono del aspirante
+     * Es el campo para el tel√≥fono del aspirante
      */
     private JTextField txtTelefono;
 
@@ -89,12 +89,12 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
     private JTextField txtNombre;
 
     /**
-     * Esta es la etiqueta para la profesiÛn del aspirante
+     * Esta es la etiqueta para la profesi√≥n del aspirante
      */
     private JLabel etiquetaProfesion;
 
     /**
-     * Esta es la etiqueta para los aÒos de experiencia del aspirante
+     * Esta es la etiqueta para los a√≥os de experiencia del aspirante
      */
     private JLabel etiquetaAniosExperiencia;
 
@@ -104,7 +104,7 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
     private JLabel etiquetaImagen;
 
     /**
-     * Esta es la etiqueta para el telÈfono del aspirante
+     * Esta es la etiqueta para el tel√≥fono del aspirante
      */
     private JLabel etiquetaTelefono;
 
@@ -119,12 +119,12 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
     private JLabel etiquetaNombre;
 
     /**
-     * Es el botÛn que se usa para agregar un aspirante
+     * Es el bot√≥n que se usa para agregar un aspirante
      */
     private JButton botonAgregar;
 
     /**
-     * Es el botÛn que se usa para examinar el disco buscando la imagen del aspirante
+     * Es el bot√≥n que se usa para examinar el disco buscando la imagen del aspirante
      */
     private JButton botonExaminar;
 
@@ -164,7 +164,7 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
         gbc.gridx = 1;
         add( txtEdad, gbc );
 
-        etiquetaProfesion = new JLabel( "ProfesiÛn: " );
+        etiquetaProfesion = new JLabel( "Profesi√≥n: " );
         gbc.gridx = 0;
         gbc.gridy = 2;
         add( etiquetaProfesion, gbc );
@@ -173,7 +173,7 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
         gbc.gridx = 1;
         add( comboProfesiones, gbc );
 
-        etiquetaAniosExperiencia = new JLabel( "AÒos experiencia: " );
+        etiquetaAniosExperiencia = new JLabel( "A√≥os experiencia: " );
         gbc.gridx = 0;
         gbc.gridy = 3;
         add( etiquetaAniosExperiencia, gbc );
@@ -197,7 +197,7 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
         gbc.gridx = 1;
         add( panelImagen, gbc );
 
-        etiquetaTelefono = new JLabel( "TelÈfono: " );
+        etiquetaTelefono = new JLabel( "Tel√≥fono: " );
         gbc.gridx = 0;
         gbc.gridy = 5;
         add( etiquetaTelefono, gbc );
@@ -219,12 +219,12 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
     }
 
     // -----------------------------------------------------------------
-    // MÈtodos
+    // M√≥todos
     // -----------------------------------------------------------------
 
     /**
-     * Este es el mÈtodo que se ejecuta cuando se hace click sobre un botÛn
-     * @param evento Es el evento del click sobre el botÛn - evento!=null
+     * Este es el m√≥todo que se ejecuta cuando se hace click sobre un bot√≥n
+     * @param evento Es el evento del click sobre el bot√≥n - evento!=null
      */
     public void actionPerformed( ActionEvent evento )
     {
@@ -253,7 +253,7 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
                     }
                     if( aniosExperiencia < 1 || edad < 1 )
                     {
-                        JOptionPane.showMessageDialog( this, "Los campos edad y aÒos de experiencia deben ser n˙meros enteros positivos", "Error", JOptionPane.ERROR_MESSAGE );
+                        JOptionPane.showMessageDialog( this, "Los campos edad y a√≥os de experiencia deben ser n√≥meros enteros positivos", "Error", JOptionPane.ERROR_MESSAGE );
                     }
                     else
                     {
@@ -269,7 +269,7 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
             }
             catch( NumberFormatException e )
             {
-                JOptionPane.showMessageDialog( this, "Los campos edad y aÒos de experiencia deben ser numÈricos", "Error", JOptionPane.ERROR_MESSAGE );
+                JOptionPane.showMessageDialog( this, "Los campos edad y a√≥os de experiencia deben ser num√≥ricos", "Error", JOptionPane.ERROR_MESSAGE );
             }
         }
         else if( BUSCAR_IMAGEN.equals( comando ) )

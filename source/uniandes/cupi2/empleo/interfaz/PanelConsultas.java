@@ -1,7 +1,7 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: PanelConsultas.java,v 1.4 2006/11/23 19:12:57 da-romer Exp $ 
- * Universidad de los Andes (Bogot· - Colombia)
- * Departamento de IngenierÌa de Sistemas y ComputaciÛn 
+ * Universidad de los Andes (Bogot√≥ - Colombia)
+ * Departamento de Ingenier√≥a de Sistemas y Computaci√≥n
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
@@ -23,7 +23,7 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 /**
- * Panel con las opciones para realizaciÛn de consultas
+ * Panel con las opciones para realizaci√≥n de consultas
  */
 public class PanelConsultas extends JPanel implements ActionListener
 {
@@ -32,7 +32,7 @@ public class PanelConsultas extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     private static final String CONTRATAR = "Contratar";
-    private static final String MAS_JOVEN = "M·s joven";
+    private static final String MAS_JOVEN = "M√≥s joven";
     private static final String MAYOR_EXPERIENCIA = "Mayor experiencia";
     private static final String MAYOR_EDAD = "Mayor edad";
     private static final String ELIMINAR_POR_EXPERIENCIA = "Eliminar por Experiencia";
@@ -51,27 +51,27 @@ public class PanelConsultas extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Es el botÛn para mostrar la informaciÛn del aspirante m·s joven
+     * Es el bot√≥n para mostrar la informaci√≥n del aspirante m√≥s joven
      */
     private JButton botonMasJoven;
 
     /**
-     * Es el botÛn mostrar la informaciÛn del aspirante de mayor edad
+     * Es el bot√≥n mostrar la informaci√≥n del aspirante de mayor edad
      */
     private JButton botonMayorEdad;
 
     /**
-     * Es el botÛn mostrar la informaciÛn del aspirante de mayor experiencia
+     * Es el bot√≥n mostrar la informaci√≥n del aspirante de mayor experiencia
      */
     private JButton botonMayorExperiencia;
 
     /**
-     * Es el botÛn para realizar una contrataciÛn
+     * Es el bot√≥n para realizar una contrataci√≥n
      */
     private JButton botonContratar;
 
     /**
-     * Es el botÛn para eliminar los aspirantes po aÒos de experiencia
+     * Es el bot√≥n para eliminar los aspirantes po a√≥os de experiencia
      */
     private JButton botonEliminarPorExperiencia;
 
@@ -81,7 +81,7 @@ public class PanelConsultas extends JPanel implements ActionListener
 
     /**
      * Construye el panel e inicializa sus componentes
-     * @param ventanaPrincipal Ventana principal de la aplicaciÛn. ventanaPrincipal!=null
+     * @param ventanaPrincipal Ventana principal de la aplicaci√≥n. ventanaPrincipal!=null
      */
     public PanelConsultas( InterfazBolsaDeEmpleo ventanaPrincipal )
     {
@@ -89,7 +89,7 @@ public class PanelConsultas extends JPanel implements ActionListener
         setLayout( new GridBagLayout( ) );
         setBorder( new TitledBorder( "Consultas" ) );
 
-        botonMasJoven = new JButton( "M·s Joven" );
+        botonMasJoven = new JButton( "M√≥s Joven" );
         botonMasJoven.addActionListener( this );
         botonMasJoven.setActionCommand( MAS_JOVEN );
         GridBagConstraints gbc = new GridBagConstraints( );
@@ -126,12 +126,12 @@ public class PanelConsultas extends JPanel implements ActionListener
     }
 
     // -----------------------------------------------------------------
-    // MÈtodos
+    // M√≥todos
     // -----------------------------------------------------------------
 
     /**
-     * Ejecuta una acciÛn seg˙n el botÛn que se haya presionado
-     * @param evento El evento de click sobre un botÛn. evento!=null
+     * Ejecuta una acci√≥n seg√≥n el bot√≥n que se haya presionado
+     * @param evento El evento de click sobre un bot√≥n. evento!=null
      */
     public void actionPerformed( ActionEvent evento )
     {

@@ -1,7 +1,7 @@
 @echo off
 REM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-REM Universidad de los Andes (Bogot· - Colombia)
-REM Departamento de IngenierÌa de Sistemas y ComputaciÛn 
+REM Universidad de los Andes (Bogot√≥ - Colombia)
+REM Departamento de Ingenier√≥a de Sistemas y Computaci√≥n
 REM Licenciado bajo el esquema Academic Free License version 2.1 
 REM
 REM Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
@@ -12,7 +12,7 @@ REM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 SET CLASSPATH=
 
 REM ---------------------------------------------------------
-REM Asegura la creaciÛn de los directorios classes y lib en test
+REM Asegura la creaci√≥n de los directorios classes y lib en test
 REM ---------------------------------------------------------
 
 cd ../test

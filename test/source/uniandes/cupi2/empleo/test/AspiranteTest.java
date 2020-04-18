@@ -1,7 +1,7 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: AspiranteTest.java,v 1.7 2007/04/12 03:43:58 carl-veg Exp $ 
- * Universidad de los Andes (Bogot· - Colombia)
- * Departamento de IngenierÌa de Sistemas y ComputaciÛn 
+ * Universidad de los Andes (Bogot√≥ - Colombia)
+ * Departamento de Ingenier√≥a de Sistemas y Computaci√≥n
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
@@ -16,7 +16,7 @@ import junit.framework.TestCase;
 import uniandes.cupi2.empleo.mundo.Aspirante;
 
 /**
- * Esta es la clase usada para verificar los mÈtodos de la clase Aspirante
+ * Esta es la clase usada para verificar los m√≥todos de la clase Aspirante
  */
 public class AspiranteTest extends TestCase
 {
@@ -36,7 +36,7 @@ public class AspiranteTest extends TestCase
     private Aspirante aspirante2;
 
     // -----------------------------------------------------------------
-    // MÈtodos
+    // M√≥todos
     // -----------------------------------------------------------------
 
     /**
@@ -50,7 +50,7 @@ public class AspiranteTest extends TestCase
 
     /**
      * Verifica el constructor. <br>
-     * <b> MÈtodos a probar: </b> <br>
+     * <b> M√≥todos a probar: </b> <br>
      * Aspirante (constructor). <br>
      * <b> Objetivo: </b> Probar que el constructor crea un aspirante de forma correcta. <br>
      * <b> Resultados esperados: </b> <br>
@@ -61,58 +61,58 @@ public class AspiranteTest extends TestCase
     {
         setupEscenario1( );
 
-        assertEquals( "El nombre del aspirante est· equivocado", "nombre1", aspirante1.darNombre( ) );
-        assertEquals( "La profesiÛn del aspirante est· equivocada", Aspirante.ADMINISTRADOR, aspirante1.darProfesion( ) );
-        assertEquals( "Los aÒos de experiencia no son correctos", 10, aspirante1.darAniosExperiencia( ) );
+        assertEquals( "El nombre del aspirante est√≥ equivocado", "nombre1", aspirante1.darNombre( ) );
+        assertEquals( "La profesi√≥n del aspirante est√≥ equivocada", Aspirante.ADMINISTRADOR, aspirante1.darProfesion( ) );
+        assertEquals( "Los a√≥os de experiencia no son correctos", 10, aspirante1.darAniosExperiencia( ) );
         assertEquals( "La edad del aspirante no es correcta", 35, aspirante1.darEdad( ) );
-        assertEquals( "El telÈfono del aspirante est· equivocado", "1234567", aspirante1.darTelefono( ) );
-        assertEquals( "La imagen del aspirante est· equivocada", "imagen1", aspirante1.darImagen( ) );
+        assertEquals( "El tel√≥fono del aspirante est√≥ equivocado", "1234567", aspirante1.darTelefono( ) );
+        assertEquals( "La imagen del aspirante est√≥ equivocada", "imagen1", aspirante1.darImagen( ) );
     }
 
     /**
-     * Verifica el mÈtodo compararPorNombre. <br>
-     * <b> MÈtodos a probar: </b> <br>
+     * Verifica el m√≥todo compararPorNombre. <br>
+     * <b> M√≥todos a probar: </b> <br>
      * compararPorNombre. <br>
-     * <b> Objetivo: </b> Probar que el mÈtodo compararPorNombre realiza la comparaciÛn de dos aspirantes de forma correcta. <br>
+     * <b> Objetivo: </b> Probar que el m√≥todo compararPorNombre realiza la comparaci√≥n de dos aspirantes de forma correcta. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al comparar un aspirante cuyo nombre sea menor lexicogr·ficamente a la del otro el resultado debe ser -1. <br>
-     * 2. Al comparar un aspirante cuyo nombre sea igual lexicogr·ficamente a la del otro el resultado debe ser 0. <br>
-     * 3. Al comparar un aspirante cuyo nombre sea mayor lexicogr·ficamente a la del otro el resultado debe ser 1.
+     * 1. Al comparar un aspirante cuyo nombre sea menor lexicogr√≥ficamente a la del otro el resultado debe ser -1. <br>
+     * 2. Al comparar un aspirante cuyo nombre sea igual lexicogr√≥ficamente a la del otro el resultado debe ser 0. <br>
+     * 3. Al comparar un aspirante cuyo nombre sea mayor lexicogr√≥ficamente a la del otro el resultado debe ser 1.
      */
     public void testCompararPorNombre( )
     {
         setupEscenario1( );
 
-        assertEquals( "El aspirante 1 deberÌa ser menor", -1, aspirante1.compararPorNombre( aspirante2 ) );
-        assertEquals( "El aspirante 1 y el aspirante 1 deberÌan ser iguales", 0, aspirante1.compararPorNombre( aspirante1 ) );
-        assertEquals( "El aspirante 2 deberÌa ser mayor", 1, aspirante2.compararPorNombre( aspirante1 ) );
+        assertEquals( "El aspirante 1 deber√≥a ser menor", - 1, aspirante1.compararPorNombre( aspirante2 ) );
+        assertEquals( "El aspirante 1 y el aspirante 1 deber√≥an ser iguales", 0, aspirante1.compararPorNombre( aspirante1 ) );
+        assertEquals( "El aspirante 2 deber√≥a ser mayor", 1, aspirante2.compararPorNombre( aspirante1 ) );
     }
 
     /**
-     * Verifica el mÈtodo compararPorAniosExperiencia. <br>
-     * <b> MÈtodos a probar: </b> <br>
+     * Verifica el m√≥todo compararPorAniosExperiencia. <br>
+     * <b> M√≥todos a probar: </b> <br>
      * compararPorAniosExperiencia. <br>
-     * <b> Objetivo: </b> Probar que el mÈtodo compararPorAniosExperiencia realiza la comparaciÛn de dos aspirantes de forma correcta. <br>
+     * <b> Objetivo: </b> Probar que el m√≥todo compararPorAniosExperiencia realiza la comparaci√≥n de dos aspirantes de forma correcta. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al comparar un aspirante cuyos aÒos de experiencia sean menores a los de otro el resultado debe ser -1. <br>
-     * 2. Al comparar un aspirante cuyos aÒos de experiencia sean iguales a los de otro el resultado debe ser 0. <br>
-     * 3. Al comparar un aspirante cuyos aÒos de experiencia sean mayores a los de otro el resultado debe ser 1.
+     * 1. Al comparar un aspirante cuyos a√≥os de experiencia sean menores a los de otro el resultado debe ser -1. <br>
+     * 2. Al comparar un aspirante cuyos a√≥os de experiencia sean iguales a los de otro el resultado debe ser 0. <br>
+     * 3. Al comparar un aspirante cuyos a√≥os de experiencia sean mayores a los de otro el resultado debe ser 1.
      */
 
     public void testCompararPorAniosExperiencia( )
     {
         setupEscenario1( );
 
-        assertEquals( "El aspirante 1 deberÌa ser menor", -1, aspirante1.compararPorAniosExperiencia( aspirante2 ) );
-        assertEquals( "El aspirante 1 y el aspirante 1 deberÌan ser iguales", 0, aspirante1.compararPorAniosExperiencia( aspirante1 ) );
-        assertEquals( "El aspirante 2 deberÌa ser mayor", 1, aspirante2.compararPorAniosExperiencia( aspirante1 ) );
+        assertEquals( "El aspirante 1 deber√≥a ser menor", - 1, aspirante1.compararPorAniosExperiencia( aspirante2 ) );
+        assertEquals( "El aspirante 1 y el aspirante 1 deber√≥an ser iguales", 0, aspirante1.compararPorAniosExperiencia( aspirante1 ) );
+        assertEquals( "El aspirante 2 deber√≥a ser mayor", 1, aspirante2.compararPorAniosExperiencia( aspirante1 ) );
     }
 
     /**
-     * Verifica el mÈtodo compararPorEdad. <br>
-     * <b> MÈtodos a probar: </b> <br>
+     * Verifica el m√≥todo compararPorEdad. <br>
+     * <b> M√≥todos a probar: </b> <br>
      * compararPorEdad. <br>
-     * <b> Objetivo: </b> Probar que el mÈtodo compararPorEdad realiza la comparaciÛn de dos aspirantes de forma correcta. <br>
+     * <b> Objetivo: </b> Probar que el m√≥todo compararPorEdad realiza la comparaci√≥n de dos aspirantes de forma correcta. <br>
      * <b> Resultados esperados: </b> <br>
      * 1. Al comparar un aspirante cuya edad sea menor a la del otro el resultado debe ser -1. <br>
      * 2. Al comparar un aspirante cuya edad sea igual a la del otro el resultado debe ser 0. <br>
@@ -122,28 +122,28 @@ public class AspiranteTest extends TestCase
     {
         setupEscenario1( );
 
-        assertEquals( "El aspirante 1 deberÌa ser menor", -1, aspirante1.compararPorEdad( aspirante2 ) );
-        assertEquals( "El aspirante 1 y el aspirante 1 deberÌan ser iguales", 0, aspirante1.compararPorEdad( aspirante1 ) );
-        assertEquals( "El aspirante 2 deberÌa ser mayor", 1, aspirante2.compararPorEdad( aspirante1 ) );
+        assertEquals( "El aspirante 1 deber√≥a ser menor", - 1, aspirante1.compararPorEdad( aspirante2 ) );
+        assertEquals( "El aspirante 1 y el aspirante 1 deber√≥an ser iguales", 0, aspirante1.compararPorEdad( aspirante1 ) );
+        assertEquals( "El aspirante 2 deber√≥a ser mayor", 1, aspirante2.compararPorEdad( aspirante1 ) );
     }
 
     /**
-     * Verifica el mÈtodo compararPorProfesion. <br>
-     * <b> MÈtodos a probar: </b> <br>
+     * Verifica el m√≥todo compararPorProfesion. <br>
+     * <b> M√≥todos a probar: </b> <br>
      * compararPorProfesion. <br>
-     * <b> Objetivo: </b> Probar que el mÈtodo compararPorProfesion realiza la comparaciÛn de dos aspirantes de forma correcta. <br>
+     * <b> Objetivo: </b> Probar que el m√≥todo compararPorProfesion realiza la comparaci√≥n de dos aspirantes de forma correcta. <br>
      * <b> Resultados esperados: </b> <br>
-     * 1. Al comparar un aspirante cuya profesiÛn sea menor lexicogr·ficamente a la del otro el resultado debe ser -1. <br>
-     * 2. Al comparar un aspirante cuya profesiÛn sea igual lexicogr·ficamente a la del otro el resultado debe ser 0. <br>
-     * 3. Al comparar un aspirante cuya profesiÛn sea mayor lexicogr·ficamente a la del otro el resultado debe ser 1.
+     * 1. Al comparar un aspirante cuya profesi√≥n sea menor lexicogr√≥ficamente a la del otro el resultado debe ser -1. <br>
+     * 2. Al comparar un aspirante cuya profesi√≥n sea igual lexicogr√≥ficamente a la del otro el resultado debe ser 0. <br>
+     * 3. Al comparar un aspirante cuya profesi√≥n sea mayor lexicogr√≥ficamente a la del otro el resultado debe ser 1.
      */
     public void testCompararPorProfesion( )
     {
         setupEscenario1( );
 
-        assertEquals( "El aspirante 1 deberÌa ser menor", - 1, aspirante1.compararPorProfesion( aspirante2 ) );
-        assertEquals( "El aspirante 1 y el aspirante 1 deberÌan ser iguales", 0, aspirante1.compararPorProfesion( aspirante1 ) );
-        assertEquals( "El aspirante 2 deberÌa ser mayor", 1, aspirante2.compararPorProfesion( aspirante1 ) );
+        assertEquals( "El aspirante 1 deber√≥a ser menor", - 1, aspirante1.compararPorProfesion( aspirante2 ) );
+        assertEquals( "El aspirante 1 y el aspirante 1 deber√≥an ser iguales", 0, aspirante1.compararPorProfesion( aspirante1 ) );
+        assertEquals( "El aspirante 2 deber√≥a ser mayor", 1, aspirante2.compararPorProfesion( aspirante1 ) );
     }
 
 }

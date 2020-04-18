@@ -1,13 +1,13 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: InterfazBolsaDeEmpleo.java,v 1.10 2007/04/12 03:43:58 carl-veg Exp $ 
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (BogotÃ³ - Colombia)
+ * Departamento de IngenierÃ³a de Sistemas y ComputaciÃ³n
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
  * Ejercicio: n7_empleo
  * Autor: Milena Vela - 21-abr-2006
- * Modificación: Silvia de la Torre - 06-jul-2006
+ * ModificaciÃ³n: Silvia de la Torre - 06-jul-2006
  * Autor: Daniel Romero - 22-Nov-2006
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
  */
@@ -75,12 +75,12 @@ public class InterfazBolsaDeEmpleo extends JFrame
     private PanelAgregarAspirante panelAgregar;
 
     /**
-     * Es el panel donde están los botones para los puntos de extensión
+     * Es el panel donde estÃ³n los botones para los puntos de extensiÃ³n
      */
     private PanelExtension panelExtension;
 
     /**
-     * Panel con las opciones de búsqueda y ordenamiento
+     * Panel con las opciones de bÃ³squeda y ordenamiento
      */
     private PanelBusquedaOrdenamiento panelBusquedaOrdenamiento;
 
@@ -100,7 +100,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
 
     /**
      * Construye la interfaz e inicializa todos sus componentes.
-     * @param archivoAspirantes es el nombre del archivo de propiedades que contiene la información de los aspirantes
+     * @param archivoAspirantes es el nombre del archivo de propiedades que contiene la informaciÃ³n de los aspirantes
      */
     public InterfazBolsaDeEmpleo( String archivoAspirantes )
     {
@@ -168,7 +168,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // MÃ³todos
     // -----------------------------------------------------------------
     /**
      * Centra la ventana en la pantalla
@@ -190,7 +190,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
     }
 
     /**
-     * Ordena los aspirantes por años de experiencia y actualiza la lista
+     * Ordena los aspirantes por aÃ³os de experiencia y actualiza la lista
      */
     public void ordenarPorAniosExperiencia( )
     {
@@ -210,7 +210,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
     }
 
     /**
-     * Ordena los aspirantes por profesión y actualiza la lista
+     * Ordena los aspirantes por profesiÃ³n y actualiza la lista
      */
     public void ordenarPorProfesion( )
     {
@@ -238,7 +238,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
             }
             else
             {
-                JOptionPane.showMessageDialog( this, "No se encontró el aspirante buscado" );
+                JOptionPane.showMessageDialog( this, "No se encontrÃ³ el aspirante buscado" );
             }
         }
     }
@@ -255,10 +255,10 @@ public class InterfazBolsaDeEmpleo extends JFrame
     /**
      * Agrega un nuevo aspirante
      * @param nombreA El nombre del aspirante - nombreA != null
-     * @param profesionA La profesión del aspirante - profesionA es uno de estos { ADMINISTRADOR, INGENIERO_INDUSTRIAL, CONTADOR, ECONOMISTA }
-     * @param aniosExperienciaA Años de experiencia del aspirante - aniosExperienciaA > 0
+     * @param profesionA La profesiÃ³n del aspirante - profesionA es uno de estos { ADMINISTRADOR, INGENIERO_INDUSTRIAL, CONTADOR, ECONOMISTA }
+     * @param aniosExperienciaA AÃ³os de experiencia del aspirante - aniosExperienciaA > 0
      * @param edadA La edad del aspirante - edadA > 0
-     * @param telefonoA El teléfono del aspirante - telefonoA > 0
+     * @param telefonoA El telÃ³fono del aspirante - telefonoA > 0
      * @param imagenA La ruta a la imagen del aspirante - imagenA != null
      */
     public void agregarAspirante( String nombreA, String profesionA, int aniosExperienciaA, int edadA, String telefonoA, String imagenA )
@@ -276,7 +276,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
 
     /**
      * Carga los aspirantes iniciales de la bolsa de empleo a partir de un archivo de propiedades.
-     * @param archivo es el nombre del archivo de propiedades que contiene la información de los aspirantes - nombre!=null
+     * @param archivo es el nombre del archivo de propiedades que contiene la informaciÃ³n de los aspirantes - nombre!=null
      */
     private void cargarAspirantes( String archivo )
     {
@@ -323,7 +323,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
                 dato = "aspirante" + cont + ".imagen";
                 imagen = propiedades.getProperty( dato );
 
-                // Sólo se carga el aspirante si los datos son correctos
+                // SÃ³lo se carga el aspirante si los datos son correctos
                 if( nombre != null && profesion != null && telefono != null && imagen != null && edad >= 0 && experiencia > 0 )
                     bolsa.agregarAspirante( nombre, profesion, experiencia, edad, telefono, imagen );
                 fis.close( );
@@ -332,16 +332,16 @@ public class InterfazBolsaDeEmpleo extends JFrame
         }
         catch( FileNotFoundException e )
         {
-            JOptionPane.showMessageDialog( this, "No se encontró el archivo para cargar la información de los aspirantes", "Error", JOptionPane.ERROR_MESSAGE );
+            JOptionPane.showMessageDialog( this, "No se encontrÃ³ el archivo para cargar la informaciÃ³n de los aspirantes", "Error", JOptionPane.ERROR_MESSAGE );
         }
         catch( IOException e )
         {
-            JOptionPane.showMessageDialog( this, "El archivo con la información de los aspirantes no tiene el formato esperado", "Error", JOptionPane.ERROR_MESSAGE );
+            JOptionPane.showMessageDialog( this, "El archivo con la informaciÃ³n de los aspirantes no tiene el formato esperado", "Error", JOptionPane.ERROR_MESSAGE );
         }
     }
 
     /**
-     * Busca el aspirante más joven de la bolsa de empleos y muestra sus datos en el panel información
+     * Busca el aspirante mÃ³s joven de la bolsa de empleos y muestra sus datos en el panel informaciÃ³n
      */
     public void buscarMasJoven( )
     {
@@ -356,12 +356,12 @@ public class InterfazBolsaDeEmpleo extends JFrame
         }
         else
         {
-            JOptionPane.showMessageDialog( this, "Aún no hay hojas de vida de aspirantes", "Error", JOptionPane.ERROR_MESSAGE );
+            JOptionPane.showMessageDialog( this, "AÃ³n no hay hojas de vida de aspirantes", "Error", JOptionPane.ERROR_MESSAGE );
         }
     }
 
     /**
-     * Busca el aspirante con mayor edad de la bolsa de empleos y muestra sus datos en el panel información
+     * Busca el aspirante con mayor edad de la bolsa de empleos y muestra sus datos en el panel informaciÃ³n
      */
     public void buscarMayorEdad( )
     {
@@ -376,12 +376,12 @@ public class InterfazBolsaDeEmpleo extends JFrame
         }
         else
         {
-            JOptionPane.showMessageDialog( this, "Aún no hay hojas de vida de aspirantes", "Error", JOptionPane.ERROR_MESSAGE );
+            JOptionPane.showMessageDialog( this, "AÃ³n no hay hojas de vida de aspirantes", "Error", JOptionPane.ERROR_MESSAGE );
         }
     }
 
     /**
-     * Busca el aspirante con mayor experiencia de la bolsa de empleos y muestra sus datos en el panel información
+     * Busca el aspirante con mayor experiencia de la bolsa de empleos y muestra sus datos en el panel informaciÃ³n
      */
     public void buscarMayorExperiencia( )
     {
@@ -396,12 +396,12 @@ public class InterfazBolsaDeEmpleo extends JFrame
         }
         else
         {
-            JOptionPane.showMessageDialog( this, "Aún no hay hojas de vida de aspirantes", "Error", JOptionPane.ERROR_MESSAGE );
+            JOptionPane.showMessageDialog( this, "AÃ³n no hay hojas de vida de aspirantes", "Error", JOptionPane.ERROR_MESSAGE );
         }
     }
 
     /**
-     * Contrata al aspirante del cual se están mostrando los datos. <br>
+     * Contrata al aspirante del cual se estÃ³n mostrando los datos. <br>
      * <b>post: </b>El aspirante contratado no esta en la lista de aspirantes.
      */
     public void contratar( )
@@ -409,7 +409,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
         String nombre = panelLista.darNombreSeleccionado( );
         if( nombre == null || !panelLista.haySeleccionado( ) )
         {
-            JOptionPane.showMessageDialog( this, "Aún no ha seleccionado un aspirante", "Error", JOptionPane.ERROR_MESSAGE );
+            JOptionPane.showMessageDialog( this, "AÃ³n no ha seleccionado un aspirante", "Error", JOptionPane.ERROR_MESSAGE );
         }
         else
         {
@@ -428,16 +428,16 @@ public class InterfazBolsaDeEmpleo extends JFrame
     }
 
     /**
-     * Elimina los aspirantes la una cantidad de años de experiencia menos<br>
+     * Elimina los aspirantes la una cantidad de aÃ³os de experiencia menos<br>
      * a la especificada por el usuario
      */
     public void eliminarPorExperiencia( )
     {
-        String anios = JOptionPane.showInputDialog( this, "Indique los años de experiencia" );
+        String anios = JOptionPane.showInputDialog( this, "Indique los aÃ³os de experiencia" );
 
         if( anios != null && anios.equals( "" ) )
         {
-            JOptionPane.showMessageDialog( this, "Los años de experiencia deben ser un valor numérico", "Error", JOptionPane.ERROR_MESSAGE );
+            JOptionPane.showMessageDialog( this, "Los aÃ³os de experiencia deben ser un valor numÃ³rico", "Error", JOptionPane.ERROR_MESSAGE );
         }
         else if( anios != null )
         {
@@ -447,7 +447,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
 
                 if( cantidadAnios < 0 )
                 {
-                    JOptionPane.showMessageDialog( this, "Los años de experiencia deben ser un valor numérico positivo", "Error", JOptionPane.ERROR_MESSAGE );
+                    JOptionPane.showMessageDialog( this, "Los aÃ³os de experiencia deben ser un valor numÃ³rico positivo", "Error", JOptionPane.ERROR_MESSAGE );
                 }
                 else
                 {
@@ -460,23 +460,23 @@ public class InterfazBolsaDeEmpleo extends JFrame
                     }
                     else
                     {
-                        JOptionPane.showMessageDialog( this, "No se eliminó ningún aspirante", "Aspirantes Eliminados", JOptionPane.INFORMATION_MESSAGE );
+                        JOptionPane.showMessageDialog( this, "No se eliminÃ³ ningÃ³n aspirante", "Aspirantes Eliminados", JOptionPane.INFORMATION_MESSAGE );
                     }
                 }
             }
             catch( Exception e )
             {
-                JOptionPane.showMessageDialog( this, "Los años de experiencia deben ser un valor numérico", "Error", JOptionPane.ERROR_MESSAGE );
+                JOptionPane.showMessageDialog( this, "Los aÃ³os de experiencia deben ser un valor numÃ³rico", "Error", JOptionPane.ERROR_MESSAGE );
             }
         }
     }
 
     // -----------------------------------------------------------------
-    // Puntos de Extensión
+    // Puntos de ExtensiÃ³n
     // -----------------------------------------------------------------
 
     /**
-     * Ejecuta el punto de extensión 1
+     * Ejecuta el punto de extensiÃ³n 1
      */
     public void reqFuncOpcion1( )
     {
@@ -485,7 +485,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
     }
 
     /**
-     * Ejecuta el punto de extensión 2
+     * Ejecuta el punto de extensiÃ³n 2
      */
     public void reqFuncOpcion2( )
     {
@@ -498,8 +498,8 @@ public class InterfazBolsaDeEmpleo extends JFrame
     // -----------------------------------------------------------------
 
     /**
-     * Ejecuta la aplicación
-     * @param args Son los parámetros de ejecución de la aplicación. No deben usarse.
+     * Ejecuta la aplicaciÃ³n
+     * @param args Son los parÃ³metros de ejecuciÃ³n de la aplicaciÃ³n. No deben usarse.
      */
     public static void main( String[] args )
     {

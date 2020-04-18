@@ -1,13 +1,13 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: PanelInformacion.java,v 1.9 2007/04/12 03:43:58 carl-veg Exp $ 
- * Universidad de los Andes (Bogot· - Colombia)
- * Departamento de IngenierÌa de Sistemas y ComputaciÛn 
+ * Universidad de los Andes (Bogot√≥ - Colombia)
+ * Departamento de Ingenier√≥a de Sistemas y Computaci√≥n
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
  * Ejercicio: n7_empleo
  * Autor: Milena Vela - 21-abr-2006
- * ModificaciÛn: Silvia de la Torre - 06-jul-2006
+ * Modificaci√≥n: Silvia de la Torre - 06-jul-2006
  * Autor: Daniel Romero - 22-Nov-2006
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
  */
@@ -55,7 +55,7 @@ public class PanelInformacion extends JPanel
     private static final int ANCHO = 200;
 
     /**
-     * El nombre de la imagen vacÌa
+     * El nombre de la imagen vac√≥a
      */
     private static final String IMANGEN_VACIA = "./data/vacia.jpg";
 
@@ -64,7 +64,7 @@ public class PanelInformacion extends JPanel
     // -----------------------------------------------------------------
 
     /**
-     * Imagen para mostrar cuando ya no hayan m·s aspirantes en la bolsa
+     * Imagen para mostrar cuando ya no hayan m√≥s aspirantes en la bolsa
      */
     private ImageIcon imagenVacia;
 
@@ -73,17 +73,17 @@ public class PanelInformacion extends JPanel
     // -----------------------------------------------------------------
 
     /**
-     * Es el campo para la profesiÛn del aspirante
+     * Es el campo para la profesi√≥n del aspirante
      */
     private JTextField txtProfesion;
 
     /**
-     * Es el campo para los aÒos de experiencia del aspirante
+     * Es el campo para los a√≥os de experiencia del aspirante
      */
     private JTextField txtAniosExperiencia;
 
     /**
-     * Es el campo para el telÈfono del aspirante
+     * Es el campo para el tel√≥fono del aspirante
      */
     private JTextField txtTelefono;
 
@@ -98,17 +98,17 @@ public class PanelInformacion extends JPanel
     private JTextField txtNombre;
 
     /**
-     * Esta es la etiqueta para la profesiÛn del aspirante
+     * Esta es la etiqueta para la profesi√≥n del aspirante
      */
     private JLabel etiquetaProfesion;
 
     /**
-     * Esta es la etiqueta para los aÒos de experiencia del aspirante
+     * Esta es la etiqueta para los a√≥os de experiencia del aspirante
      */
     private JLabel etiquetaAniosExperiencia;
 
     /**
-     * Esta es la etiqueta para el telÈfono del aspirante
+     * Esta es la etiqueta para el tel√≥fono del aspirante
      */
     private JLabel etiquetaTelefono;
 
@@ -181,7 +181,7 @@ public class PanelInformacion extends JPanel
         gbc.gridx = 2;
         add( txtEdad, gbc );
 
-        etiquetaProfesion = new JLabel( "ProfesiÛn: " );
+        etiquetaProfesion = new JLabel( "Profesi√≥n: " );
         gbc.gridx = 1;
         gbc.gridy = 2;
         add( etiquetaProfesion, gbc );
@@ -203,7 +203,7 @@ public class PanelInformacion extends JPanel
         gbc.gridx = 2;
         add( txtAniosExperiencia, gbc );
 
-        etiquetaTelefono = new JLabel( "TelÈfono: " );
+        etiquetaTelefono = new JLabel( "Tel√≥fono: " );
         gbc.gridx = 1;
         gbc.gridy = 4;
         add( etiquetaTelefono, gbc );
@@ -216,7 +216,7 @@ public class PanelInformacion extends JPanel
     }
 
     // -----------------------------------------------------------------
-    // MÈtodos
+    // M√≥todos
     // -----------------------------------------------------------------
 
     /**
@@ -228,7 +228,7 @@ public class PanelInformacion extends JPanel
         try
         {
             txtProfesion.setText( aspirante.darProfesion( ) );
-            txtAniosExperiencia.setText( String.valueOf( aspirante.darAniosExperiencia( ) + " aÒo(s)" ) );
+            txtAniosExperiencia.setText( String.valueOf( aspirante.darAniosExperiencia( ) + " a√≥o(s)" ) );
             String imagen = aspirante.darImagen( );
             BufferedImage bImagen;
             bImagen = ImageIO.read( new File( imagen ) );
@@ -236,7 +236,7 @@ public class PanelInformacion extends JPanel
             Image laImagen = bImagen.getScaledInstance( ( int ) ( ANCHO ), ( int ) ( ALTURA ), Image.SCALE_AREA_AVERAGING );
             etiquetaImagen.setIcon( new ImageIcon( laImagen ) );
             txtTelefono.setText( aspirante.darTelefono( ) );
-            txtEdad.setText( String.valueOf( aspirante.darEdad( ) + " aÒos" ) );
+            txtEdad.setText( String.valueOf( aspirante.darEdad( ) + " a√≥os" ) );
             txtNombre.setText( aspirante.darNombre( ) );
             validate( );
         }

@@ -1,7 +1,7 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: PanelBusquedaOrdenamiento.java,v 1.4 2006/11/23 19:12:57 da-romer Exp $ 
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (BogotÃ³ - Colombia)
+ * Departamento de IngenierÃ³a de Sistemas y ComputaciÃ³n
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
@@ -22,7 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 /**
- * Panel con las opciones para realización de consultas
+ * Panel con las opciones para realizaciÃ³n de consultas
  */
 public class PanelBusquedaOrdenamiento extends JPanel implements ActionListener
 {
@@ -49,22 +49,22 @@ public class PanelBusquedaOrdenamiento extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Es el botón para ordenar la lista de aspirantes por años de experiencia
+     * Es el botÃ³n para ordenar la lista de aspirantes por aÃ³os de experiencia
      */
     private JButton botonOrdenarAniosExperiencia;
 
     /**
-     * Es el botón para ordenar la lista de aspirantes por edad
+     * Es el botÃ³n para ordenar la lista de aspirantes por edad
      */
     private JButton botonOrdenarEdad;
 
     /**
-     * Es el botón para ordenar lista de aspirantes por nombre
+     * Es el botÃ³n para ordenar lista de aspirantes por nombre
      */
     private JButton botonOrdenarProfesion;
 
     /**
-     * Es el botón para realizar una búsqueda
+     * Es el botÃ³n para realizar una bÃ³squeda
      */
     private JButton botonBuscar;
 
@@ -80,7 +80,7 @@ public class PanelBusquedaOrdenamiento extends JPanel implements ActionListener
     {
         principal = interfaz;
         setLayout( new GridBagLayout( ) );
-        setBorder( new TitledBorder( "Búsqueda y Ordenamiento" ) );
+        setBorder( new TitledBorder( "BÃ³squeda y Ordenamiento" ) );
 
         botonOrdenarAniosExperiencia = new JButton( "Ordenar por experiencia" );
         botonOrdenarAniosExperiencia.setActionCommand( ORDENAR_ANIOSEXPERIENCIA );
@@ -98,7 +98,7 @@ public class PanelBusquedaOrdenamiento extends JPanel implements ActionListener
         gbc.gridy = 1;
         add( botonOrdenarEdad, gbc );
 
-        botonOrdenarProfesion = new JButton( "Ordenar por profesión" );
+        botonOrdenarProfesion = new JButton( "Ordenar por profesiÃ³n" );
         botonOrdenarProfesion.setActionCommand( ORDENAR_PROFESION );
         botonOrdenarProfesion.addActionListener( this );
         gbc.gridy = 2;
@@ -113,11 +113,11 @@ public class PanelBusquedaOrdenamiento extends JPanel implements ActionListener
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // MÃ³todos
     // -----------------------------------------------------------------
     /**
-     * Ejecuta una acción según el botón que se haya presionado
-     * @param evento El evento de click sobre un botón - evento!=null
+     * Ejecuta una acciÃ³n segÃ³n el botÃ³n que se haya presionado
+     * @param evento El evento de click sobre un botÃ³n - evento!=null
      */
     public void actionPerformed( ActionEvent evento )
     {

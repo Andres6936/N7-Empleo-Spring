@@ -1,8 +1,8 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
  * $Id: PanelImagen.java,v 1.4 2006/11/25 22:17:35 da-romer Exp $ 
- * Universidad de los Andes (Bogot· - Colombia) 
- * Departamento de IngenierÌa de Sistemas y ComputaciÛn 
+ * Universidad de los Andes (Bogot√≥ - Colombia)
+ * Departamento de Ingenier√≥a de Sistemas y Computaci√≥n
  * Todos los derechos reservados 2005 
  * 
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
