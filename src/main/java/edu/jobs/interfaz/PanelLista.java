@@ -1,4 +1,4 @@
-package uniandes.cupi2.empleo.interfaz;
+package edu.jobs.interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -16,7 +16,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import uniandes.cupi2.empleo.mundo.Aspirante;
+import edu.jobs.mundo.Aspirante;
 
 /**
  * Es el panel donde se muestra la lista de aspirantes y estón los botones para interactuar con la lista

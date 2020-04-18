@@ -50,3 +50,10 @@ Temporary Items
 .idea/
 classes/*
 n7_empleo.iml
+
+### Gradle
+.gradle/*
+gradle/*
+build/*
+gradlew
+gradlew.bat

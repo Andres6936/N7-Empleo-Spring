@@ -14,18 +14,14 @@
 
 package uniandes.cupi2.empleo.test;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Properties;
 
 import junit.framework.TestCase;
-import uniandes.cupi2.empleo.mundo.Aspirante;
-import uniandes.cupi2.empleo.mundo.BolsaDeEmpleo;
+import edu.jobs.mundo.Aspirante;
+import edu.jobs.mundo.BolsaDeEmpleo;
 
 /**
  * Esta es la clase usada para verificar que los mótodos de la clase BolsaDeEmpleo estón correctamente implementados

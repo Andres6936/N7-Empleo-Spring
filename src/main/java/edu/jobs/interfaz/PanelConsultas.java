@@ -1,4 +1,4 @@
-package uniandes.cupi2.empleo.interfaz;
+package edu.jobs.interfaz;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;

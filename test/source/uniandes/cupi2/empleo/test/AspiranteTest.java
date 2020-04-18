@@ -13,7 +13,7 @@
 package uniandes.cupi2.empleo.test;
 
 import junit.framework.TestCase;
-import uniandes.cupi2.empleo.mundo.Aspirante;
+import edu.jobs.mundo.Aspirante;
 
 /**
  * Esta es la clase usada para verificar los mótodos de la clase Aspirante

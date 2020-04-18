@@ -43,7 +43,7 @@ dependencies {
 
 application {
     // Configure the application main class.
-    mainClassName = 'vehicle.interfaz.InterfazVentaVehiculo'
+    mainClassName = 'edu.jobs.interfaz.InterfazBolsaDeEmpleo'
 }
 
 // Executes a Java application in a child process.
@@ -58,5 +58,5 @@ task run(type: JavaExec, overwrite: true) {
     classpath = sourceSets.main.runtimeClasspath
 
     // Configure the application main class.
-    main = 'vehicle.interfaz.InterfazVentaVehiculo'
+    main = 'edu.jobs.interfaz.InterfazBolsaDeEmpleo'
 }

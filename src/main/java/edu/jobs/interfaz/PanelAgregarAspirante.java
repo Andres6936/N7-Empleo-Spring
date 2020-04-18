@@ -1,4 +1,4 @@
-package uniandes.cupi2.empleo.interfaz;
+package edu.jobs.interfaz;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
-import uniandes.cupi2.empleo.mundo.Aspirante;
+import edu.jobs.mundo.Aspirante;
 
 /**
  * Este es el panel donde se agregan aspirantes

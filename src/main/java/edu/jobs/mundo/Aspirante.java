@@ -1,4 +1,4 @@
-package uniandes.cupi2.empleo.mundo;
+package edu.jobs.mundo;
 
 /**
  * Es la clase que representa a un Aspirante <br>

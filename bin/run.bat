@@ -16,5 +16,5 @@ REM Ejecucion del programa
 REM ---------------------------------------------------------
 
 cd..
-java -classpath ./lib/empleo.jar uniandes.cupi2.empleo.interfaz.InterfazBolsaDeEmpleo
+java -classpath ./lib/empleo.jar edu.jobs.interfaz.InterfazBolsaDeEmpleo
 cd bin

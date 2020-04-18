@@ -1,4 +1,4 @@
-package uniandes.cupi2.empleo.interfaz;
+package edu.jobs.interfaz;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -9,6 +9,7 @@ import java.awt.Insets;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -19,7 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
-import uniandes.cupi2.empleo.mundo.Aspirante;
+import edu.jobs.mundo.Aspirante;
 
 /**
  * Es el panel donde se muestran los datos de un aspirante
@@ -191,26 +192,28 @@ class PanelInformacion extends JPanel
      */
     void mostrarDatos( Aspirante aspirante )
     {
+        txtProfesion.setText( aspirante.darProfesion( ) );
+        txtAniosExperiencia.setText( aspirante.darAniosExperiencia( ) + " año(s)" );
+        String imagen = aspirante.darImagen( );
+        BufferedImage bImagen;
+        InputStream in = getClass( ).getClassLoader( ).getResourceAsStream( imagen );
+
         try
         {
-            txtProfesion.setText( aspirante.darProfesion( ) );
-            txtAniosExperiencia.setText( aspirante.darAniosExperiencia( ) + " año(s)" );
-            String imagen = aspirante.darImagen( );
-            BufferedImage bImagen;
-            bImagen = ImageIO.read( new File( imagen ) );
-
+            assert in != null;
+            bImagen = ImageIO.read( in );
             Image laImagen = bImagen.getScaledInstance( ANCHO, ALTURA, Image.SCALE_AREA_AVERAGING );
             etiquetaImagen.setIcon( new ImageIcon( laImagen ) );
-            txtTelefono.setText( aspirante.darTelefono( ) );
-            txtEdad.setText( aspirante.darEdad( ) + " años" );
-            txtNombre.setText( aspirante.darNombre( ) );
-            validate( );
         }
-        catch( IOException e )
+        catch ( Exception e )
         {
             JOptionPane.showMessageDialog( this, "Error al cargar la imagen del aspirante " + aspirante.darNombre( ), "Error", JOptionPane.ERROR_MESSAGE );
         }
 
+        txtTelefono.setText( aspirante.darTelefono( ) );
+        txtEdad.setText( aspirante.darEdad( ) + " años" );
+        txtNombre.setText( aspirante.darNombre( ) );
+        validate( );
     }
 
     /**

@@ -1,4 +1,4 @@
-package uniandes.cupi2.empleo.mundo;
+package edu.jobs.mundo;
 
 import java.util.ArrayList;
 

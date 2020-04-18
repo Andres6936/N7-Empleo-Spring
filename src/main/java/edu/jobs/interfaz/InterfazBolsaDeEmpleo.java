@@ -1,22 +1,19 @@
-package uniandes.cupi2.empleo.interfaz;
+package edu.jobs.interfaz;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Toolkit;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.Properties;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import uniandes.cupi2.empleo.mundo.Aspirante;
-import uniandes.cupi2.empleo.mundo.BolsaDeEmpleo;
+import edu.jobs.mundo.Aspirante;
+import edu.jobs.mundo.BolsaDeEmpleo;
 
 /**
  * Es la clase principal de la interfaz
@@ -30,7 +27,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
     /**
      * Ruta al archivo de aspirantes
      */
-    private static final String ARCHIVO_ASPIRANTES = "./data/aspirantes.dat";
+    private static final String ARCHIVO_ASPIRANTES = "data/aspirantes.properties";
 
     // -----------------------------------------------------------------
     // Atributos
@@ -63,7 +60,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
      * Construye la interfaz e inicializa todos sus componentes.
      * @param archivoAspirantes es el nombre del archivo de propiedades que contiene la información de los aspirantes
      */
-    public InterfazBolsaDeEmpleo( String archivoAspirantes )
+    private InterfazBolsaDeEmpleo( String archivoAspirantes )
     {
         bolsa = new BolsaDeEmpleo( );
         cargarAspirantes( archivoAspirantes );
@@ -250,9 +247,10 @@ public class InterfazBolsaDeEmpleo extends JFrame
 
         try
         {
-            FileInputStream fis = new FileInputStream( new File( archivo ) );
+            InputStream in = getClass( ).getClassLoader( ).getResourceAsStream( archivo );
             Properties propiedades = new Properties( );
-            propiedades.load( fis );
+            assert in != null;
+            propiedades.load( in );
 
             // Cargar los aspirantes
             String dato;
@@ -293,8 +291,6 @@ public class InterfazBolsaDeEmpleo extends JFrame
                 // Sólo se carga el aspirante si los datos son correctos
                 if( nombre != null && profesion != null && telefono != null && imagen != null && edad >= 0 && experiencia > 0 )
                     bolsa.agregarAspirante( nombre, profesion, experiencia, edad, telefono, imagen );
-                fis.close( );
-
             }
         }
         catch( FileNotFoundException e )
