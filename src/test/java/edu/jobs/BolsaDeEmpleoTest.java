@@ -1,7 +1,5 @@
 package edu.jobs;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Properties;
@@ -34,23 +32,23 @@ public class BolsaDeEmpleoTest extends TestCase
     // -----------------------------------------------------------------
 
     /**
-     * Crea un bolsa de empleo a partir del archivo aspirantes1.dat
+     * Crea un bolsa de empleo a partir del archivo aspirantes1.properties
      */
     private void setupEscenario1( )
     {
         bolsa = new BolsaDeEmpleo( );
 
-        cargarAspirantes( "data/aspirantes1.dat" );
+        cargarAspirantes( "data/aspirantes1.properties" );
 
     }
 
     /**
-     * Crea un bolsa de empleo a partir del archivo aspirantes2.dat
+     * Crea un bolsa de empleo a partir del archivo aspirantes2.properties
      */
     private void setupEscenario2( )
     {
         bolsa = new BolsaDeEmpleo( );
-        cargarAspirantes( "data/aspirantes2.dat" );
+        cargarAspirantes( "data/aspirantes2.properties" );
     }
 
     /**
