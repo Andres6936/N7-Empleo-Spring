@@ -1,21 +1,8 @@
-/**
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * $Id: BolsaDeEmpleoTest.java,v 1.8 2007/04/12 03:43:58 carl-veg Exp $
- * Universidad de los Andes (Bogotó - Colombia)
- * Departamento de Ingenieróa de Sistemas y Computación
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n7_empleo
- * Autor: Milena Vela - 21-abr-2006
- * Modificación: Silvia de la Torre -07-jul-2006
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- */
-
-package uniandes.cupi2.empleo.test;
+package edu.jobs;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -51,9 +38,9 @@ public class BolsaDeEmpleoTest extends TestCase
      */
     private void setupEscenario1( )
     {
-        bolsa = new BolsaDeEmpleo( );        
-        
-        cargarAspirantes( "./test/data/aspirantes1.dat" );
+        bolsa = new BolsaDeEmpleo( );
+
+        cargarAspirantes( "data/aspirantes1.dat" );
 
     }
 
@@ -63,7 +50,7 @@ public class BolsaDeEmpleoTest extends TestCase
     private void setupEscenario2( )
     {
         bolsa = new BolsaDeEmpleo( );
-        cargarAspirantes( "./test/data/aspirantes2.dat" );
+        cargarAspirantes( "data/aspirantes2.dat" );
     }
 
     /**
@@ -112,7 +99,7 @@ public class BolsaDeEmpleoTest extends TestCase
 
             agregado = bolsa.agregarAspirante( nombre, profesion, experiencia, edad, telefono, imagen );
             int pos = bolsa.buscarAspirante( nombre );
-            Aspirante aspirante = ( Aspirante )bolsa.darAspirantes( ).get( pos );
+            Aspirante aspirante = bolsa.darAspirantes( ).get( pos );
 
             assertTrue( "El aspirante no se agregó de forma correcta", agregado );
             assertEquals( "El aspirante no se agregó de forma correcta", cont - 1, pos );
@@ -461,9 +448,9 @@ public class BolsaDeEmpleoTest extends TestCase
 
         try
         {
-            FileInputStream fis = new FileInputStream( new File( archivo ) );
+            InputStream in = getClass( ).getClassLoader( ).getResourceAsStream( archivo );
             Properties propiedades = new Properties( );
-            propiedades.load( fis );
+            propiedades.load( in );
 
             // Cargar los aspirantes
             String dato;
@@ -502,7 +489,6 @@ public class BolsaDeEmpleoTest extends TestCase
                 imagen = propiedades.getProperty( dato );
 
                 bolsa.agregarAspirante( nombre, profesion, experiencia, edad, telefono, imagen );
-                fis.close( );
             }
         }
         catch( Exception e )

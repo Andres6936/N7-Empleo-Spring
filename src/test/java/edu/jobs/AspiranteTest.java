@@ -1,16 +1,4 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * $Id: AspiranteTest.java,v 1.7 2007/04/12 03:43:58 carl-veg Exp $ 
- * Universidad de los Andes (Bogotó - Colombia)
- * Departamento de Ingenieróa de Sistemas y Computación
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n7_empleo
- * Autor: Milena Vela - 21-abr-2006
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
- */
-
-package uniandes.cupi2.empleo.test;
+package edu.jobs;
 
 import junit.framework.TestCase;
 import edu.jobs.mundo.Aspirante;
