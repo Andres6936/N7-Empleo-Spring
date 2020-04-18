@@ -1,17 +1,3 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * $Id: InterfazBolsaDeEmpleo.java,v 1.10 2007/04/12 03:43:58 carl-veg Exp $ 
- * Universidad de los Andes (Bogotó - Colombia)
- * Departamento de Ingenieróa de Sistemas y Computación
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n7_empleo
- * Autor: Milena Vela - 21-abr-2006
- * Modificación: Silvia de la Torre - 06-jul-2006
- * Autor: Daniel Romero - 22-Nov-2006
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
- */
-
 package uniandes.cupi2.empleo.interfaz;
 
 import java.awt.Dimension;
@@ -486,7 +472,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
     {
         try
         {
-            InterfazBolsaDeEmpleo interfaz = new InterfazBolsaDeEmpleo( ARCHIVO_ASPIRANTES );
+            var interfaz = new InterfazBolsaDeEmpleo( ARCHIVO_ASPIRANTES );
             interfaz.setVisible( true );
         }
         catch( Exception e )

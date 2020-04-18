@@ -1,14 +1,3 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * $Id: Aspirante.java,v 1.9 2007/04/12 03:43:58 carl-veg Exp $ 
- * Universidad de los Andes (Bogotó - Colombia)
- * Departamento de Ingenieróa de Sistemas y Computación
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n7_empleo
- * Autor: Milena Vela - 21-abr-2006
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
- */
 package uniandes.cupi2.empleo.mundo;
 
 /**
@@ -176,12 +165,7 @@ public class Aspirante
     public int compararPorNombre( Aspirante a )
     {
         int resultado = nombre.compareToIgnoreCase( a.nombre );
-        if( resultado > 0 )
-            return 1;
-        else if( resultado < 0 )
-            return -1;
-        else
-            return 0;
+        return Integer.compare( resultado, 0 );
     }
 
     /**
@@ -194,12 +178,7 @@ public class Aspirante
     public int compararPorProfesion( Aspirante a )
     {
         int resultado = profesion.compareToIgnoreCase( a.darProfesion( ) );
-        if( resultado > 0 )
-            return 1;
-        else if( resultado < 0 )
-            return -1;
-        else
-            return 0;
+        return Integer.compare( resultado, 0 );
     }
 
     /**
@@ -211,13 +190,7 @@ public class Aspirante
      */
     public int compararPorAniosExperiencia( Aspirante a )
     {
-        if( aniosExperiencia == a.darAniosExperiencia( ) )
-            return 0;
-        else if( aniosExperiencia > a.darAniosExperiencia( ) )
-            return 1;
-        else
-            return -1;
-
+        return Integer.compare( aniosExperiencia, a.darAniosExperiencia( ) );
     }
 
     /**
@@ -229,12 +202,7 @@ public class Aspirante
      */
     public int compararPorEdad( Aspirante a )
     {
-        if( edad == a.darEdad( ) )
-            return 0;
-        else if( edad > a.darEdad( ) )
-            return 1;
-        else
-            return -1;
+        return Integer.compare( edad, a.darEdad( ) );
     }
 
     /**

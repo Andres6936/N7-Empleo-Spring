@@ -1,14 +1,3 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * $Id: BolsaDeEmpleo.java,v 1.14 2007/04/12 03:43:58 carl-veg Exp $ 
- * Universidad de los Andes (Bogotó - Colombia)
- * Departamento de Ingenieróa de Sistemas y Computación
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n7_empleo
- * Autor: Milena Vela - 21-abr-2006
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
- */
 package uniandes.cupi2.empleo.mundo;
 
 import java.util.ArrayList;
@@ -28,7 +17,7 @@ public class BolsaDeEmpleo
     /**
      * Es la lista que contiene todos los aspirantes
      */
-    private ArrayList aspirantes;
+    private ArrayList< Aspirante > aspirantes;
 
     // -----------------------------------------------------------------
     // Constructores
@@ -39,7 +28,7 @@ public class BolsaDeEmpleo
      */
     public BolsaDeEmpleo( )
     {
-        aspirantes = new ArrayList( );
+        aspirantes = new ArrayList<>( );
 
     }
 
@@ -53,8 +42,7 @@ public class BolsaDeEmpleo
      */
     public ArrayList darAspirantes( )
     {
-        ArrayList copia = new ArrayList( aspirantes );
-        return copia;
+        return new ArrayList<>( aspirantes );
     }
 
     /**
@@ -67,8 +55,8 @@ public class BolsaDeEmpleo
         {
             for( int j = 0; j < i - 1; j++ )
             {
-                Aspirante a1 = ( Aspirante )aspirantes.get( j );
-                Aspirante a2 = ( Aspirante )aspirantes.get( j + 1 );
+                Aspirante a1 = aspirantes.get( j );
+                Aspirante a2 = aspirantes.get( j + 1 );
 
                 // Si es necesario se deben intercambiar a1 y a2
                 if( a1.compararPorNombre( a2 ) > 0 )
@@ -96,12 +84,12 @@ public class BolsaDeEmpleo
         for( inicial = 0; inicial < aspirantes.size( ); inicial++ )
         {
             int posicionMenor = inicial;
-            Aspirante aspiranteMenor = ( Aspirante )aspirantes.get( inicial );
+            Aspirante aspiranteMenor = aspirantes.get( inicial );
 
             // Buscar el Aspirante de menor [int, Edad, Seleccion] entre inicial y final
             for( int i = inicial + 1; i < aspirantes.size( ); i++ )
             {
-                Aspirante aspirantePosicion = ( Aspirante )aspirantes.get( i );
+                Aspirante aspirantePosicion = aspirantes.get( i );
 
                 // El aspirante de la posicion actual es menor que el menor encontrado hasta el momento
                 if( aspirantePosicion.compararPorEdad( aspiranteMenor ) < 0 )
@@ -113,7 +101,7 @@ public class BolsaDeEmpleo
 
             if( posicionMenor != inicial )
             {
-                Aspirante temp = ( Aspirante )aspirantes.get( inicial );
+                Aspirante temp = aspirantes.get( inicial );
                 aspirantes.set( inicial, aspiranteMenor );
                 aspirantes.set( posicionMenor, temp );
             }
@@ -132,8 +120,8 @@ public class BolsaDeEmpleo
         {
             for( int j = 0; j < i - 1; j++ )
             {
-                Aspirante a1 = ( Aspirante )aspirantes.get( j );
-                Aspirante a2 = ( Aspirante )aspirantes.get( j + 1 );
+                Aspirante a1 = aspirantes.get( j );
+                Aspirante a2 = aspirantes.get( j + 1 );
 
                 // Si es necesario se deben intercambiar a1 y a2
                 if( a1.compararPorProfesion( a2 ) > 0 )
@@ -161,7 +149,7 @@ public class BolsaDeEmpleo
 
         for( inicial = 1; inicial < aspirantes.size( ); inicial++ )
         {
-            Aspirante insertado = ( Aspirante )aspirantes.get( inicial );
+            Aspirante insertado = aspirantes.get( inicial );
 
             boolean termine = false;
             int i = inicial - 1;
@@ -169,7 +157,7 @@ public class BolsaDeEmpleo
             while( !termine )
             {
                 // Si encuentra un cilindraje mayor, entonces hay que intercambiarlos
-                Aspirante aspirantePosicion = ( Aspirante )aspirantes.get( i );
+                Aspirante aspirantePosicion = aspirantes.get( i );
 
                 if( aspirantePosicion.compararPorAniosExperiencia( insertado ) > 0 )
                 {
@@ -205,7 +193,7 @@ public class BolsaDeEmpleo
 
         for( int i = 0; i < aspirantes.size( ) && !termine; i++ )
         {
-            Aspirante aspirantePosicion = ( Aspirante )aspirantes.get( i );
+            Aspirante aspirantePosicion = aspirantes.get( i );
             String nombreAspirante = aspirantePosicion.darNombre( );
 
             // Los nombres son iguales
@@ -235,7 +223,7 @@ public class BolsaDeEmpleo
         while( inicio <= fin && posicion == -1 )
         {
             int medio = ( inicio + fin ) / 2;
-            Aspirante mitad = ( Aspirante )aspirantes.get( medio );
+            Aspirante mitad = aspirantes.get( medio );
             if( mitad.compararPorNombre( aBuscar ) == 0 )
             {
                 posicion = medio;
@@ -290,11 +278,11 @@ public class BolsaDeEmpleo
 
         if( aspirantes.size( ) > 0 )
         {
-            Aspirante aMenorEdad = ( Aspirante )aspirantes.get( 0 );
+            Aspirante aMenorEdad = aspirantes.get( 0 );
             posicion = 0;
             for( int i = 1; i < aspirantes.size( ); i++ )
             {
-                Aspirante aspirantePosicion = ( Aspirante )aspirantes.get( i );
+                Aspirante aspirantePosicion = aspirantes.get( i );
 
                 if( aMenorEdad.compararPorEdad( aspirantePosicion ) == 1 )
                 {
@@ -317,11 +305,11 @@ public class BolsaDeEmpleo
 
         if( aspirantes.size( ) > 0 )
         {
-            Aspirante aMayorEdad = ( Aspirante )aspirantes.get( 0 );
+            Aspirante aMayorEdad = aspirantes.get( 0 );
             posicion = 0;
             for( int i = 1; i < aspirantes.size( ); i++ )
             {
-                Aspirante aspirantePosicion = ( Aspirante )aspirantes.get( i );
+                Aspirante aspirantePosicion = aspirantes.get( i );
 
                 if( aMayorEdad.compararPorEdad( aspirantePosicion ) == -1 )
                 {
@@ -344,11 +332,11 @@ public class BolsaDeEmpleo
 
         if( aspirantes.size( ) > 0 )
         {
-            Aspirante aMayorExp = ( Aspirante )aspirantes.get( 0 );
+            Aspirante aMayorExp = aspirantes.get( 0 );
             posicion = 0;
             for( int i = 1; i < aspirantes.size( ); i++ )
             {
-                Aspirante aspirantePosicion = ( Aspirante )aspirantes.get( i );
+                Aspirante aspirantePosicion = aspirantes.get( i );
 
                 if( aMayorExp.compararPorAniosExperiencia( aspirantePosicion ) == -1 )
                 {
@@ -400,7 +388,7 @@ public class BolsaDeEmpleo
 
         while( cont < aspirantes.size( ) )
         {
-            Aspirante aspirante = ( Aspirante )aspirantes.get( cont );
+            Aspirante aspirante = aspirantes.get( cont );
 
             if( aspirante.darAniosExperiencia( ) < aniosExperiencia )
             {
@@ -442,12 +430,12 @@ public class BolsaDeEmpleo
     {
         for( int i = 0; i < aspirantes.size( ); i++ )
         {
-            Aspirante aspiranteI = ( Aspirante )aspirantes.get( i );
+            Aspirante aspiranteI = aspirantes.get( i );
             for( int j = 0; j < aspirantes.size( ); j++ )
             {
                 if( i != j )
                 {
-                    Aspirante aspiranteJ = ( Aspirante )aspirantes.get( j );
+                    Aspirante aspiranteJ = aspirantes.get( j );
                     if( aspiranteJ.darNombre( ).equals( aspiranteI.darNombre( ) ) )
                     {
                         return true;
