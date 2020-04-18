@@ -44,7 +44,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
     /**
      * Ruta al archivo de aspirantes
      */
-    public static final String ARCHIVO_ASPIRANTES = "./data/aspirantes.dat";
+    private static final String ARCHIVO_ASPIRANTES = "./data/aspirantes.dat";
 
     // -----------------------------------------------------------------
     // Atributos
@@ -69,31 +69,6 @@ public class InterfazBolsaDeEmpleo extends JFrame
      */
     private PanelInformacion panelInformacion;
 
-    /**
-     * Es el panel donde se introducen los datos para agregar un aspirante
-     */
-    private PanelAgregarAspirante panelAgregar;
-
-    /**
-     * Es el panel donde estón los botones para los puntos de extensión
-     */
-    private PanelExtension panelExtension;
-
-    /**
-     * Panel con las opciones de bósqueda y ordenamiento
-     */
-    private PanelBusquedaOrdenamiento panelBusquedaOrdenamiento;
-
-    /**
-     * Panel Consultas
-     */
-    private PanelConsultas panelConsultas;
-
-    /**
-     * Panel con una imagen decorativa
-     */
-    private PanelImagen panelImagen;
-
     // -----------------------------------------------------------------
     // Constructores
     // -----------------------------------------------------------------
@@ -112,7 +87,8 @@ public class InterfazBolsaDeEmpleo extends JFrame
         setSize( new Dimension( 760, 585 ) );
         setResizable(false);
 
-        panelImagen = new PanelImagen( );
+        // Panel con una imagen decorativa
+        PanelImagen panelImagen = new PanelImagen( );
         GridBagConstraints gbc = new GridBagConstraints( );
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -133,14 +109,17 @@ public class InterfazBolsaDeEmpleo extends JFrame
 
         JPanel panelOpciones = new JPanel( );
         panelOpciones.setLayout( new GridBagLayout( ) );
-        panelBusquedaOrdenamiento = new PanelBusquedaOrdenamiento( this );
+
+        // Panel con las opciones de bósqueda y ordenamiento
+        PanelBusquedaOrdenamiento panelBusquedaOrdenamiento = new PanelBusquedaOrdenamiento( this );
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 1;
         gbc.insets = new Insets( 0, 0, 0, 5 );
         panelOpciones.add( panelBusquedaOrdenamiento, gbc );
 
-        panelConsultas = new PanelConsultas( this );
+        // Panel Consultas
+        PanelConsultas panelConsultas = new PanelConsultas( this );
         gbc.gridx = 1;
         gbc.fill = GridBagConstraints.BOTH;
         panelOpciones.add( panelConsultas, gbc );
@@ -151,13 +130,15 @@ public class InterfazBolsaDeEmpleo extends JFrame
         gbc.insets = new Insets( 0, 0, 0, 0 );
         add( panelOpciones, gbc );
 
-        panelAgregar = new PanelAgregarAspirante( this );
+        // Es el panel donde se introducen los datos para agregar un aspirante
+        PanelAgregarAspirante panelAgregar = new PanelAgregarAspirante( this );
         gbc.gridx = 0;
         gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.BOTH;
         add( panelAgregar, gbc );
 
-        panelExtension = new PanelExtension( this );
+        // Es el panel donde estón los botones para los puntos de extensión
+        PanelExtension panelExtension = new PanelExtension( this );
         gbc.gridx = 0;
         gbc.gridy = 3;
         gbc.gridwidth = 3;
@@ -192,7 +173,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
     /**
      * Ordena los aspirantes por aóos de experiencia y actualiza la lista
      */
-    public void ordenarPorAniosExperiencia( )
+    void ordenarPorAniosExperiencia( )
     {
         bolsa.ordenarPorAniosDeExperiencia( );
         panelInformacion.limpiarDatos( );
@@ -202,7 +183,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
     /**
      * Ordena los aspirantes por edad y actualiza la lista
      */
-    public void ordenarPorEdad( )
+    void ordenarPorEdad( )
     {
         bolsa.ordenarPorEdad( );
         panelInformacion.limpiarDatos( );
@@ -212,7 +193,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
     /**
      * Ordena los aspirantes por profesión y actualiza la lista
      */
-    public void ordenarPorProfesion( )
+    void ordenarPorProfesion( )
     {
         bolsa.ordenarPorProfesion( );
         panelInformacion.limpiarDatos( );
@@ -222,7 +203,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
     /**
      * Busca un aspirante usando el nombre y cuando lo encuentra lo selecciona en la lista y muestra sus datos
      */
-    public void buscar( )
+    void buscar( )
     {
         String NombreBuscar = JOptionPane.showInputDialog( this, "Nombre" );
         if( NombreBuscar != null )
@@ -247,7 +228,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
      * Muestra los datos de un Aspirante en el panel correspondiente
      * @param aspiranteP El Aspirante del que se quieren ver los datos - aspiranteP != null
      */
-    public void verDatos( Aspirante aspiranteP )
+    void verDatos( Aspirante aspiranteP )
     {
         panelInformacion.mostrarDatos( aspiranteP );
     }
@@ -261,7 +242,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
      * @param telefonoA El telófono del aspirante - telefonoA > 0
      * @param imagenA La ruta a la imagen del aspirante - imagenA != null
      */
-    public void agregarAspirante( String nombreA, String profesionA, int aniosExperienciaA, int edadA, String telefonoA, String imagenA )
+    void agregarAspirante( String nombreA, String profesionA, int aniosExperienciaA, int edadA, String telefonoA, String imagenA )
     {
         boolean agregado = bolsa.agregarAspirante( nombreA, profesionA, aniosExperienciaA, edadA, telefonoA, imagenA );
         if( agregado )
@@ -343,7 +324,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
     /**
      * Busca el aspirante mós joven de la bolsa de empleos y muestra sus datos en el panel información
      */
-    public void buscarMasJoven( )
+    void buscarMasJoven( )
     {
         int posicion = bolsa.buscarAspiranteMasJoven( );
 
@@ -363,7 +344,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
     /**
      * Busca el aspirante con mayor edad de la bolsa de empleos y muestra sus datos en el panel información
      */
-    public void buscarMayorEdad( )
+    void buscarMayorEdad( )
     {
         int posicion = bolsa.buscarAspiranteMayorEdad( );
 
@@ -383,7 +364,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
     /**
      * Busca el aspirante con mayor experiencia de la bolsa de empleos y muestra sus datos en el panel información
      */
-    public void buscarMayorExperiencia( )
+    void buscarMayorExperiencia( )
     {
         int posicion = bolsa.buscarAspiranteMayorExperiencia( );
 
@@ -404,7 +385,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
      * Contrata al aspirante del cual se estón mostrando los datos. <br>
      * <b>post: </b>El aspirante contratado no esta en la lista de aspirantes.
      */
-    public void contratar( )
+    void contratar( )
     {
         String nombre = panelLista.darNombreSeleccionado( );
         if( nombre == null || !panelLista.haySeleccionado( ) )
@@ -431,7 +412,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
      * Elimina los aspirantes la una cantidad de aóos de experiencia menos<br>
      * a la especificada por el usuario
      */
-    public void eliminarPorExperiencia( )
+    void eliminarPorExperiencia( )
     {
         String anios = JOptionPane.showInputDialog( this, "Indique los aóos de experiencia" );
 
@@ -478,7 +459,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
     /**
      * Ejecuta el punto de extensión 1
      */
-    public void reqFuncOpcion1( )
+    void reqFuncOpcion1( )
     {
         String respuesta = bolsa.metodo1( );
         JOptionPane.showMessageDialog( this, respuesta, "Respuesta", JOptionPane.INFORMATION_MESSAGE );
@@ -487,7 +468,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
     /**
      * Ejecuta el punto de extensión 2
      */
-    public void reqFuncOpcion2( )
+    void reqFuncOpcion2( )
     {
         String respuesta = bolsa.metodo2( );
         JOptionPane.showMessageDialog( this, respuesta, "Respuesta", JOptionPane.INFORMATION_MESSAGE );
