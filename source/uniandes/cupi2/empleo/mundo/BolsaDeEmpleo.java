@@ -40,7 +40,7 @@ public class BolsaDeEmpleo
      * Retorna una lista de aspirantes. La lista retornada no es la misma que la almacenada en esta clase, pero si tiene el mismo orden.
      * @return lista de aspirantes
      */
-    public ArrayList darAspirantes( )
+    public ArrayList< Aspirante > darAspirantes( )
     {
         return new ArrayList<>( aspirantes );
     }

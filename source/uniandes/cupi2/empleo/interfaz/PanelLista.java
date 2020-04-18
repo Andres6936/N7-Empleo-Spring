@@ -1,22 +1,9 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * $Id: PanelLista.java,v 1.8 2006/11/25 22:10:33 da-romer Exp $ 
- * Universidad de los Andes (Bogotó - Colombia)
- * Departamento de Ingenieróa de Sistemas y Computación
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n7_empleo
- * Autor: Milena Vela - 21-abr-2006
- * Modificación: Silvia de la Torre - 06-jul-2006
- * Autor: Daniel Romero - 17-Nov-2006
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
- */
-
 package uniandes.cupi2.empleo.interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Vector;
 
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -52,7 +39,7 @@ public class PanelLista extends JPanel implements ListSelectionListener
     /**
      * Es la lista que se muestra
      */
-    private JList listaAspirantes;
+    private JList< Aspirante > listaAspirantes;
 
     // -----------------------------------------------------------------
     // Constructores
@@ -62,14 +49,14 @@ public class PanelLista extends JPanel implements ListSelectionListener
      * Construye el panel e inicializa todos sus componentes
      * @param interfaz Es una referencia a la clase principal de la interfaz - interfaz != null
      */
-    public PanelLista( InterfazBolsaDeEmpleo interfaz )
+    PanelLista( InterfazBolsaDeEmpleo interfaz )
     {
         principal = interfaz;
 
         setLayout( new BorderLayout( ) );
         setBorder( new TitledBorder( "Aspirantes Registrados en la Bolsa" ) );
 
-        listaAspirantes = new JList( );
+        listaAspirantes = new JList<>( );
         listaAspirantes.setSelectionMode( ListSelectionModel.SINGLE_SELECTION );
         listaAspirantes.addListSelectionListener( this );
 
@@ -91,9 +78,9 @@ public class PanelLista extends JPanel implements ListSelectionListener
      * Actualiza la lista de aspirantes que se estó mostrando
      * @param listaActualizada Es una lista con los aspirantes que deben mostrarse
      */
-    public void actualizarLista( ArrayList listaActualizada )
+    void actualizarLista( ArrayList< Aspirante > listaActualizada )
     {
-        listaAspirantes.setListData( listaActualizada.toArray( ) );
+        listaAspirantes.setListData( new Vector<>( listaActualizada ) );
         listaAspirantes.setSelectedIndex( 0 );
     }
 
@@ -101,7 +88,7 @@ public class PanelLista extends JPanel implements ListSelectionListener
      * Selecciona un aspirante de la lista
      * @param seleccionado La posición del aspirante que se debe seleccionar
      */
-    public void seleccionar( int seleccionado )
+    void seleccionar( int seleccionado )
     {
         listaAspirantes.setSelectedIndex( seleccionado );
         listaAspirantes.ensureIndexIsVisible( seleccionado );
@@ -115,7 +102,7 @@ public class PanelLista extends JPanel implements ListSelectionListener
     {
         if( listaAspirantes.getSelectedValue( ) != null )
         {
-            Aspirante aspiranteSeleccionado = ( Aspirante )listaAspirantes.getSelectedValue( );
+            Aspirante aspiranteSeleccionado = listaAspirantes.getSelectedValue( );
             principal.verDatos( aspiranteSeleccionado );
         }
     }
@@ -124,7 +111,7 @@ public class PanelLista extends JPanel implements ListSelectionListener
      * Informa si hay algón óndice seleccionado en la lista de aspirantes.
      * @return true si hay un ótem seleccionado, false de lo contrario
      */
-    public boolean haySeleccionado( )
+    boolean haySeleccionado( )
     {
         return !listaAspirantes.isSelectionEmpty( );
     }
@@ -133,13 +120,13 @@ public class PanelLista extends JPanel implements ListSelectionListener
      * Retorna el nombre del aspirante seleccionado en la lista
      * @return Se retornó el nombre del aspirante seleccionado en la lista o null si no hay selección
      */
-    public String darNombreSeleccionado( )
+    String darNombreSeleccionado( )
     {
         String nombre = null;
 
         if( listaAspirantes.getSelectedValue( ) != null )
         {
-            Aspirante aspiranteSeleccionado = ( Aspirante )listaAspirantes.getSelectedValue( );
+            Aspirante aspiranteSeleccionado = listaAspirantes.getSelectedValue( );
             nombre = aspiranteSeleccionado.darNombre( );
         }
 

@@ -1,16 +1,3 @@
-/**
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
- * $Id: PanelImagen.java,v 1.4 2006/11/25 22:17:35 da-romer Exp $ 
- * Universidad de los Andes (Bogotó - Colombia)
- * Departamento de Ingenieróa de Sistemas y Computación
- * Todos los derechos reservados 2005 
- * 
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n7_empleo
- * Autor: Daniel Romero - 17-Nov-2006
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
- */
-
 package uniandes.cupi2.empleo.interfaz;
 
 import java.awt.Color;
@@ -24,18 +11,8 @@ import javax.swing.border.LineBorder;
 /**
  * Es el panel donde se muestra una imagen decorativa
  */
-public class PanelImagen extends JPanel
+final class PanelImagen extends JPanel
 {
-
-    // -----------------------------------------------------------------
-    // Atributos de Interfaz
-    // -----------------------------------------------------------------
-
-    /**
-     * Imagen del titulo
-     */
-    private JLabel imagen;
-
     // -----------------------------------------------------------------
     // Constructores
     // -----------------------------------------------------------------
@@ -43,7 +20,7 @@ public class PanelImagen extends JPanel
     /**
      * Constructor del panel
      */
-    public PanelImagen( )
+    PanelImagen( )
     {
         FlowLayout layout = new FlowLayout( );
         layout.setHgap( 0 );
@@ -54,7 +31,9 @@ public class PanelImagen extends JPanel
         ImageIcon icono = new ImageIcon( "data/titulo.png" );
 
         // La agrega a la etiqueta
-        imagen = new JLabel( "" );
+
+        // Imagen del titulo
+        JLabel imagen = new JLabel( "" );
         imagen.setIcon( icono );
         add( imagen );
         //

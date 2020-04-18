@@ -74,7 +74,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
         setResizable(false);
 
         // Panel con una imagen decorativa
-        PanelImagen panelImagen = new PanelImagen( );
+        var panelImagen = new PanelImagen( );
         GridBagConstraints gbc = new GridBagConstraints( );
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -97,7 +97,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
         panelOpciones.setLayout( new GridBagLayout( ) );
 
         // Panel con las opciones de bósqueda y ordenamiento
-        PanelBusquedaOrdenamiento panelBusquedaOrdenamiento = new PanelBusquedaOrdenamiento( this );
+        var panelBusquedaOrdenamiento = new PanelBusquedaOrdenamiento( this );
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 1;
@@ -105,7 +105,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
         panelOpciones.add( panelBusquedaOrdenamiento, gbc );
 
         // Panel Consultas
-        PanelConsultas panelConsultas = new PanelConsultas( this );
+        var panelConsultas = new PanelConsultas( this );
         gbc.gridx = 1;
         gbc.fill = GridBagConstraints.BOTH;
         panelOpciones.add( panelConsultas, gbc );
@@ -117,7 +117,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
         add( panelOpciones, gbc );
 
         // Es el panel donde se introducen los datos para agregar un aspirante
-        PanelAgregarAspirante panelAgregar = new PanelAgregarAspirante( this );
+        var panelAgregar = new PanelAgregarAspirante( this );
         gbc.gridx = 0;
         gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.BOTH;

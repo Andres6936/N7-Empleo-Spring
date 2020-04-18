@@ -1,16 +1,3 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * $Id: PanelExtension.java,v 1.5 2006/11/23 19:12:57 da-romer Exp $ 
- * Universidad de los Andes (Bogotó - Colombia)
- * Departamento de Ingenieróa de Sistemas y Computación
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n7_empleo
- * Autor: Milena Vela - 21-abr-2006
- * Autor: Daniel Romero - 17-Nov-2006
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
- */
-
 package uniandes.cupi2.empleo.interfaz;
 
 import java.awt.FlowLayout;
@@ -49,20 +36,6 @@ public class PanelExtension extends JPanel implements ActionListener
     private InterfazBolsaDeEmpleo principal;
 
     // -----------------------------------------------------------------
-    // Atributos de la Interfaz
-    // -----------------------------------------------------------------
-
-    /**
-     * Es el botón 1
-     */
-    private JButton botonOpcion1;
-
-    /**
-     * Es el botón 2
-     */
-    private JButton botonOpcion2;
-
-    // -----------------------------------------------------------------
     // Constructores
     // -----------------------------------------------------------------
 
@@ -90,11 +63,14 @@ public class PanelExtension extends JPanel implements ActionListener
         setBorder( new TitledBorder( "Puntos de Extensión" ) );
 
         setLayout( new FlowLayout( ) );
-        botonOpcion1 = new JButton( "Opción 1" );
+
+        // Es el botón 1
+        JButton botonOpcion1 = new JButton( "Opción 1" );
         botonOpcion1.setActionCommand( OPCION_1 );
         botonOpcion1.addActionListener( this );
 
-        botonOpcion2 = new JButton( "Opción 2" );
+        // Es el botón 2
+        JButton botonOpcion2 = new JButton( "Opción 2" );
         botonOpcion2.setActionCommand( OPCION_2 );
         botonOpcion2.addActionListener( this );
 

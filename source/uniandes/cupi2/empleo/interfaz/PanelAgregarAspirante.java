@@ -1,16 +1,3 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * $Id: PanelAgregarAspirante.java,v 1.5 2006/11/23 19:12:57 da-romer Exp $ 
- * Universidad de los Andes (Bogotó - Colombia)
- * Departamento de Ingenieróa de Sistemas y Computación
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n7_empleo
- * Autor: Milena Vela - 21-abr-2006
- * Autor: Daniel Romero - 22-Nov-2006
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
- */
-
 package uniandes.cupi2.empleo.interfaz;
 
 import java.awt.GridBagConstraints;
@@ -61,7 +48,7 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
     /**
      * El combo para seleccionar la profesión del aspirante
      */
-    private JComboBox comboProfesiones;
+    private JComboBox< String > comboProfesiones;
 
     /**
      * Es el campo para los aóos de experiencia del aspirante
@@ -88,46 +75,6 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
      */
     private JTextField txtNombre;
 
-    /**
-     * Esta es la etiqueta para la profesión del aspirante
-     */
-    private JLabel etiquetaProfesion;
-
-    /**
-     * Esta es la etiqueta para los aóos de experiencia del aspirante
-     */
-    private JLabel etiquetaAniosExperiencia;
-
-    /**
-     * Esta es la etiqueta para la imagen del aspirante
-     */
-    private JLabel etiquetaImagen;
-
-    /**
-     * Esta es la etiqueta para el telófono del aspirante
-     */
-    private JLabel etiquetaTelefono;
-
-    /**
-     * Esta es la etiqueta para la edad del aspirante
-     */
-    private JLabel etiquetaEdad;
-
-    /**
-     * Esta es la etiqueta para el nombre del aspirante
-     */
-    private JLabel etiquetaNombre;
-
-    /**
-     * Es el botón que se usa para agregar un aspirante
-     */
-    private JButton botonAgregar;
-
-    /**
-     * Es el botón que se usa para examinar el disco buscando la imagen del aspirante
-     */
-    private JButton botonExaminar;
-
     // -----------------------------------------------------------------
     // Constructores
     // -----------------------------------------------------------------
@@ -136,14 +83,15 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
      * Construye el panel e inicializa sus componentes
      * @param interfaz Es una referencia a la clase principal de la interfaz - interfaz!=null
      */
-    public PanelAgregarAspirante( InterfazBolsaDeEmpleo interfaz )
+    PanelAgregarAspirante( InterfazBolsaDeEmpleo interfaz )
     {
         principal = interfaz;
 
         setLayout( new GridBagLayout( ) );
         setBorder( new TitledBorder( "Agregar Aspirante" ) );
 
-        etiquetaNombre = new JLabel( "Nombre: " );
+        // Esta es la etiqueta para el nombre del aspirante
+        JLabel etiquetaNombre = new JLabel( "Nombre: " );
         GridBagConstraints gbc;
         gbc = new GridBagConstraints( );
         gbc.gridx = 0;
@@ -155,7 +103,8 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
         gbc.gridx = 1;
         add( txtNombre, gbc );
 
-        etiquetaEdad = new JLabel( "Edad: " );
+        // Esta es la etiqueta para la edad del aspirante
+        JLabel etiquetaEdad = new JLabel( "Edad: " );
         gbc.gridx = 0;
         gbc.gridy = 1;
         add( etiquetaEdad, gbc );
@@ -164,16 +113,18 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
         gbc.gridx = 1;
         add( txtEdad, gbc );
 
-        etiquetaProfesion = new JLabel( "Profesión: " );
+        // Esta es la etiqueta para la profesión del aspirante
+        JLabel etiquetaProfesion = new JLabel( "Profesión: " );
         gbc.gridx = 0;
         gbc.gridy = 2;
         add( etiquetaProfesion, gbc );
 
-        comboProfesiones = new JComboBox( PROFESION );
+        comboProfesiones = new JComboBox<>( PROFESION );
         gbc.gridx = 1;
         add( comboProfesiones, gbc );
 
-        etiquetaAniosExperiencia = new JLabel( "Aóos experiencia: " );
+        // Esta es la etiqueta para los aóos de experiencia del aspirante
+        JLabel etiquetaAniosExperiencia = new JLabel( "Aóos experiencia: " );
         gbc.gridx = 0;
         gbc.gridy = 3;
         add( etiquetaAniosExperiencia, gbc );
@@ -182,13 +133,16 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
         gbc.gridx = 1;
         add( txtAniosExperiencia, gbc );
 
-        etiquetaImagen = new JLabel( "Imagen: " );
+        // Esta es la etiqueta para la imagen del aspirante
+        JLabel etiquetaImagen = new JLabel( "Imagen: " );
         gbc.gridx = 0;
         gbc.gridy = 4;
         add( etiquetaImagen, gbc );
 
         txtImagen = new JTextField( "" );
-        botonExaminar = new JButton( "Examinar" );
+
+        // Es el botón que se usa para examinar el disco buscando la imagen del aspirante
+        JButton botonExaminar = new JButton( "Examinar" );
         botonExaminar.setActionCommand( BUSCAR_IMAGEN );
         botonExaminar.addActionListener( this );
         JPanel panelImagen = new JPanel( new GridLayout( 1, 3 ) );
@@ -197,7 +151,8 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
         gbc.gridx = 1;
         add( panelImagen, gbc );
 
-        etiquetaTelefono = new JLabel( "Telófono: " );
+        // Esta es la etiqueta para el telófono del aspirante
+        JLabel etiquetaTelefono = new JLabel( "Telófono: " );
         gbc.gridx = 0;
         gbc.gridy = 5;
         add( etiquetaTelefono, gbc );
@@ -207,7 +162,9 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
         add( txtTelefono, gbc );
 
         JPanel panelBoton = new JPanel( );
-        botonAgregar = new JButton( "Agregar hoja de vida" );
+
+        // Es el botón que se usa para agregar un aspirante
+        JButton botonAgregar = new JButton( "Agregar hoja de vida" );
         botonAgregar.setActionCommand( AGREGAR );
         botonAgregar.addActionListener( this );
         panelBoton.add( botonAgregar );
@@ -241,6 +198,7 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
                 int edad = Integer.parseInt( txtEdad.getText( ) );
                 String nombre = txtNombre.getText( );
 
+                assert profesion != null;
                 if( nombre.equals( "" ) || profesion.equals( "" ) || imagen.equals( "" ) || telefono.equals( "" ) || nombre.equals( " " ) )
                 {
                     JOptionPane.showMessageDialog( this, "Debe ingresar valores en todos los campos", "Error", JOptionPane.ERROR_MESSAGE );

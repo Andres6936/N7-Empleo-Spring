@@ -1,15 +1,3 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * $Id: PanelConsultas.java,v 1.4 2006/11/23 19:12:57 da-romer Exp $ 
- * Universidad de los Andes (Bogotó - Colombia)
- * Departamento de Ingenieróa de Sistemas y Computación
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n7_empleo
- * Autor: Daniel Romero - 17-Nov-2006
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
- */
-
 package uniandes.cupi2.empleo.interfaz;
 
 import java.awt.GridBagConstraints;
@@ -47,35 +35,6 @@ public class PanelConsultas extends JPanel implements ActionListener
     private InterfazBolsaDeEmpleo principal;
 
     // -----------------------------------------------------------------
-    // Atributos de la Interfaz
-    // -----------------------------------------------------------------
-
-    /**
-     * Es el botón para mostrar la información del aspirante mós joven
-     */
-    private JButton botonMasJoven;
-
-    /**
-     * Es el botón mostrar la información del aspirante de mayor edad
-     */
-    private JButton botonMayorEdad;
-
-    /**
-     * Es el botón mostrar la información del aspirante de mayor experiencia
-     */
-    private JButton botonMayorExperiencia;
-
-    /**
-     * Es el botón para realizar una contratación
-     */
-    private JButton botonContratar;
-
-    /**
-     * Es el botón para eliminar los aspirantes po aóos de experiencia
-     */
-    private JButton botonEliminarPorExperiencia;
-
-    // -----------------------------------------------------------------
     // Constructores
     // -----------------------------------------------------------------
 
@@ -83,13 +42,14 @@ public class PanelConsultas extends JPanel implements ActionListener
      * Construye el panel e inicializa sus componentes
      * @param ventanaPrincipal Ventana principal de la aplicación. ventanaPrincipal!=null
      */
-    public PanelConsultas( InterfazBolsaDeEmpleo ventanaPrincipal )
+    PanelConsultas( InterfazBolsaDeEmpleo ventanaPrincipal )
     {
         principal = ventanaPrincipal;
         setLayout( new GridBagLayout( ) );
         setBorder( new TitledBorder( "Consultas" ) );
 
-        botonMasJoven = new JButton( "Mós Joven" );
+        // Es el botón para mostrar la información del aspirante mós joven
+        JButton botonMasJoven = new JButton( "Mós Joven" );
         botonMasJoven.addActionListener( this );
         botonMasJoven.setActionCommand( MAS_JOVEN );
         GridBagConstraints gbc = new GridBagConstraints( );
@@ -99,25 +59,29 @@ public class PanelConsultas extends JPanel implements ActionListener
         gbc.insets = new Insets( 5, 18, 5, 18 );
         add( botonMasJoven, gbc );
 
-        botonMayorEdad = new JButton( "Mayor Edad" );
+        // Es el botón mostrar la información del aspirante de mayor edad
+        JButton botonMayorEdad = new JButton( "Mayor Edad" );
         botonMayorEdad.addActionListener( this );
         botonMayorEdad.setActionCommand( MAYOR_EDAD );
         gbc.gridy = 1;
         add( botonMayorEdad, gbc );
 
-        botonMayorExperiencia = new JButton( "Mayor Experiencia" );
+        // Es el botón mostrar la información del aspirante de mayor experiencia
+        JButton botonMayorExperiencia = new JButton( "Mayor Experiencia" );
         botonMayorExperiencia.addActionListener( this );
         botonMayorExperiencia.setActionCommand( MAYOR_EXPERIENCIA );
         gbc.gridy = 2;
         add( botonMayorExperiencia, gbc );
 
-        botonContratar = new JButton( "Contratar" );
+        // Es el botón para realizar una contratación
+        JButton botonContratar = new JButton( "Contratar" );
         botonContratar.addActionListener( this );
         botonContratar.setActionCommand( CONTRATAR );
         gbc.gridy = 3;
         add( botonContratar, gbc );
 
-        botonEliminarPorExperiencia = new JButton( "Eliminar por Experiencia" );
+        // Es el botón para eliminar los aspirantes po aóos de experiencia
+        JButton botonEliminarPorExperiencia = new JButton( "Eliminar por Experiencia" );
         botonEliminarPorExperiencia.addActionListener( this );
         botonEliminarPorExperiencia.setActionCommand( ELIMINAR_POR_EXPERIENCIA );
         gbc.gridy = 4;

@@ -1,14 +1,3 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * $Id: PanelBusquedaOrdenamiento.java,v 1.4 2006/11/23 19:12:57 da-romer Exp $ 
- * Universidad de los Andes (Bogotó - Colombia)
- * Departamento de Ingenieróa de Sistemas y Computación
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n7_empleo
- * Autor: Daniel Romero - 17-Nov-2006
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
- */
 package uniandes.cupi2.empleo.interfaz;
 
 import java.awt.GridBagConstraints;
@@ -48,26 +37,6 @@ public class PanelBusquedaOrdenamiento extends JPanel implements ActionListener
     // Atributos de la Interfaz
     // -----------------------------------------------------------------
 
-    /**
-     * Es el botón para ordenar la lista de aspirantes por aóos de experiencia
-     */
-    private JButton botonOrdenarAniosExperiencia;
-
-    /**
-     * Es el botón para ordenar la lista de aspirantes por edad
-     */
-    private JButton botonOrdenarEdad;
-
-    /**
-     * Es el botón para ordenar lista de aspirantes por nombre
-     */
-    private JButton botonOrdenarProfesion;
-
-    /**
-     * Es el botón para realizar una bósqueda
-     */
-    private JButton botonBuscar;
-
     // -----------------------------------------------------------------
     // Constructores
     // -----------------------------------------------------------------
@@ -76,13 +45,14 @@ public class PanelBusquedaOrdenamiento extends JPanel implements ActionListener
      * Construye el panel e inicializa todos sus componentes
      * @param interfaz Es una referencia a la clase principal de la interfaz - interfaz != null
      */
-    public PanelBusquedaOrdenamiento( InterfazBolsaDeEmpleo interfaz )
+    PanelBusquedaOrdenamiento( InterfazBolsaDeEmpleo interfaz )
     {
         principal = interfaz;
         setLayout( new GridBagLayout( ) );
         setBorder( new TitledBorder( "Bósqueda y Ordenamiento" ) );
 
-        botonOrdenarAniosExperiencia = new JButton( "Ordenar por experiencia" );
+        // Es el botón para ordenar la lista de aspirantes por aóos de experiencia
+        JButton botonOrdenarAniosExperiencia = new JButton( "Ordenar por experiencia" );
         botonOrdenarAniosExperiencia.setActionCommand( ORDENAR_ANIOSEXPERIENCIA );
         botonOrdenarAniosExperiencia.addActionListener( this );
         GridBagConstraints gbc = new GridBagConstraints( );
@@ -92,19 +62,22 @@ public class PanelBusquedaOrdenamiento extends JPanel implements ActionListener
         gbc.insets = new Insets( 5, 18, 5, 18 );
         add( botonOrdenarAniosExperiencia, gbc );
 
-        botonOrdenarEdad = new JButton( "Ordenar por Edad" );
+        // Es el botón para ordenar la lista de aspirantes por edad
+        JButton botonOrdenarEdad = new JButton( "Ordenar por Edad" );
         botonOrdenarEdad.setActionCommand( ORDENAR_EDAD );
         botonOrdenarEdad.addActionListener( this );
         gbc.gridy = 1;
         add( botonOrdenarEdad, gbc );
 
-        botonOrdenarProfesion = new JButton( "Ordenar por profesión" );
+        // Es el botón para ordenar lista de aspirantes por nombre
+        JButton botonOrdenarProfesion = new JButton( "Ordenar por profesión" );
         botonOrdenarProfesion.setActionCommand( ORDENAR_PROFESION );
         botonOrdenarProfesion.addActionListener( this );
         gbc.gridy = 2;
         add( botonOrdenarProfesion, gbc );
 
-        botonBuscar = new JButton( "Buscar Aspirante" );
+        // Es el botón para realizar una bósqueda
+        JButton botonBuscar = new JButton( "Buscar Aspirante" );
         botonBuscar.setActionCommand( BUSCAR );
         botonBuscar.addActionListener( this );
         gbc.gridy = 3;

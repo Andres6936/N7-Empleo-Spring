@@ -1,17 +1,3 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * $Id: PanelInformacion.java,v 1.9 2007/04/12 03:43:58 carl-veg Exp $ 
- * Universidad de los Andes (Bogotó - Colombia)
- * Departamento de Ingenieróa de Sistemas y Computación
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n7_empleo
- * Autor: Milena Vela - 21-abr-2006
- * Modificación: Silvia de la Torre - 06-jul-2006
- * Autor: Daniel Romero - 22-Nov-2006
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
- */
-
 package uniandes.cupi2.empleo.interfaz;
 
 import java.awt.Color;
@@ -38,7 +24,7 @@ import uniandes.cupi2.empleo.mundo.Aspirante;
 /**
  * Es el panel donde se muestran los datos de un aspirante
  */
-public class PanelInformacion extends JPanel
+class PanelInformacion extends JPanel
 {
     // -----------------------------------------------------------------
     // Constantes
@@ -98,31 +84,6 @@ public class PanelInformacion extends JPanel
     private JTextField txtNombre;
 
     /**
-     * Esta es la etiqueta para la profesión del aspirante
-     */
-    private JLabel etiquetaProfesion;
-
-    /**
-     * Esta es la etiqueta para los aóos de experiencia del aspirante
-     */
-    private JLabel etiquetaAniosExperiencia;
-
-    /**
-     * Esta es la etiqueta para el telófono del aspirante
-     */
-    private JLabel etiquetaTelefono;
-
-    /**
-     * Esta es la etiqueta para la edad del aspirante
-     */
-    private JLabel etiquetaEdad;
-
-    /**
-     * Esta es la etiqueta para el nombre del aspirante
-     */
-    private JLabel etiquetaNombre;
-
-    /**
      * Esta es la etiqueta para la imagen del aspirante
      */
     private JLabel etiquetaImagen;
@@ -134,7 +95,7 @@ public class PanelInformacion extends JPanel
     /**
      * Construye el panel e inicializa sus componentes
      */
-    public PanelInformacion(  )
+    PanelInformacion( )
     {
         setLayout( new GridBagLayout( ) );
         setBorder( new TitledBorder( "Datos del Aspirante" ) );
@@ -158,7 +119,8 @@ public class PanelInformacion extends JPanel
         gbc.insets = new Insets( 0, 0, 0, 10 );
         add( etiquetaImagen, gbc );
 
-        etiquetaNombre = new JLabel( "Nombre: " );
+        // Esta es la etiqueta para el nombre del aspirante
+        JLabel etiquetaNombre = new JLabel( "Nombre: " );
         gbc.gridx = 1;
         gbc.gridheight = 1;
         gbc.insets = new Insets( 0, 0, 5, 0 );
@@ -170,7 +132,8 @@ public class PanelInformacion extends JPanel
         gbc.gridx = 2;
         add( txtNombre, gbc );
 
-        etiquetaEdad = new JLabel( "Edad: " );
+        // Esta es la etiqueta para la edad del aspirante
+        JLabel etiquetaEdad = new JLabel( "Edad: " );
         gbc.gridx = 1;
         gbc.gridy = 1;
         add( etiquetaEdad, gbc );
@@ -181,7 +144,8 @@ public class PanelInformacion extends JPanel
         gbc.gridx = 2;
         add( txtEdad, gbc );
 
-        etiquetaProfesion = new JLabel( "Profesión: " );
+        // Esta es la etiqueta para la profesión del aspirante
+        JLabel etiquetaProfesion = new JLabel( "Profesión: " );
         gbc.gridx = 1;
         gbc.gridy = 2;
         add( etiquetaProfesion, gbc );
@@ -192,7 +156,8 @@ public class PanelInformacion extends JPanel
         gbc.gridx = 2;
         add( txtProfesion, gbc );
 
-        etiquetaAniosExperiencia = new JLabel( "Experiencia: " );
+        // Esta es la etiqueta para los aóos de experiencia del aspirante
+        JLabel etiquetaAniosExperiencia = new JLabel( "Experiencia: " );
         gbc.gridx = 1;
         gbc.gridy = 3;
         add( etiquetaAniosExperiencia, gbc );
@@ -203,7 +168,8 @@ public class PanelInformacion extends JPanel
         gbc.gridx = 2;
         add( txtAniosExperiencia, gbc );
 
-        etiquetaTelefono = new JLabel( "Telófono: " );
+        // Esta es la etiqueta para el telófono del aspirante
+        JLabel etiquetaTelefono = new JLabel( "Telófono: " );
         gbc.gridx = 1;
         gbc.gridy = 4;
         add( etiquetaTelefono, gbc );
@@ -223,20 +189,20 @@ public class PanelInformacion extends JPanel
      * Muestra los datos del aspirante
      * @param aspirante El aspirante del que se quieren mostrar los datos - aspirante != null
      */
-    public void mostrarDatos( Aspirante aspirante )
+    void mostrarDatos( Aspirante aspirante )
     {
         try
         {
             txtProfesion.setText( aspirante.darProfesion( ) );
-            txtAniosExperiencia.setText( String.valueOf( aspirante.darAniosExperiencia( ) + " aóo(s)" ) );
+            txtAniosExperiencia.setText( aspirante.darAniosExperiencia( ) + " año(s)" );
             String imagen = aspirante.darImagen( );
             BufferedImage bImagen;
             bImagen = ImageIO.read( new File( imagen ) );
 
-            Image laImagen = bImagen.getScaledInstance( ( int ) ( ANCHO ), ( int ) ( ALTURA ), Image.SCALE_AREA_AVERAGING );
+            Image laImagen = bImagen.getScaledInstance( ANCHO, ALTURA, Image.SCALE_AREA_AVERAGING );
             etiquetaImagen.setIcon( new ImageIcon( laImagen ) );
             txtTelefono.setText( aspirante.darTelefono( ) );
-            txtEdad.setText( String.valueOf( aspirante.darEdad( ) + " aóos" ) );
+            txtEdad.setText( aspirante.darEdad( ) + " años" );
             txtNombre.setText( aspirante.darNombre( ) );
             validate( );
         }
@@ -250,7 +216,7 @@ public class PanelInformacion extends JPanel
     /**
      * Limpia todos los campos
      */
-    public void limpiarDatos( )
+    void limpiarDatos( )
     {
         txtProfesion.setText( "" );
         txtAniosExperiencia.setText( "" );
