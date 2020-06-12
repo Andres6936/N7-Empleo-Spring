@@ -24,5 +24,5 @@ specified number of years.
 ### Interface
 
 <p align="center">
-    <img src="/docs/Interface.png" alt="Interface" />
+    <img src="/docs/specs/Interface.png" alt="Interface" />
 </p>
