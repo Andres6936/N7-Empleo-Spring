@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import com.formdev.flatlaf.FlatIntelliJLaf;
 import edu.jobs.mundo.Aspirante;
 import edu.jobs.mundo.BolsaDeEmpleo;
 
@@ -466,14 +467,13 @@ public class InterfazBolsaDeEmpleo extends JFrame
      */
     public static void main( String[] args )
     {
-        try
-        {
-            var interfaz = new InterfazBolsaDeEmpleo( ARCHIVO_ASPIRANTES );
-            interfaz.setVisible( true );
-        }
-        catch( Exception e )
-        {
-            e.printStackTrace( );
+        FlatIntelliJLaf.install();
+
+        try {
+            var interfaz = new InterfazBolsaDeEmpleo(ARCHIVO_ASPIRANTES);
+            interfaz.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }
