@@ -7,7 +7,15 @@ plugins {
     // The Application plugin facilitates creating an executable JVM
     // application.
     id 'application'
+
+    // Support to Spring Framework
+    id 'org.springframework.boot' version '2.3.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 }
+
+group = 'edu.jobs'
+version = '2020.0617'
+sourceCompatibility = '11'
 
 // The vast majority of Java projects rely on libraries, so managing a
 // project’s dependencies is an important part of building a Java project.
@@ -26,6 +34,7 @@ repositories {
     // Here is where to look for the modules declared as dependencies.
     // https://bintray.com/bintray/jcenter
     jcenter()
+    mavenCentral()
 }
 
 dependencies {
@@ -38,13 +47,29 @@ dependencies {
 
     // Configuration & Module coordinate:
 
+    // Modify the Look and Feel
     implementation group: 'com.formdev', name: 'flatlaf', version: '0.34'
+
+    // Support to Spring Framework
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Database
+    runtimeOnly 'com.h2database:h2'
+
     testImplementation 'junit:junit:4.12'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
 }
 
 application {
     // Configure the application main class.
     mainClassName = 'edu.jobs.interfaz.InterfazBolsaDeEmpleo'
+}
+
+test {
+    useJUnitPlatform()
 }
 
 // Executes a Java application in a child process.
