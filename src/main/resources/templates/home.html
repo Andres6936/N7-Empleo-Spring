@@ -9,10 +9,54 @@
 </head>
 <body class="container-fluid">
 <div class="col-lg-5 mx-auto">
-    <header>
-        <h1 class="mx-auto">Home Here ... Not work</h1>
-    </header>
 
+    <section class="row row-cols-2" th:object="${applicant}">
+        <h1 class="col-12">Home Here ... Not work</h1>
+
+        <div class="col">
+            <img class="img-thumbnail" th:src="${applicant.darImagen()}" alt="Photo">
+        </div>
+
+        <div class="col">
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Name</span>
+                </div>
+                <input type="text" class="form-control" th:value="${applicant.darNombre()}" readonly>
+            </div>
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Age</span>
+                </div>
+                <input type="text" class="form-control">
+            </div>
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Profession</span>
+                </div>
+                <input type="text" class="form-control">
+            </div>
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Experience</span>
+                </div>
+                <input type="text" class="form-control">
+            </div>
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Telephone</span>
+                </div>
+                <input type="text" class="form-control">
+            </div>
+
+        </div>
+
+    </section>
 
 </div>
 </body>
