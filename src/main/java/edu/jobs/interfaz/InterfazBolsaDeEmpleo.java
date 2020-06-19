@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import edu.jobs.mundo.Aspirante;
 import edu.jobs.mundo.JobExchange;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -62,6 +63,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
 
     public InterfazBolsaDeEmpleo()
     {
+
     }
 
     /**
@@ -71,7 +73,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
      */
     private InterfazBolsaDeEmpleo(String archivoAspirantes)
     {
-        cargarAspirantes(archivoAspirantes);
+        loadApplicants(archivoAspirantes);
         setLayout(new GridBagLayout());
         setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         setTitle( "Bolsa de Empleo" );
@@ -247,13 +249,13 @@ public class InterfazBolsaDeEmpleo extends JFrame
     }
 
     /**
-     * Carga los aspirantes iniciales de la bolsa de empleo a partir de un archivo de propiedades.
-     * @param archivo es el nombre del archivo de propiedades que contiene la información de los aspirantes - nombre!=null
+     * Carga los aspirantes iniciales de la bolsa de empleo a partir de un file de propiedades.
+     * @param file es el nombre del file de propiedades que contiene la información de los aspirantes - nombre!=null
      */
-    private void cargarAspirantes( String archivo )
+    private void loadApplicants(@NotNull String file)
     {
         try {
-            InputStream in = getClass().getClassLoader().getResourceAsStream(archivo);
+            InputStream in = getClass().getClassLoader().getResourceAsStream(file);
             Properties properties = new Properties();
             assert in != null;
             properties.load(in);
@@ -293,13 +295,13 @@ public class InterfazBolsaDeEmpleo extends JFrame
         catch( FileNotFoundException e )
         {
             JOptionPane.showMessageDialog(
-                    this, "No se encontró el archivo para cargar la información de los aspirantes",
+                    this, "No se encontró el file para cargar la información de los aspirantes",
                     "Error", JOptionPane.ERROR_MESSAGE );
         }
         catch( IOException e )
         {
             JOptionPane.showMessageDialog(
-                    this, "El archivo con la información de los aspirantes no tiene el formato esperado",
+                    this, "El file con la información de los aspirantes no tiene el formato esperado",
                     "Error", JOptionPane.ERROR_MESSAGE );
         }
     }
