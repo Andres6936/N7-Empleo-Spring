@@ -379,7 +379,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
         }
         else
         {
-            boolean contratado = jobExchange.contratarAspirante(nombre);
+            boolean contratado = jobExchange.hireApplicant(nombre);
 
             if( !contratado )
             {

@@ -400,7 +400,7 @@ public class JobExchangeTest extends TestCase
         String nombreAspirante = a0.getName();
         bolsa.sortByAge();
 
-        bolsa.contratarAspirante(nombreAspirante);
+        bolsa.hireApplicant(nombreAspirante);
         int posicionEncontrado = bolsa.findApplicant(nombreAspirante);
         assertTrue("No se contrató bien al aspirante", posicionEncontrado == -1);
     }

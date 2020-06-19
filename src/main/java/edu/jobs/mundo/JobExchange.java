@@ -316,10 +316,11 @@ public class JobExchange extends ArrayList<Aspirante>
     /**
      * Contrata a un aspirante.<br>
      * <b>post: </b>Se eliminó el aspirante de la lista de aspirantes.
+     *
      * @param nombre El nombre del aspirante a contratar - nombre!=null
      * @return Se retornó true si el aspirante estaba registrado en la bolsa o false de lo contrario
      */
-    public boolean contratarAspirante( String nombre )
+    public boolean hireApplicant(String nombre)
     {
         boolean contratado = false;
 
