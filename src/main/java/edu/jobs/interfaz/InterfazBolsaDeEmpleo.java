@@ -263,40 +263,32 @@ public class InterfazBolsaDeEmpleo extends JFrame
             propiedades.load( in );
 
             // Cargar los aspirantes
-            String dato;
-            String nombre;
-            String profesion;
-            int experiencia;
-            int edad;
-            String telefono;
-            String imagen;
-            String aux;
-            dato = "total.aspirantes";
-            aux = propiedades.getProperty( dato );
+            String dato = "total.aspirantes";
+            String aux = propiedades.getProperty( dato );
             int cantidad = Integer.parseInt( aux );
 
             for( int cont = 1; cont <= cantidad; cont++ )
             {
                 // Carga un aspirante
                 dato = "aspirante" + cont + ".nombre";
-                nombre = propiedades.getProperty( dato );
+                String nombre = propiedades.getProperty( dato );
 
                 dato = "aspirante" + cont + ".profesion";
-                profesion = propiedades.getProperty( dato );
+                String profesion = propiedades.getProperty( dato );
 
                 dato = "aspirante" + cont + ".experiencia";
                 aux = propiedades.getProperty( dato );
-                experiencia = Integer.parseInt( aux );
+                int experiencia = Integer.parseInt( aux );
 
                 dato = "aspirante" + cont + ".edad";
                 aux = propiedades.getProperty( dato );
-                edad = Integer.parseInt( aux );
+                int edad = Integer.parseInt( aux );
 
                 dato = "aspirante" + cont + ".telefono";
-                telefono = propiedades.getProperty( dato );
+                String telefono = propiedades.getProperty( dato );
 
                 dato = "aspirante" + cont + ".imagen";
-                imagen = propiedades.getProperty( dato );
+                String imagen = propiedades.getProperty( dato );
 
                 // Sólo se carga el aspirante si los datos son correctos
                 if( nombre != null && profesion != null && telefono != null && imagen != null && edad >= 0 && experiencia > 0 )
@@ -305,11 +297,15 @@ public class InterfazBolsaDeEmpleo extends JFrame
         }
         catch( FileNotFoundException e )
         {
-            JOptionPane.showMessageDialog( this, "No se encontró el archivo para cargar la información de los aspirantes", "Error", JOptionPane.ERROR_MESSAGE );
+            JOptionPane.showMessageDialog(
+                    this, "No se encontró el archivo para cargar la información de los aspirantes",
+                    "Error", JOptionPane.ERROR_MESSAGE );
         }
         catch( IOException e )
         {
-            JOptionPane.showMessageDialog( this, "El archivo con la información de los aspirantes no tiene el formato esperado", "Error", JOptionPane.ERROR_MESSAGE );
+            JOptionPane.showMessageDialog(
+                    this, "El archivo con la información de los aspirantes no tiene el formato esperado",
+                    "Error", JOptionPane.ERROR_MESSAGE );
         }
     }
 
