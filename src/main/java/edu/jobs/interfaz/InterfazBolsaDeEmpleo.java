@@ -16,9 +16,13 @@ import com.formdev.flatlaf.FlatIntelliJLaf;
 import edu.jobs.mundo.Aspirante;
 import edu.jobs.mundo.BolsaDeEmpleo;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 /**
  * Es la clase principal de la interfaz
  */
+@SpringBootApplication
 public class InterfazBolsaDeEmpleo extends JFrame
 {
     // -----------------------------------------------------------------
@@ -57,15 +61,20 @@ public class InterfazBolsaDeEmpleo extends JFrame
     // Constructores
     // -----------------------------------------------------------------
 
+    public InterfazBolsaDeEmpleo()
+    {
+    }
+
     /**
      * Construye la interfaz e inicializa todos sus componentes.
+     *
      * @param archivoAspirantes es el nombre del archivo de propiedades que contiene la información de los aspirantes
      */
-    private InterfazBolsaDeEmpleo( String archivoAspirantes )
+    private InterfazBolsaDeEmpleo(String archivoAspirantes)
     {
-        bolsa = new BolsaDeEmpleo( );
-        cargarAspirantes( archivoAspirantes );
-        setLayout( new GridBagLayout( ) );
+        bolsa = new BolsaDeEmpleo();
+        cargarAspirantes(archivoAspirantes);
+        setLayout(new GridBagLayout());
         setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         setTitle( "Bolsa de Empleo" );
         setSize( new Dimension( 760, 585 ) );
@@ -465,16 +474,18 @@ public class InterfazBolsaDeEmpleo extends JFrame
      * Ejecuta la aplicación
      * @param args Son los parómetros de ejecución de la aplicación. No deben usarse.
      */
-    public static void main( String[] args )
+    public static void main( String[] args)
     {
-        FlatIntelliJLaf.install();
+        SpringApplication.run(InterfazBolsaDeEmpleo.class, args);
 
-        try {
-            var interfaz = new InterfazBolsaDeEmpleo(ARCHIVO_ASPIRANTES);
-            interfaz.setVisible(true);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        FlatIntelliJLaf.install();
+//
+//        try {
+//            var interfaz = new InterfazBolsaDeEmpleo(ARCHIVO_ASPIRANTES);
+//            interfaz.setVisible(true);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
     }
 
