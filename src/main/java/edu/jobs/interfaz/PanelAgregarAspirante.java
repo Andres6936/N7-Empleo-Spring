@@ -1,10 +1,16 @@
 package edu.jobs.interfaz;
 
+import edu.jobs.mundo.Profession;
+
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -14,8 +20,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
-
-import edu.jobs.mundo.Aspirante;
 
 /**
  * Este es el panel donde se agregan aspirantes
@@ -30,8 +34,6 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
 
     private static final String BUSCAR_IMAGEN = "BuscarImagen";
 
-    private static final String[] PROFESION = new String[]{ Aspirante.ADMINISTRADOR, Aspirante.CONTADOR, Aspirante.ECONOMISTA, Aspirante.INGENIERO_INDUSTRIAL };
-
     // -----------------------------------------------------------------
     // Atributos
     // -----------------------------------------------------------------
@@ -39,7 +41,7 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
     /**
      * Es una referencia a la clase principal de la interfaz
      */
-    private InterfazBolsaDeEmpleo principal;
+    private final InterfazBolsaDeEmpleo principal;
 
     // -----------------------------------------------------------------
     // Atributos de la Interfaz
@@ -48,32 +50,32 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
     /**
      * El combo para seleccionar la profesión del aspirante
      */
-    private JComboBox< String > comboProfesiones;
+    private final JComboBox<Profession> comboProfesiones;
 
     /**
      * Es el campo para los aóos de experiencia del aspirante
      */
-    private JTextField txtAniosExperiencia;
+    private final JTextField txtAniosExperiencia;
 
     /**
      * Es el campo para la imagen del aspirante
      */
-    private JTextField txtImagen;
+    private final JTextField txtImagen;
 
     /**
      * Es el campo para el telófono del aspirante
      */
-    private JTextField txtTelefono;
+    private final JTextField txtTelefono;
 
     /**
      * Es el campo para la edad del aspirante
      */
-    private JTextField txtEdad;
+    private final JTextField txtEdad;
 
     /**
      * Es el campo para el nombre del aspirante
      */
-    private JTextField txtNombre;
+    private final JTextField txtNombre;
 
     // -----------------------------------------------------------------
     // Constructores
@@ -119,7 +121,7 @@ public class PanelAgregarAspirante extends JPanel implements ActionListener
         gbc.gridy = 2;
         add( etiquetaProfesion, gbc );
 
-        comboProfesiones = new JComboBox<>( PROFESION );
+        comboProfesiones = new JComboBox<>(Profession.values());
         gbc.gridx = 1;
         add( comboProfesiones, gbc );
 
