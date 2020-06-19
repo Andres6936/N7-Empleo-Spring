@@ -14,37 +14,13 @@ public class Aspirante
 {
 
     // -----------------------------------------------------------------
-    // Constantes
+    // Fields
     // -----------------------------------------------------------------
 
     /**
-     * Indica que la profesión es ADMINISTRADOR
+     * The applicant's name
      */
-    public static final String ADMINISTRADOR = "Administrador";
-
-    /**
-     * Indica que la profesión es INGENIERO INDUSTRIAL
-     */
-    public static final String INGENIERO_INDUSTRIAL = "Ingeniero Industrial";
-
-    /**
-     * Indica que la profesión es contador
-     */
-    public static final String CONTADOR = "Contador";
-
-    /**
-     * Indica que la profesión es economista
-     */
-    public static final String ECONOMISTA = "Economista";
-
-    // -----------------------------------------------------------------
-    // Atributos
-    // -----------------------------------------------------------------
-
-    /**
-     * El nombre del aspirante
-     */
-    private final String nombre;
+    private final String name;
 
     /**
      * The applicant's profession
@@ -52,24 +28,24 @@ public class Aspirante
     private final Profession profession;
 
     /**
-     * Los aóos de experiencia del aspirante
+     * The applicant's experience in years
      */
-    private final int aniosExperiencia;
+    private final int experienceYears;
 
     /**
-     * La edad del aspirante
+     * The applicant's age
      */
-    private final int edad;
+    private final int age;
 
     /**
-     * El telófono del aspirante
+     * The applicant's telephone
      */
-    private final String telefono;
+    private final String telephone;
 
     /**
-     * La ruta de la imagen del aspirante
+     * The applicant's image
      */
-    private final String imagen;
+    private final String image;
 
     // -----------------------------------------------------------------
     // Constructores
@@ -87,12 +63,12 @@ public class Aspirante
      */
     public Aspirante(String nombreA, Profession profesionA, int aniosExperienciaA, int edadA, String telefonoA, String imagenA)
     {
-        nombre = nombreA;
+        name = nombreA;
         profession = profesionA;
-        aniosExperiencia = aniosExperienciaA;
-        edad = edadA;
-        telefono = telefonoA;
-        imagen = imagenA;
+        experienceYears = aniosExperienciaA;
+        age = edadA;
+        telephone = telefonoA;
+        image = imagenA;
 
         verificarInvariante();
     }
@@ -107,7 +83,7 @@ public class Aspirante
      */
     public String darNombre( )
     {
-        return nombre;
+        return name;
     }
 
     /**
@@ -125,7 +101,7 @@ public class Aspirante
      */
     public int darAniosExperiencia( )
     {
-        return aniosExperiencia;
+        return experienceYears;
     }
 
     /**
@@ -134,7 +110,7 @@ public class Aspirante
      */
     public int darEdad( )
     {
-        return edad;
+        return age;
     }
 
     /**
@@ -143,7 +119,7 @@ public class Aspirante
      */
     public String darTelefono( )
     {
-        return telefono;
+        return telephone;
     }
 
     /**
@@ -152,7 +128,7 @@ public class Aspirante
      */
     public String darImagen( )
     {
-        return imagen;
+        return image;
     }
 
     /**
@@ -164,7 +140,7 @@ public class Aspirante
      */
     public int compararPorNombre( Aspirante a )
     {
-        int resultado = nombre.compareToIgnoreCase( a.nombre );
+        int resultado = name.compareToIgnoreCase(a.name);
         return Integer.compare( resultado, 0 );
     }
 
@@ -190,7 +166,7 @@ public class Aspirante
      */
     public int compararPorAniosExperiencia( Aspirante a )
     {
-        return Integer.compare( aniosExperiencia, a.darAniosExperiencia( ) );
+        return Integer.compare(experienceYears, a.darAniosExperiencia());
     }
 
     /**
@@ -202,7 +178,7 @@ public class Aspirante
      */
     public int compararPorEdad( Aspirante a )
     {
-        return Integer.compare( edad, a.darEdad( ) );
+        return Integer.compare(age, a.darEdad());
     }
 
     /**
@@ -211,7 +187,7 @@ public class Aspirante
      */
     public String toString( )
     {
-        return nombre + " - " + profession;
+        return name + " - " + profession;
     }
 
     // -----------------------------------------------------------------
@@ -229,11 +205,11 @@ public class Aspirante
      */
     private void verificarInvariante( )
     {
-        assert ( nombre != null ) : "nombre no puede ser null";
-        assert ( aniosExperiencia > 0 ) : "aniosExperiencia no puede ser 0";
-        assert ( edad > 0 ) : "edad no puede ser 0";
-        assert ( telefono != null ) : "telefono no puede ser null";
-        assert ( imagen != null ) : "imagen no puede ser null";
+        assert (name != null) : "nombre no puede ser null";
+        assert (experienceYears > 0) : "aniosExperiencia no puede ser 0";
+        assert (age > 0) : "edad no puede ser 0";
+        assert (telephone != null) : "telefono no puede ser null";
+        assert (image != null) : "imagen no puede ser null";
 
     }
 }

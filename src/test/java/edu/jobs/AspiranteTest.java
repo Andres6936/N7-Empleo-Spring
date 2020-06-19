@@ -50,9 +50,9 @@ public class AspiranteTest extends TestCase
     {
         setupEscenario1( );
 
-        assertEquals( "El nombre del aspirante estó equivocado", "nombre1", aspirante1.darNombre( ) );
-        assertEquals( "La profesión del aspirante estó equivocada", Aspirante.ADMINISTRADOR, aspirante1.darProfesion( ) );
-        assertEquals( "Los aóos de experiencia no son correctos", 10, aspirante1.darAniosExperiencia( ) );
+        assertEquals("El nombre del aspirante estó equivocado", "nombre1", aspirante1.darNombre());
+        assertEquals("La profesión del aspirante estó equivocada", Profession.ADMINISTRATOR, aspirante1.darProfesion());
+        assertEquals("Los aóos de experiencia no son correctos", 10, aspirante1.darAniosExperiencia());
         assertEquals( "La edad del aspirante no es correcta", 35, aspirante1.darEdad( ) );
         assertEquals( "El telófono del aspirante estó equivocado", "1234567", aspirante1.darTelefono( ) );
         assertEquals( "La imagen del aspirante estó equivocada", "imagen1", aspirante1.darImagen( ) );

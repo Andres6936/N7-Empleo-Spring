@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import edu.jobs.mundo.Profession;
 import junit.framework.TestCase;
 import edu.jobs.mundo.Aspirante;
 import edu.jobs.mundo.BolsaDeEmpleo;
@@ -89,7 +90,7 @@ public class BolsaDeEmpleoTest extends TestCase
         for( int cont = 1; cont <= cantidadAspirantes; cont++ )
         {
             nombre = "nombre" + cont;
-            profesion = Aspirante.INGENIERO_INDUSTRIAL;
+            profesion = Profession.INDUSTRIAL_ENGINEER.name();
             experiencia = cont;
             edad = cont;
             telefono = "telefono" + cont;
