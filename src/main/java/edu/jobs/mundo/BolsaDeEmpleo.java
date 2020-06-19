@@ -47,7 +47,7 @@ public class BolsaDeEmpleo extends ArrayList<Aspirante>
                 Aspirante a2 = get(j + 1);
 
                 // Si es necesario se deben intercambiar a1 y a2
-                if (a1.compararPorNombre(a2) > 0) {
+                if (a1.compareByName(a2) > 0) {
                     set(j, a2);
                     set(j + 1, a1);
                 }
@@ -77,7 +77,7 @@ public class BolsaDeEmpleo extends ArrayList<Aspirante>
                 Aspirante aspirantePosicion = get(i);
 
                 // El aspirante de la posicion actual es menor que el menor encontrado hasta el momento
-                if (aspirantePosicion.compararPorEdad(aspiranteMenor) < 0) {
+                if (aspirantePosicion.compareByAge(aspiranteMenor) < 0) {
                     aspiranteMenor = aspirantePosicion;
                     posicionMenor = i;
                 }
@@ -105,7 +105,7 @@ public class BolsaDeEmpleo extends ArrayList<Aspirante>
                 Aspirante a2 = get(j + 1);
 
                 // Si es necesario se deben intercambiar a1 y a2
-                if (a1.compararPorProfesion(a2) > 0) {
+                if (a1.compareByProfession(a2) > 0) {
                     set(j, a2);
                     set(j + 1, a1);
                 }
@@ -137,14 +137,13 @@ public class BolsaDeEmpleo extends ArrayList<Aspirante>
                 // Si encuentra un cilindraje mayor, entonces hay que intercambiarlos
                 Aspirante aspirantePosicion = get(i);
 
-                if( aspirantePosicion.compararPorAniosExperiencia( insertado ) > 0 ) {
+                if (aspirantePosicion.compareByExperienceYears(insertado) > 0) {
                     set(i, insertado);
                     set(i + 1, aspirantePosicion);
                     i--;
                 }
                 // Si se encuentra un cilindraje igual o menor entonces ya se encontró la posición
-                else
-                {
+                else {
                     termine = true;
                 }
 
@@ -199,18 +198,14 @@ public class BolsaDeEmpleo extends ArrayList<Aspirante>
         {
             int medio = (inicio + fin) / 2;
             Aspirante mitad = get(medio);
-            if( mitad.compararPorNombre( aBuscar ) == 0 )
-            {
+            if (mitad.compareByName(aBuscar) == 0) {
                 posicion = medio;
-            }
-            else if( mitad.compararPorNombre( aBuscar ) > 0 )
-            {
-                fin = medio - 1;
-            }
-            else
-            {
-                inicio = medio + 1;
-            }
+            } else
+                if (mitad.compareByName(aBuscar) > 0) {
+                    fin = medio - 1;
+                } else {
+                    inicio = medio + 1;
+                }
         }
         return posicion;
     }
@@ -257,7 +252,7 @@ public class BolsaDeEmpleo extends ArrayList<Aspirante>
             for (int i = 1; i < size(); i++) {
                 Aspirante aspirantePosicion = get(i);
 
-                if (aMenorEdad.compararPorEdad(aspirantePosicion) == 1) {
+                if (aMenorEdad.compareByAge(aspirantePosicion) == 1) {
                     posicion = i;
                     aMenorEdad = aspirantePosicion;
                 }
@@ -281,7 +276,7 @@ public class BolsaDeEmpleo extends ArrayList<Aspirante>
             for (int i = 1; i < size(); i++) {
                 Aspirante aspirantePosicion = get(i);
 
-                if (aMayorEdad.compararPorEdad(aspirantePosicion) == -1) {
+                if (aMayorEdad.compareByAge(aspirantePosicion) == -1) {
                     posicion = i;
                     aMayorEdad = aspirantePosicion;
                 }
@@ -305,7 +300,7 @@ public class BolsaDeEmpleo extends ArrayList<Aspirante>
             for (int i = 1; i < size(); i++) {
                 Aspirante aspirantePosicion = get(i);
 
-                if (aMayorExp.compararPorAniosExperiencia(aspirantePosicion) == -1) {
+                if (aMayorExp.compareByExperienceYears(aspirantePosicion) == -1) {
                     posicion = i;
                     aMayorExp = aspirantePosicion;
                 }

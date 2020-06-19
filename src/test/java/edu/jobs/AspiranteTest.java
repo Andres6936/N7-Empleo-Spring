@@ -70,11 +70,11 @@ public class AspiranteTest extends TestCase
      */
     public void testCompararPorNombre( )
     {
-        setupEscenario1( );
+        setupEscenario1();
 
-        assertEquals( "El aspirante 1 deberóa ser menor", - 1, aspirante1.compararPorNombre( aspirante2 ) );
-        assertEquals( "El aspirante 1 y el aspirante 1 deberóan ser iguales", 0, aspirante1.compararPorNombre( aspirante1 ) );
-        assertEquals( "El aspirante 2 deberóa ser mayor", 1, aspirante2.compararPorNombre( aspirante1 ) );
+        assertEquals("El aspirante 1 deberóa ser menor", -1, aspirante1.compareByName(aspirante2));
+        assertEquals("El aspirante 1 y el aspirante 1 deberóan ser iguales", 0, aspirante1.compareByName(aspirante1));
+        assertEquals("El aspirante 2 deberóa ser mayor", 1, aspirante2.compareByName(aspirante1));
     }
 
     /**
@@ -90,11 +90,11 @@ public class AspiranteTest extends TestCase
 
     public void testCompararPorAniosExperiencia( )
     {
-        setupEscenario1( );
+        setupEscenario1();
 
-        assertEquals( "El aspirante 1 deberóa ser menor", - 1, aspirante1.compararPorAniosExperiencia( aspirante2 ) );
-        assertEquals( "El aspirante 1 y el aspirante 1 deberóan ser iguales", 0, aspirante1.compararPorAniosExperiencia( aspirante1 ) );
-        assertEquals( "El aspirante 2 deberóa ser mayor", 1, aspirante2.compararPorAniosExperiencia( aspirante1 ) );
+        assertEquals("El aspirante 1 deberóa ser menor", -1, aspirante1.compareByExperienceYears(aspirante2));
+        assertEquals("El aspirante 1 y el aspirante 1 deberóan ser iguales", 0, aspirante1.compareByExperienceYears(aspirante1));
+        assertEquals("El aspirante 2 deberóa ser mayor", 1, aspirante2.compareByExperienceYears(aspirante1));
     }
 
     /**
@@ -109,11 +109,11 @@ public class AspiranteTest extends TestCase
      */
     public void testCompararPorEdad( )
     {
-        setupEscenario1( );
+        setupEscenario1();
 
-        assertEquals( "El aspirante 1 deberóa ser menor", - 1, aspirante1.compararPorEdad( aspirante2 ) );
-        assertEquals( "El aspirante 1 y el aspirante 1 deberóan ser iguales", 0, aspirante1.compararPorEdad( aspirante1 ) );
-        assertEquals( "El aspirante 2 deberóa ser mayor", 1, aspirante2.compararPorEdad( aspirante1 ) );
+        assertEquals("El aspirante 1 deberóa ser menor", -1, aspirante1.compareByAge(aspirante2));
+        assertEquals("El aspirante 1 y el aspirante 1 deberóan ser iguales", 0, aspirante1.compareByAge(aspirante1));
+        assertEquals("El aspirante 2 deberóa ser mayor", 1, aspirante2.compareByAge(aspirante1));
     }
 
     /**
@@ -128,11 +128,11 @@ public class AspiranteTest extends TestCase
      */
     public void testCompararPorProfesion( )
     {
-        setupEscenario1( );
+        setupEscenario1();
 
-        assertEquals( "El aspirante 1 deberóa ser menor", - 1, aspirante1.compararPorProfesion( aspirante2 ) );
-        assertEquals( "El aspirante 1 y el aspirante 1 deberóan ser iguales", 0, aspirante1.compararPorProfesion( aspirante1 ) );
-        assertEquals( "El aspirante 2 deberóa ser mayor", 1, aspirante2.compararPorProfesion( aspirante1 ) );
+        assertEquals("El aspirante 1 deberóa ser menor", -1, aspirante1.compareByProfession(aspirante2));
+        assertEquals("El aspirante 1 y el aspirante 1 deberóan ser iguales", 0, aspirante1.compareByProfession(aspirante1));
+        assertEquals("El aspirante 2 deberóa ser mayor", 1, aspirante2.compareByProfession(aspirante1));
     }
 
 }

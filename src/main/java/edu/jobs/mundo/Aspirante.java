@@ -13,9 +13,7 @@ package edu.jobs.mundo;
 public class Aspirante
 {
 
-    // -----------------------------------------------------------------
     // Fields
-    // -----------------------------------------------------------------
 
     /**
      * The applicant's name
@@ -47,9 +45,7 @@ public class Aspirante
      */
     private final String image;
 
-    // -----------------------------------------------------------------
-    // Constructores
-    // -----------------------------------------------------------------
+    // Constructs
 
     /**
      * Construye un nuevo aspirante con los parómetros indicados
@@ -73,9 +69,7 @@ public class Aspirante
         verificarInvariante();
     }
 
-    // -----------------------------------------------------------------
-    // Mótodos
-    // -----------------------------------------------------------------
+    // Getters
 
     /**
      * Retorna el nombre del aspirante
@@ -139,15 +133,16 @@ public class Aspirante
 
     /**
      * Compara dos aspirantes segón el nombre. <br>
+     *
      * @param a es el aspirante contra el que se estó comparando - a !=null
      * @return Retorna 0 si los aspirantes tienen el mismo nombre. <br>
-     *         Retorna -1 si el aspirante a tiene una valor mayor lexicogróficamente para el nombre. <br>
-     *         Retorna 1 si el aspirante a tiene una valor menor lexicogróficamente para el nombre. <br>
+     * Retorna -1 si el aspirante a tiene una valor mayor lexicogróficamente para el nombre. <br>
+     * Retorna 1 si el aspirante a tiene una valor menor lexicogróficamente para el nombre. <br>
      */
-    public int compararPorNombre( Aspirante a )
+    public int compareByName(Aspirante a)
     {
         int resultado = name.compareToIgnoreCase(a.name);
-        return Integer.compare( resultado, 0 );
+        return Integer.compare(resultado, 0);
     }
 
     /**
@@ -157,10 +152,10 @@ public class Aspirante
      *         Retorna -1 si el aspirante a tiene una valor mayor lexicogróficamente para la profesión. <br>
      *         Retorna 1 si el aspirantes a tiene una valor menor lexicogróficamente para la profesión. <br>
      */
-    public int compararPorProfesion(Aspirante a)
+    public int compareByProfession(Aspirante a)
     {
-        int resultado = profession.name().compareToIgnoreCase( a.getProfessionName( ) );
-        return Integer.compare( resultado, 0 );
+        int resultado = profession.name().compareToIgnoreCase(a.getProfessionName());
+        return Integer.compare(resultado, 0);
     }
 
     /**
@@ -170,7 +165,7 @@ public class Aspirante
      *         Retorna -1 si el aspirante a tiene mós aóos de experiencia. <br>
      *         Retorna 1 si el aspirante a tiene menos aóos de experiencia. <br>
      */
-    public int compararPorAniosExperiencia(Aspirante a)
+    public int compareByExperienceYears(Aspirante a)
     {
         return Integer.compare(experienceYears, a.getExperienceYears());
     }
@@ -182,7 +177,7 @@ public class Aspirante
      *         Retorna -1 si el aspirante a es mayor. <br>
      *         Retorna 1 si el aspirantes a es menor. <br>
      */
-    public int compararPorEdad(Aspirante a)
+    public int compareByAge(Aspirante a)
     {
         return Integer.compare(age, a.getAge());
     }
