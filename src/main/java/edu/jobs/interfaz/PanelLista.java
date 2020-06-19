@@ -127,7 +127,7 @@ public class PanelLista extends JPanel implements ListSelectionListener
         if( listaAspirantes.getSelectedValue( ) != null )
         {
             Aspirante aspiranteSeleccionado = listaAspirantes.getSelectedValue( );
-            nombre = aspiranteSeleccionado.darNombre( );
+            nombre = aspiranteSeleccionado.getName();
         }
 
         return nombre;

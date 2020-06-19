@@ -79,54 +79,60 @@ public class Aspirante
 
     /**
      * Retorna el nombre del aspirante
+     *
      * @return nombre
      */
-    public String darNombre( )
+    public String getName()
     {
         return name;
     }
 
     /**
      * Retorna la profesión del aspirante
+     *
      * @return profesion
      */
-    public String darProfesion( )
+    public String getProfessionName()
     {
         return profession.name();
     }
 
     /**
      * Retorna los aóos de experiencia del aspirante
+     *
      * @return aniosExperiencia
      */
-    public int darAniosExperiencia( )
+    public int getExperienceYears()
     {
         return experienceYears;
     }
 
     /**
      * Retorna la edad del aspirante
+     *
      * @return edad
      */
-    public int darEdad( )
+    public int getAge()
     {
         return age;
     }
 
     /**
      * Retorna el telófono del aspirante
+     *
      * @return telefono
      */
-    public String darTelefono( )
+    public String getTelephone()
     {
         return telephone;
     }
 
     /**
      * Retorna la ruta de la imagen del aspirante
+     *
      * @return imagen
      */
-    public String darImagen( )
+    public String getImage()
     {
         return image;
     }
@@ -153,7 +159,7 @@ public class Aspirante
      */
     public int compararPorProfesion(Aspirante a)
     {
-        int resultado = profession.name().compareToIgnoreCase( a.darProfesion( ) );
+        int resultado = profession.name().compareToIgnoreCase( a.getProfessionName( ) );
         return Integer.compare( resultado, 0 );
     }
 
@@ -164,9 +170,9 @@ public class Aspirante
      *         Retorna -1 si el aspirante a tiene mós aóos de experiencia. <br>
      *         Retorna 1 si el aspirante a tiene menos aóos de experiencia. <br>
      */
-    public int compararPorAniosExperiencia( Aspirante a )
+    public int compararPorAniosExperiencia(Aspirante a)
     {
-        return Integer.compare(experienceYears, a.darAniosExperiencia());
+        return Integer.compare(experienceYears, a.getExperienceYears());
     }
 
     /**
@@ -176,9 +182,9 @@ public class Aspirante
      *         Retorna -1 si el aspirante a es mayor. <br>
      *         Retorna 1 si el aspirantes a es menor. <br>
      */
-    public int compararPorEdad( Aspirante a )
+    public int compararPorEdad(Aspirante a)
     {
-        return Integer.compare(age, a.darEdad());
+        return Integer.compare(age, a.getAge());
     }
 
     /**

@@ -7,8 +7,6 @@ import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Insets;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
 
 import javax.imageio.ImageIO;
@@ -192,28 +190,25 @@ class PanelInformacion extends JPanel
      */
     void mostrarDatos( Aspirante aspirante )
     {
-        txtProfesion.setText( aspirante.darProfesion( ) );
-        txtAniosExperiencia.setText( aspirante.darAniosExperiencia( ) + " año(s)" );
-        String imagen = aspirante.darImagen( );
+        txtProfesion.setText(aspirante.getProfessionName());
+        txtAniosExperiencia.setText(aspirante.getExperienceYears() + " año(s)");
+        String imagen = aspirante.getImage();
         BufferedImage bImagen;
-        InputStream in = getClass( ).getClassLoader( ).getResourceAsStream( imagen );
+        InputStream in = getClass().getClassLoader().getResourceAsStream(imagen);
 
-        try
-        {
+        try {
             assert in != null;
-            bImagen = ImageIO.read( in );
-            Image laImagen = bImagen.getScaledInstance( ANCHO, ALTURA, Image.SCALE_AREA_AVERAGING );
-            etiquetaImagen.setIcon( new ImageIcon( laImagen ) );
-        }
-        catch ( Exception e )
-        {
-            JOptionPane.showMessageDialog( this, "Error al cargar la imagen del aspirante " + aspirante.darNombre( ), "Error", JOptionPane.ERROR_MESSAGE );
+            bImagen = ImageIO.read(in);
+            Image laImagen = bImagen.getScaledInstance(ANCHO, ALTURA, Image.SCALE_AREA_AVERAGING);
+            etiquetaImagen.setIcon(new ImageIcon(laImagen));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al cargar la imagen del aspirante " + aspirante.getName(), "Error", JOptionPane.ERROR_MESSAGE);
         }
 
-        txtTelefono.setText( aspirante.darTelefono( ) );
-        txtEdad.setText( aspirante.darEdad( ) + " años" );
-        txtNombre.setText( aspirante.darNombre( ) );
-        validate( );
+        txtTelefono.setText(aspirante.getTelephone());
+        txtEdad.setText(aspirante.getAge() + " años");
+        txtNombre.setText(aspirante.getName());
+        validate();
     }
 
     /**

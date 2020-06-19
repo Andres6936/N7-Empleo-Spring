@@ -170,7 +170,7 @@ public class BolsaDeEmpleo extends ArrayList<Aspirante>
 
         for (int i = 0; i < size() && !termine; i++) {
             Aspirante aspirantePosicion = get(i);
-            String nombreAspirante = aspirantePosicion.darNombre();
+            String nombreAspirante = aspirantePosicion.getName();
 
             // Los nombres son iguales
             if (nombreAspirante.equalsIgnoreCase(nombre)) {
@@ -353,7 +353,7 @@ public class BolsaDeEmpleo extends ArrayList<Aspirante>
         while (cont < size()) {
             Aspirante aspirante = get(cont);
 
-            if (aspirante.darAniosExperiencia() < aniosExperiencia) {
+            if (aspirante.getExperienceYears() < aniosExperiencia) {
                 remove(cont);
                 eliminados++;
             } else {
@@ -392,7 +392,7 @@ public class BolsaDeEmpleo extends ArrayList<Aspirante>
             for (int j = 0; j < size(); j++) {
                 if (i != j) {
                     Aspirante aspiranteJ = get(j);
-                    if (aspiranteJ.darNombre().equals(aspiranteI.darNombre())) {
+                    if (aspiranteJ.getName().equals(aspiranteI.getName())) {
                         return true;
                     }
                 }

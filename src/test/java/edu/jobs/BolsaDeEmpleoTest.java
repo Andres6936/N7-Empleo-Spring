@@ -96,18 +96,18 @@ public class BolsaDeEmpleoTest extends TestCase
             telefono = "telefono" + cont;
             imagen = "imagen" + cont;
 
-            agregado = bolsa.agregarAspirante( nombre, profesion, experiencia, edad, telefono, imagen );
-            int pos = bolsa.buscarAspirante( nombre );
-            Aspirante aspirante = bolsa.darAspirantes( ).get( pos );
+            agregado = bolsa.agregarAspirante(nombre, profesion, experiencia, edad, telefono, imagen);
+            int pos = bolsa.buscarAspirante(nombre);
+            Aspirante aspirante = bolsa.darAspirantes().get(pos);
 
-            assertTrue( "El aspirante no se agregó de forma correcta", agregado );
-            assertEquals( "El aspirante no se agregó de forma correcta", cont - 1, pos );
-            assertEquals( "El aspirante no se agregó de forma correcta", nombre, aspirante.darNombre( ) );
-            assertEquals( "El aspirante no se agregó de forma correcta", profesion, aspirante.darProfesion( ) );
-            assertEquals( "El aspirante no se agregó de forma correcta", experiencia, aspirante.darAniosExperiencia( ) );
-            assertEquals( "El aspirante no se agregó de forma correcta", edad, aspirante.darEdad( ) );
-            assertEquals( "El aspirante no se agregó de forma correcta", telefono, aspirante.darTelefono( ) );
-            assertEquals( "El aspirante no se agregó de forma correcta", imagen, aspirante.darImagen( ) );
+            assertTrue("El aspirante no se agregó de forma correcta", agregado);
+            assertEquals("El aspirante no se agregó de forma correcta", cont - 1, pos);
+            assertEquals("El aspirante no se agregó de forma correcta", nombre, aspirante.getName());
+            assertEquals("El aspirante no se agregó de forma correcta", profesion, aspirante.getProfessionName());
+            assertEquals("El aspirante no se agregó de forma correcta", experiencia, aspirante.getExperienceYears());
+            assertEquals("El aspirante no se agregó de forma correcta", edad, aspirante.getAge());
+            assertEquals("El aspirante no se agregó de forma correcta", telefono, aspirante.getTelephone());
+            assertEquals("El aspirante no se agregó de forma correcta", imagen, aspirante.getImage());
         }
     }
 
@@ -125,8 +125,8 @@ public class BolsaDeEmpleoTest extends TestCase
         setupEscenario1( );
 
         ArrayList aspirantes = bolsa.darAspirantes( );
-        Aspirante a = ( Aspirante )aspirantes.get( 0 );
-        String nombreAspirante = a.darNombre( );
+        Aspirante a = (Aspirante)aspirantes.get(0);
+        String nombreAspirante = a.getName();
 
         int i = Integer.parseInt( nombreAspirante );
         boolean agregado = bolsa.agregarAspirante( nombreAspirante, nombreAspirante, i, i, nombreAspirante, nombreAspirante );
@@ -140,23 +140,22 @@ public class BolsaDeEmpleoTest extends TestCase
         String imagen;
 
         // Busca un aspirante y verifica que sus datos estón correctos
-        for( int cont = 0; cont < cantidadAspirantes; cont++ )
-        {
-            nombre = "" + ( cont + 1 );
+        for( int cont = 0; cont < cantidadAspirantes; cont++ ) {
+            nombre = "" + (cont + 1);
             profesion = "Administrador";
             experiencia = cont + 1;
             edad = cont + 1;
-            telefono = "" + ( cont + 1 );
-            imagen = "" + ( cont + 1 );
+            telefono = "" + (cont + 1);
+            imagen = "" + (cont + 1);
 
-            Aspirante aspirante = ( Aspirante )bolsa.darAspirantes( ).get( cont );
+            Aspirante aspirante = (Aspirante)bolsa.darAspirantes().get(cont);
 
-            assertEquals( "El aspirante no se agregó de forma correcta", nombre, aspirante.darNombre( ) );
-            assertEquals( "El aspirante no se agregó de forma correcta", profesion, aspirante.darProfesion( ) );
-            assertEquals( "El aspirante no se agregó de forma correcta", experiencia, aspirante.darAniosExperiencia( ) );
-            assertEquals( "El aspirante no se agregó de forma correcta", edad, aspirante.darEdad( ) );
-            assertEquals( "El aspirante no se agregó de forma correcta", telefono, aspirante.darTelefono( ) );
-            assertEquals( "El aspirante no se agregó de forma correcta", imagen, aspirante.darImagen( ) );
+            assertEquals("El aspirante no se agregó de forma correcta", nombre, aspirante.getName());
+            assertEquals("El aspirante no se agregó de forma correcta", profesion, aspirante.getProfessionName());
+            assertEquals("El aspirante no se agregó de forma correcta", experiencia, aspirante.getExperienceYears());
+            assertEquals("El aspirante no se agregó de forma correcta", edad, aspirante.getAge());
+            assertEquals("El aspirante no se agregó de forma correcta", telefono, aspirante.getTelephone());
+            assertEquals("El aspirante no se agregó de forma correcta", imagen, aspirante.getImage());
         }
 
     }
@@ -178,8 +177,8 @@ public class BolsaDeEmpleoTest extends TestCase
 
         bolsa.ordenarPorEdad( );
         ArrayList aspirantes = bolsa.darAspirantes( );
-        Aspirante a0 = ( Aspirante )aspirantes.get( 0 );
-        String nombreAspirante = a0.darNombre( );
+        Aspirante a0 = (Aspirante)aspirantes.get(0);
+        String nombreAspirante = a0.getName();
         bolsa.ordenarPorProfesion( );
 
         int posicion = bolsa.buscarAspirante( nombreAspirante );
@@ -187,7 +186,7 @@ public class BolsaDeEmpleoTest extends TestCase
 
         aspirantes = bolsa.darAspirantes( );
         Aspirante an = ( Aspirante )aspirantes.get( posicion );
-        assertEquals( "No se encontró el aspirante buscado", an.darNombre( ), nombreAspirante );
+        assertEquals("No se encontró el aspirante buscado", an.getName(), nombreAspirante);
 
         posicion = bolsa.buscarAspirante( "el aspirante no existe" );
         assertEquals( "No se encontró el aspirante buscado", - 1, posicion );
@@ -212,34 +211,34 @@ public class BolsaDeEmpleoTest extends TestCase
         ArrayList aspirantes = bolsa.darAspirantes( );
 
         // Busca el primer aspirante
-        Aspirante aspirante = ( Aspirante )aspirantes.get( 0 );
-        String nombreAspirante = aspirante.darNombre( );
+        Aspirante aspirante = (Aspirante)aspirantes.get(0);
+        String nombreAspirante = aspirante.getName();
 
         int posicion = bolsa.buscarBinarioPorNombre( nombreAspirante );
         assertTrue( "No se encontró el aspirante", posicion != - 1 );
 
         Aspirante aspiranteNuevo = ( Aspirante )aspirantes.get( posicion );
-        assertEquals( "No se encontró el aspirante buscado", aspiranteNuevo.darNombre( ), nombreAspirante );
+        assertEquals("No se encontró el aspirante buscado", aspiranteNuevo.getName(), nombreAspirante);
 
         // Busca el aspirante del medio
-        aspirante = ( Aspirante )aspirantes.get( cantidadAspirantes / 2 );
-        nombreAspirante = aspirante.darNombre( );
+        aspirante = (Aspirante)aspirantes.get(cantidadAspirantes / 2);
+        nombreAspirante = aspirante.getName();
 
         posicion = bolsa.buscarBinarioPorNombre( nombreAspirante );
         assertTrue( "No se encontró el aspirante", posicion != - 1 );
 
-        aspiranteNuevo = ( Aspirante )aspirantes.get( posicion );
-        assertEquals( "No se encontró el aspirante buscado", aspiranteNuevo.darNombre( ), nombreAspirante );
+        aspiranteNuevo = (Aspirante)aspirantes.get(posicion);
+        assertEquals("No se encontró el aspirante buscado", aspiranteNuevo.getName(), nombreAspirante);
 
         // Busca el aspirante del final
-        aspirante = ( Aspirante )aspirantes.get( cantidadAspirantes - 1 );
-        nombreAspirante = aspirante.darNombre( );
+        aspirante = (Aspirante)aspirantes.get(cantidadAspirantes - 1);
+        nombreAspirante = aspirante.getName();
 
         posicion = bolsa.buscarBinarioPorNombre( nombreAspirante );
         assertTrue( "No se encontró el aspirante", posicion != - 1 );
 
-        aspiranteNuevo = ( Aspirante )aspirantes.get( posicion );
-        assertEquals( "No se encontró el aspirante buscado", aspiranteNuevo.darNombre( ), nombreAspirante );
+        aspiranteNuevo = (Aspirante)aspirantes.get(posicion);
+        assertEquals("No se encontró el aspirante buscado", aspiranteNuevo.getName(), nombreAspirante);
 
         // Busca un aspirante que no existe
         posicion = bolsa.buscarAspirante( "el aspirante no existe" );
@@ -268,7 +267,7 @@ public class BolsaDeEmpleoTest extends TestCase
             Aspirante a0 = ( Aspirante )aspirantes.get( i - 1 );
             Aspirante a1 = ( Aspirante )aspirantes.get( i );
 
-            assertTrue( "No se ordenó bien por aóos de experiencia", a0.darAniosExperiencia( ) <= a1.darAniosExperiencia( ) );
+            assertTrue("No se ordenó bien por aóos de experiencia", a0.getExperienceYears() <= a1.getExperienceYears());
         }
     }
 
@@ -293,7 +292,7 @@ public class BolsaDeEmpleoTest extends TestCase
             Aspirante a0 = ( Aspirante )aspirantes.get( i - 1 );
             Aspirante a1 = ( Aspirante )aspirantes.get( i );
 
-            assertTrue( "No se ordenó bien por edad", a0.darEdad( ) <= a1.darEdad( ) );
+            assertTrue("No se ordenó bien por edad", a0.getAge() <= a1.getAge());
         }
     }
 
@@ -318,7 +317,7 @@ public class BolsaDeEmpleoTest extends TestCase
             Aspirante a0 = ( Aspirante )aspirantes.get( i - 1 );
             Aspirante a1 = ( Aspirante )aspirantes.get( i );
 
-            assertTrue( "No se ordenó bien por profesión", a0.darProfesion( ).compareTo( a1.darProfesion( ) ) <= 0 );
+            assertTrue("No se ordenó bien por profesión", a0.getProfessionName().compareTo(a1.getProfessionName()) <= 0);
         }
     }
 
@@ -400,8 +399,8 @@ public class BolsaDeEmpleoTest extends TestCase
 
         bolsa.ordenarPorProfesion( );
         ArrayList aspirantes = bolsa.darAspirantes( );
-        Aspirante a0 = ( Aspirante )aspirantes.get( 0 );
-        String nombreAspirante = a0.darNombre( );
+        Aspirante a0 = (Aspirante)aspirantes.get(0);
+        String nombreAspirante = a0.getName();
         bolsa.ordenarPorEdad( );
 
         bolsa.contratarAspirante( nombreAspirante );
