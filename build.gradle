@@ -60,6 +60,9 @@ dependencies {
     // Database
     runtimeOnly 'com.h2database:h2'
 
+    // Verify Null and Nullable for objects
+    compileOnly 'org.jetbrains:annotations:19.0.0'
+
     testImplementation 'junit:junit:4.12'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
