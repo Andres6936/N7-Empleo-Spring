@@ -2,7 +2,6 @@ package edu.jobs.interfaz;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
-import java.io.IOException;
 import java.io.InputStream;
 
 import javax.imageio.ImageIO;
@@ -31,7 +30,7 @@ final class PanelImagen extends JPanel
         setLayout( layout );
         //
         // Carga la imagen
-        InputStream in = getClass( ).getClassLoader( ).getResourceAsStream( "data/titulo.png" );
+        InputStream in = getClass().getClassLoader().getResourceAsStream("static/img/titulo.png");
         assert in != null;
 
         try

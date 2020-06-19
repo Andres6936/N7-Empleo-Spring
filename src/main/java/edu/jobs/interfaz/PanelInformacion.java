@@ -42,7 +42,7 @@ class PanelInformacion extends JPanel
     /**
      * El nombre de la imagen vacóa
      */
-    private static final String IMANGEN_VACIA = "./data/vacia.jpg";
+    private static final String IMANGEN_VACIA = "static/img/vacia.jpg";
 
     // -----------------------------------------------------------------
     // Atributos
