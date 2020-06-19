@@ -1,5 +1,8 @@
 package edu.jobs.mundo;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Range;
+
 /**
  * Es la clase que representa a un Aspirante <br>
  * <b>inv: </b> <br>
@@ -50,21 +53,23 @@ public class Aspirante
     /**
      * Construye un nuevo aspirante con los parómetros indicados
      *
-     * @param nombreA           El nombre del aspirante - nombreA != null
-     * @param profesionA        La profesión del aspirante - profesionA pertenece a { ADMINISTRADOR, INGENIERO_INDUSTRIAL, CONTADOR, ECONOMISTA }
-     * @param aniosExperienciaA Aóos de experiencia del aspirante - aniosExperienciaA > 0
-     * @param edadA             La edad del aspirante - edadA > 0
-     * @param telefonoA         El telófono del aspirante - telefonoA != null
-     * @param imagenA           La ruta a la imagen del aspirante - imagenA != null
+     * @param _name            El nombre del aspirante - _name != null
+     * @param _profession      La profesión del aspirante - _profession pertenece a { ADMINISTRADOR, INGENIERO_INDUSTRIAL, CONTADOR, ECONOMISTA }
+     * @param _experienceYears Aóos de experiencia del aspirante - _experienceYears > 0
+     * @param _age             La edad del aspirante - _age > 0
+     * @param _telephone       El telófono del aspirante - _telephone != null
+     * @param _image           La ruta a la imagen del aspirante - _image != null
      */
-    public Aspirante(String nombreA, Profession profesionA, int aniosExperienciaA, int edadA, String telefonoA, String imagenA)
+    public Aspirante(@NotNull String _name, @NotNull Profession _profession,
+                     int _experienceYears, int _age,
+                     @NotNull String _telephone, @NotNull String _image)
     {
-        name = nombreA;
-        profession = profesionA;
-        experienceYears = aniosExperienciaA;
-        age = edadA;
-        telephone = telefonoA;
-        image = imagenA;
+        name = _name;
+        profession = _profession;
+        experienceYears = _experienceYears;
+        age = _age;
+        telephone = _telephone;
+        image = _image;
 
         verificarInvariante();
     }
@@ -198,19 +203,12 @@ public class Aspirante
     /**
      * Verifica el invariante de la clase <br>
      * <b>inv: </b> <br>
-     * nombre != null <br>
-     * profesion pertenece a { ADMINISTRADOR, INGENIERO_INDUSTRIAL, CONTADOR, ECONOMISTA } <br>
      * aniosExperiencia > 0 <br>
      * edad > 0 <br>
-     * telefono != null <br>
      */
     private void verificarInvariante( )
     {
-        assert (name != null) : "nombre no puede ser null";
         assert (experienceYears > 0) : "aniosExperiencia no puede ser 0";
         assert (age > 0) : "edad no puede ser 0";
-        assert (telephone != null) : "telefono no puede ser null";
-        assert (image != null) : "imagen no puede ser null";
-
     }
 }
