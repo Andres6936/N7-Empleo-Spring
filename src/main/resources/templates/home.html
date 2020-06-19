@@ -8,10 +8,10 @@
     <title>Jobs</title>
 </head>
 <body class="container-fluid">
-<div class="col-lg-5 mx-auto">
+<div class="col-lg-6 mx-auto">
 
-    <section class="row row-cols-2" th:object="${applicant}">
-        <h1 class="col-12">Home Here ... Not work</h1>
+    <section class="row row-cols-2 border bg-light rounded-lg mt-lg-5" th:object="${applicant}">
+        <h5 class="col-12 border-bottom mb-3">Home Here ... Not work</h5>
 
         <div class="col">
             <img class="img-thumbnail" th:src="${applicant.getImage()}" alt="Photo">

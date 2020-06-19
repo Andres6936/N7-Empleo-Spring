@@ -93,7 +93,7 @@ public class Aspirante
      */
     public String getProfessionName()
     {
-        return profession.name();
+        return profession.name().toLowerCase();
     }
 
     /**
