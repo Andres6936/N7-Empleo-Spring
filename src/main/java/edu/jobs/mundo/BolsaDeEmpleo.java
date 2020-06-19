@@ -8,17 +8,8 @@ import java.util.ArrayList;
  * aspirantes != null <br>
  * En el vector de aspirantes no hay dos o mós con el mismo nombre
  */
-public class BolsaDeEmpleo
+public class BolsaDeEmpleo extends ArrayList<Aspirante>
 {
-    // -----------------------------------------------------------------
-    // Atributos
-    // -----------------------------------------------------------------
-
-    /**
-     * Es la lista que contiene todos los aspirantes
-     */
-    private ArrayList< Aspirante > aspirantes;
-
     // -----------------------------------------------------------------
     // Constructores
     // -----------------------------------------------------------------
@@ -26,10 +17,9 @@ public class BolsaDeEmpleo
     /**
      * Construye una nueva bolsa de emplea sin aspirantes.
      */
-    public BolsaDeEmpleo( )
+    public BolsaDeEmpleo()
     {
-        aspirantes = new ArrayList<>( );
-
+        super();
     }
 
     // -----------------------------------------------------------------
@@ -42,7 +32,7 @@ public class BolsaDeEmpleo
      */
     public ArrayList< Aspirante > darAspirantes( )
     {
-        return new ArrayList<>( aspirantes );
+        return new ArrayList<>(this);
     }
 
     /**
@@ -51,18 +41,15 @@ public class BolsaDeEmpleo
      */
     public void ordenarPorNombre( )
     {
-        for( int i = aspirantes.size( ); i > 0; i-- )
-        {
-            for( int j = 0; j < i - 1; j++ )
-            {
-                Aspirante a1 = aspirantes.get( j );
-                Aspirante a2 = aspirantes.get( j + 1 );
+        for (int i = size(); i > 0; i--) {
+            for (int j = 0; j < i - 1; j++) {
+                Aspirante a1 = get(j);
+                Aspirante a2 = get(j + 1);
 
                 // Si es necesario se deben intercambiar a1 y a2
-                if( a1.compararPorNombre( a2 ) > 0 )
-                {
-                    aspirantes.set( j, a2 );
-                    aspirantes.set( j + 1, a1 );
+                if (a1.compararPorNombre(a2) > 0) {
+                    set(j, a2);
+                    set(j + 1, a1);
                 }
             }
         }
@@ -81,29 +68,25 @@ public class BolsaDeEmpleo
         // 2. No hay ningón valor despuós de aspirantes[inicial-1] que sea menor que aspirantes[inicial-1]
         // En cada iteración se busca el menor entre aspirantes[inicial] y aspirantes[final] y se ubica en aspirantes[inicial]
 
-        for( inicial = 0; inicial < aspirantes.size( ); inicial++ )
-        {
+        for (inicial = 0; inicial < size(); inicial++) {
             int posicionMenor = inicial;
-            Aspirante aspiranteMenor = aspirantes.get( inicial );
+            Aspirante aspiranteMenor = get(inicial);
 
             // Buscar el Aspirante de menor [int, Edad, Seleccion] entre inicial y final
-            for( int i = inicial + 1; i < aspirantes.size( ); i++ )
-            {
-                Aspirante aspirantePosicion = aspirantes.get( i );
+            for (int i = inicial + 1; i < size(); i++) {
+                Aspirante aspirantePosicion = get(i);
 
                 // El aspirante de la posicion actual es menor que el menor encontrado hasta el momento
-                if( aspirantePosicion.compararPorEdad( aspiranteMenor ) < 0 )
-                {
+                if (aspirantePosicion.compararPorEdad(aspiranteMenor) < 0) {
                     aspiranteMenor = aspirantePosicion;
                     posicionMenor = i;
                 }
             }
 
-            if( posicionMenor != inicial )
-            {
-                Aspirante temp = aspirantes.get( inicial );
-                aspirantes.set( inicial, aspiranteMenor );
-                aspirantes.set( posicionMenor, temp );
+            if( posicionMenor != inicial ) {
+                Aspirante temp = get(inicial);
+                set(inicial, aspiranteMenor);
+                set(posicionMenor, temp);
             }
 
         }
@@ -116,18 +99,15 @@ public class BolsaDeEmpleo
      */
     public void ordenarPorProfesion( )
     {
-        for( int i = aspirantes.size( ); i > 0; i-- )
-        {
-            for( int j = 0; j < i - 1; j++ )
-            {
-                Aspirante a1 = aspirantes.get( j );
-                Aspirante a2 = aspirantes.get( j + 1 );
+        for (int i = size(); i > 0; i--) {
+            for (int j = 0; j < i - 1; j++) {
+                Aspirante a1 = get(j);
+                Aspirante a2 = get(j + 1);
 
                 // Si es necesario se deben intercambiar a1 y a2
-                if( a1.compararPorProfesion( a2 ) > 0 )
-                {
-                    aspirantes.set( j, a2 );
-                    aspirantes.set( j + 1, a1 );
+                if (a1.compararPorProfesion(a2) > 0) {
+                    set(j, a2);
+                    set(j + 1, a1);
                 }
             }
         }
@@ -147,22 +127,19 @@ public class BolsaDeEmpleo
         // En cada paso lo que se hace es encontrar en quó posición entre aspirantes[0] y aspirantes[inicial] deberóa
         // estar el aspirante que en este momento se encuentra en aspirante[inicial]
 
-        for( inicial = 1; inicial < aspirantes.size( ); inicial++ )
-        {
-            Aspirante insertado = aspirantes.get( inicial );
+        for (inicial = 1; inicial < size(); inicial++) {
+            Aspirante insertado = get(inicial);
 
             boolean termine = false;
             int i = inicial - 1;
 
-            while( !termine )
-            {
+            while (!termine) {
                 // Si encuentra un cilindraje mayor, entonces hay que intercambiarlos
-                Aspirante aspirantePosicion = aspirantes.get( i );
+                Aspirante aspirantePosicion = get(i);
 
-                if( aspirantePosicion.compararPorAniosExperiencia( insertado ) > 0 )
-                {
-                    aspirantes.set( i, insertado );
-                    aspirantes.set( i + 1, aspirantePosicion );
+                if( aspirantePosicion.compararPorAniosExperiencia( insertado ) > 0 ) {
+                    set(i, insertado);
+                    set(i + 1, aspirantePosicion);
                     i--;
                 }
                 // Si se encuentra un cilindraje igual o menor entonces ya se encontró la posición
@@ -191,14 +168,12 @@ public class BolsaDeEmpleo
         int posicion = -1;
         boolean termine = false;
 
-        for( int i = 0; i < aspirantes.size( ) && !termine; i++ )
-        {
-            Aspirante aspirantePosicion = aspirantes.get( i );
-            String nombreAspirante = aspirantePosicion.darNombre( );
+        for (int i = 0; i < size() && !termine; i++) {
+            Aspirante aspirantePosicion = get(i);
+            String nombreAspirante = aspirantePosicion.darNombre();
 
             // Los nombres son iguales
-            if( nombreAspirante.equalsIgnoreCase( nombre ) )
-            {
+            if (nombreAspirante.equalsIgnoreCase(nombre)) {
                 posicion = i;
                 termine = true;
             }
@@ -217,13 +192,13 @@ public class BolsaDeEmpleo
     {
         int posicion = -1;
         int inicio = 0;
-        int fin = aspirantes.size( ) - 1;
+        int fin = size() - 1;
 
         Aspirante aBuscar = new Aspirante( nombre, Aspirante.INGENIERO_INDUSTRIAL, 1, 1, "", "" );
         while( inicio <= fin && posicion == -1 )
         {
-            int medio = ( inicio + fin ) / 2;
-            Aspirante mitad = aspirantes.get( medio );
+            int medio = (inicio + fin) / 2;
+            Aspirante mitad = get(medio);
             if( mitad.compararPorNombre( aBuscar ) == 0 )
             {
                 posicion = medio;
@@ -258,7 +233,7 @@ public class BolsaDeEmpleo
         if( aspiranteBuscado == -1 )
         {
             Aspirante nuevoAspirante = new Aspirante( nombreA, profesionA, aniosExperienciaA, edadA, telefonoA, imagenA );
-            aspirantes.add( nuevoAspirante );
+            add(nuevoAspirante);
             agregado = true;
 
         }
@@ -276,16 +251,13 @@ public class BolsaDeEmpleo
     {
         int posicion = -1;
 
-        if( aspirantes.size( ) > 0 )
-        {
-            Aspirante aMenorEdad = aspirantes.get( 0 );
+        if (size() > 0) {
+            Aspirante aMenorEdad = get(0);
             posicion = 0;
-            for( int i = 1; i < aspirantes.size( ); i++ )
-            {
-                Aspirante aspirantePosicion = aspirantes.get( i );
+            for (int i = 1; i < size(); i++) {
+                Aspirante aspirantePosicion = get(i);
 
-                if( aMenorEdad.compararPorEdad( aspirantePosicion ) == 1 )
-                {
+                if (aMenorEdad.compararPorEdad(aspirantePosicion) == 1) {
                     posicion = i;
                     aMenorEdad = aspirantePosicion;
                 }
@@ -303,16 +275,13 @@ public class BolsaDeEmpleo
     {
         int posicion = -1;
 
-        if( aspirantes.size( ) > 0 )
-        {
-            Aspirante aMayorEdad = aspirantes.get( 0 );
+        if (size() > 0) {
+            Aspirante aMayorEdad = get(0);
             posicion = 0;
-            for( int i = 1; i < aspirantes.size( ); i++ )
-            {
-                Aspirante aspirantePosicion = aspirantes.get( i );
+            for (int i = 1; i < size(); i++) {
+                Aspirante aspirantePosicion = get(i);
 
-                if( aMayorEdad.compararPorEdad( aspirantePosicion ) == -1 )
-                {
+                if (aMayorEdad.compararPorEdad(aspirantePosicion) == -1) {
                     posicion = i;
                     aMayorEdad = aspirantePosicion;
                 }
@@ -330,16 +299,13 @@ public class BolsaDeEmpleo
     {
         int posicion = -1;
 
-        if( aspirantes.size( ) > 0 )
-        {
-            Aspirante aMayorExp = aspirantes.get( 0 );
+        if (size() > 0) {
+            Aspirante aMayorExp = get(0);
             posicion = 0;
-            for( int i = 1; i < aspirantes.size( ); i++ )
-            {
-                Aspirante aspirantePosicion = aspirantes.get( i );
+            for (int i = 1; i < size(); i++) {
+                Aspirante aspirantePosicion = get(i);
 
-                if( aMayorExp.compararPorAniosExperiencia( aspirantePosicion ) == -1 )
-                {
+                if (aMayorExp.compararPorAniosExperiencia(aspirantePosicion) == -1) {
                     posicion = i;
                     aMayorExp = aspirantePosicion;
                 }
@@ -359,12 +325,10 @@ public class BolsaDeEmpleo
     {
         boolean contratado = false;
 
-        if( !aspirantes.isEmpty( ) )
-        {
-            int posicionAspirante = buscarAspirante( nombre );
-            if( posicionAspirante != -1 )
-            {
-                aspirantes.remove( posicionAspirante );
+        if (!isEmpty()) {
+            int posicionAspirante = buscarAspirante(nombre);
+            if (posicionAspirante != -1) {
+                remove(posicionAspirante);
                 contratado = true;
             }
         }
@@ -386,17 +350,13 @@ public class BolsaDeEmpleo
 
         int cont = 0;
 
-        while( cont < aspirantes.size( ) )
-        {
-            Aspirante aspirante = aspirantes.get( cont );
+        while (cont < size()) {
+            Aspirante aspirante = get(cont);
 
-            if( aspirante.darAniosExperiencia( ) < aniosExperiencia )
-            {
-                aspirantes.remove( cont );
+            if (aspirante.darAniosExperiencia() < aniosExperiencia) {
+                remove(cont);
                 eliminados++;
-            }
-            else
-            {
+            } else {
                 cont++;
             }
         }
@@ -418,7 +378,6 @@ public class BolsaDeEmpleo
      */
     private void verificarInvariante( )
     {
-        assert ( aspirantes != null ) : "La lista de aspirantes no debe ser null";
         assert ( !buscarAspirantesConNombresRepetidos( ) ) : "Hay dos aspirantes con el mismo nombre";
     }
 
@@ -428,16 +387,12 @@ public class BolsaDeEmpleo
      */
     private boolean buscarAspirantesConNombresRepetidos( )
     {
-        for( int i = 0; i < aspirantes.size( ); i++ )
-        {
-            Aspirante aspiranteI = aspirantes.get( i );
-            for( int j = 0; j < aspirantes.size( ); j++ )
-            {
-                if( i != j )
-                {
-                    Aspirante aspiranteJ = aspirantes.get( j );
-                    if( aspiranteJ.darNombre( ).equals( aspiranteI.darNombre( ) ) )
-                    {
+        for (int i = 0; i < size(); i++) {
+            Aspirante aspiranteI = get(i);
+            for (int j = 0; j < size(); j++) {
+                if (i != j) {
+                    Aspirante aspiranteJ = get(j);
+                    if (aspiranteJ.darNombre().equals(aspiranteI.darNombre())) {
                         return true;
                     }
                 }
