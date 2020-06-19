@@ -472,17 +472,20 @@ public class InterfazBolsaDeEmpleo extends JFrame
      */
     public static void main( String[] args)
     {
-        SpringApplication.run(InterfazBolsaDeEmpleo.class, args);
+        if (args.length > 0) {
+            if (args[0].equals("-swing")) {
+                //FlatIntelliJLaf.install();
 
-//        FlatIntelliJLaf.install();
-//
-//        try {
-//            var interfaz = new InterfazBolsaDeEmpleo(ARCHIVO_ASPIRANTES);
-//            interfaz.setVisible(true);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-
+                try {
+                    var interfaz = new InterfazBolsaDeEmpleo(ARCHIVO_ASPIRANTES);
+                    interfaz.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        } else {
+            SpringApplication.run(InterfazBolsaDeEmpleo.class, args);
+        }
     }
 
 }
