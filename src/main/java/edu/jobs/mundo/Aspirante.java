@@ -93,7 +93,9 @@ public class Aspirante
      */
     public String getProfessionName()
     {
-        return profession.name().toLowerCase();
+        String professionName = profession.name().toLowerCase().replace("_", " ");
+        // Convert the name of Uppercase to Capitalize
+        return professionName.substring(0, 1).toUpperCase() + professionName.substring(1);
     }
 
     /**
