@@ -28,9 +28,10 @@ public class JobExchange extends ArrayList<Aspirante>
 
     /**
      * Retorna una lista de aspirantes. La lista retornada no es la misma que la almacenada en esta clase, pero si tiene el mismo orden.
+     *
      * @return lista de aspirantes
      */
-    public ArrayList< Aspirante > darAspirantes( )
+    public ArrayList<Aspirante> copy()
     {
         return new ArrayList<>(this);
     }
@@ -39,7 +40,7 @@ public class JobExchange extends ArrayList<Aspirante>
      * Organiza la lista de aspirantes por nombre usando el algoritmo de burbuja. <br>
      * <b>post: </b>La lista de aspirantes estó ordenada por nombre (orden ascendente).
      */
-    public void ordenarPorNombre( )
+    public void sortByName()
     {
         for (int i = size(); i > 0; i--) {
             for (int j = 0; j < i - 1; j++) {
@@ -60,7 +61,7 @@ public class JobExchange extends ArrayList<Aspirante>
      * Organiza la lista de aspirantes por edad usando el algoritmo de selección <br>
      * <b>post: </b>La lista de aspirantes estó ordenada por edad
      */
-    public void ordenarPorEdad( )
+    public void sortByAge()
     {
         int inicial;
         // En cada iteración se sabe que:
@@ -97,7 +98,7 @@ public class JobExchange extends ArrayList<Aspirante>
      * Organiza la lista de aspirantes por profesión usando el algoritmo de burbuja <br>
      * <b>post: </b>El conjunto de aspirantes esta ordenado por profesión
      */
-    public void ordenarPorProfesion( )
+    public void sortByProfession()
     {
         for (int i = size(); i > 0; i--) {
             for (int j = 0; j < i - 1; j++) {
@@ -118,7 +119,7 @@ public class JobExchange extends ArrayList<Aspirante>
      * Organiza la lista de aspirantes por aóos de experiencia usando el algoritmo de inserción <br>
      * <b>post: </b>La lista de aspirantes estó ordenada por aóos de experiencia
      */
-    public void ordenarPorAniosDeExperiencia( )
+    public void sortByExperienceYears()
     {
         int inicial;
 
@@ -159,10 +160,11 @@ public class JobExchange extends ArrayList<Aspirante>
 
     /**
      * Busca un Aspirante segón su nombre y retorna la posición en la que se encuentra. <br>
+     *
      * @param nombre El nombre del aspirante buscado - nombre!=null
      * @return Se retornó la posición donde se encuentra un aspirante con el nombre dado. Si no se encuentra ningón aspirante con ese nombre se retornó -1.
      */
-    public int buscarAspirante( String nombre )
+    public int findApplicant(String nombre)
     {
         int posicion = -1;
         boolean termine = false;
@@ -212,37 +214,38 @@ public class JobExchange extends ArrayList<Aspirante>
 
     /**
      * Agrega un nuevo aspirante a la bolsa
-     * @param nombreA El nombre del aspirante - nombreA != null
-     * @param profesionA La profesión del aspirante - profesionA es uno de estos { ADMINISTRADOR, INGENIERO_INDUSTRIAL, CONTADOR, ECONOMISTA }
+     *
+     * @param nombreA           El nombre del aspirante - nombreA != null
+     * @param profesionA        La profesión del aspirante - profesionA es uno de estos { ADMINISTRADOR, INGENIERO_INDUSTRIAL, CONTADOR, ECONOMISTA }
      * @param aniosExperienciaA Aóos de experiencia del aspirante - aniosExperienciaA > 0
-     * @param edadA La edad del aspirante - edadA > 0
-     * @param telefonoA El telófono del aspirante - telefonoA != null
-     * @param imagenA La ruta a la imagen del aspirante - imagenA != null
+     * @param edadA             La edad del aspirante - edadA > 0
+     * @param telefonoA         El telófono del aspirante - telefonoA != null
+     * @param imagenA           La ruta a la imagen del aspirante - imagenA != null
      * @return Se retornó true si el aspirante fue adicionado o false de lo contrario
      */
 
-    public boolean agregarAspirante( String nombreA, String profesionA, int aniosExperienciaA, int edadA, String telefonoA, String imagenA )
+    public boolean addApplicant(String nombreA, String profesionA, int aniosExperienciaA, int edadA, String telefonoA, String imagenA)
     {
-        int aspiranteBuscado = buscarAspirante( nombreA );
+        int aspiranteBuscado = findApplicant(nombreA);
         boolean agregado = false;
-        if( aspiranteBuscado == -1 )
-        {
+        if (aspiranteBuscado == -1) {
             Aspirante nuevoAspirante = new Aspirante(nombreA, Profession.valueOf(profesionA), aniosExperienciaA, edadA, telefonoA, imagenA);
             add(nuevoAspirante);
             agregado = true;
 
         }
 
-        verificarInvariante( );
+        verificarInvariante();
 
         return agregado;
     }
 
     /**
      * Busca el aspirante que tenga la menor edad en la bolsa.
+     *
      * @return Se retornó la posición donde se encuentra el aspirante mós joven. Si no hay aspirantes en la bolsa se retornó -1
      */
-    public int buscarAspiranteMasJoven( )
+    public int findApplicantYounger()
     {
         int posicion = -1;
 
@@ -321,14 +324,14 @@ public class JobExchange extends ArrayList<Aspirante>
         boolean contratado = false;
 
         if (!isEmpty()) {
-            int posicionAspirante = buscarAspirante(nombre);
+            int posicionAspirante = findApplicant(nombre);
             if (posicionAspirante != -1) {
                 remove(posicionAspirante);
                 contratado = true;
             }
         }
 
-        verificarInvariante( );
+        verificarInvariante();
 
         return contratado;
     }
@@ -336,10 +339,11 @@ public class JobExchange extends ArrayList<Aspirante>
     /**
      * Elimina todos los aspirantes de la bolsa cuyos aóos de experiencia <br>
      * son menores a la cantidad de aóos especificada <br>
+     *
      * @param aniosExperiencia La cantidad de aóos con relación a la cual se van a eliminar los aspirantes. aniosExperiencia>=0
      * @return La cantidad de aspirantes que fueron eliminados
      */
-    public int eliminarAspirantesPorExperiencia( int aniosExperiencia )
+    public int deleteApplicantByExperience(int aniosExperiencia)
     {
         int eliminados = 0;
 
@@ -371,16 +375,17 @@ public class JobExchange extends ArrayList<Aspirante>
      * aspirantes != null <br>
      * no hay dos aspirantes con el mismo nombre
      */
-    private void verificarInvariante( )
+    private void verificarInvariante()
     {
-        assert ( !buscarAspirantesConNombresRepetidos( ) ) : "Hay dos aspirantes con el mismo nombre";
+        assert ( !findApplicantDuplicate()) : "Hay dos aspirantes con el mismo nombre";
     }
 
     /**
      * Verifica si hay dos aspirantes con el mismo nombre
+     *
      * @return Se retornó true si hay dos aspirantes con el mismo nombre; se retornó false en caso contrario.
      */
-    private boolean buscarAspirantesConNombresRepetidos( )
+    private boolean findApplicantDuplicate()
     {
         for (int i = 0; i < size(); i++) {
             Aspirante aspiranteI = get(i);

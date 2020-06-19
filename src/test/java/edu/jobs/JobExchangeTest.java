@@ -96,9 +96,9 @@ public class JobExchangeTest extends TestCase
             telefono = "telefono" + cont;
             imagen = "imagen" + cont;
 
-            agregado = bolsa.agregarAspirante(nombre, profesion, experiencia, edad, telefono, imagen);
-            int pos = bolsa.buscarAspirante(nombre);
-            Aspirante aspirante = bolsa.darAspirantes().get(pos);
+            agregado = bolsa.addApplicant(nombre, profesion, experiencia, edad, telefono, imagen);
+            int pos = bolsa.findApplicant(nombre);
+            Aspirante aspirante = bolsa.copy().get(pos);
 
             assertTrue("El aspirante no se agregó de forma correcta", agregado);
             assertEquals("El aspirante no se agregó de forma correcta", cont - 1, pos);
@@ -124,12 +124,12 @@ public class JobExchangeTest extends TestCase
         // Configura los datos de prueba
         setupEscenario1( );
 
-        ArrayList aspirantes = bolsa.darAspirantes( );
+        ArrayList aspirantes = bolsa.copy();
         Aspirante a = (Aspirante)aspirantes.get(0);
         String nombreAspirante = a.getName();
 
-        int i = Integer.parseInt( nombreAspirante );
-        boolean agregado = bolsa.agregarAspirante( nombreAspirante, nombreAspirante, i, i, nombreAspirante, nombreAspirante );
+        int i = Integer.parseInt(nombreAspirante);
+        boolean agregado = bolsa.addApplicant(nombreAspirante, nombreAspirante, i, i, nombreAspirante, nombreAspirante);
         assertFalse( "El aspirante no deberóa haberse agregado", agregado );
 
         String nombre;
@@ -148,7 +148,7 @@ public class JobExchangeTest extends TestCase
             telefono = "" + (cont + 1);
             imagen = "" + (cont + 1);
 
-            Aspirante aspirante = (Aspirante)bolsa.darAspirantes().get(cont);
+            Aspirante aspirante = (Aspirante)bolsa.copy().get(cont);
 
             assertEquals("El aspirante no se agregó de forma correcta", nombre, aspirante.getName());
             assertEquals("El aspirante no se agregó de forma correcta", profesion, aspirante.getProfessionName());
@@ -173,23 +173,23 @@ public class JobExchangeTest extends TestCase
     public void testBuscarAspirante( )
     {
         // Configura los datos de prueba
-        setupEscenario2( );
+        setupEscenario2();
 
-        bolsa.ordenarPorEdad( );
-        ArrayList aspirantes = bolsa.darAspirantes( );
+        bolsa.sortByAge();
+        ArrayList aspirantes = bolsa.copy();
         Aspirante a0 = (Aspirante)aspirantes.get(0);
         String nombreAspirante = a0.getName();
-        bolsa.ordenarPorProfesion( );
+        bolsa.sortByProfession();
 
-        int posicion = bolsa.buscarAspirante( nombreAspirante );
-        assertTrue( "No se encontró el aspirante", posicion != - 1 );
+        int posicion = bolsa.findApplicant(nombreAspirante);
+        assertTrue("No se encontró el aspirante", posicion != -1);
 
-        aspirantes = bolsa.darAspirantes( );
-        Aspirante an = ( Aspirante )aspirantes.get( posicion );
+        aspirantes = bolsa.copy();
+        Aspirante an = (Aspirante)aspirantes.get(posicion);
         assertEquals("No se encontró el aspirante buscado", an.getName(), nombreAspirante);
 
-        posicion = bolsa.buscarAspirante( "el aspirante no existe" );
-        assertEquals( "No se encontró el aspirante buscado", - 1, posicion );
+        posicion = bolsa.findApplicant("el aspirante no existe");
+        assertEquals("No se encontró el aspirante buscado", -1, posicion);
     }
 
     /**
@@ -205,19 +205,19 @@ public class JobExchangeTest extends TestCase
     public void testBuscarBinarioPorNombre( )
     {
         // Configura los datos de prueba
-        setupEscenario2( );
+        setupEscenario2();
 
-        bolsa.ordenarPorNombre( );
-        ArrayList aspirantes = bolsa.darAspirantes( );
+        bolsa.sortByName();
+        ArrayList aspirantes = bolsa.copy();
 
         // Busca el primer aspirante
         Aspirante aspirante = (Aspirante)aspirantes.get(0);
         String nombreAspirante = aspirante.getName();
 
-        int posicion = bolsa.buscarBinarioPorNombre( nombreAspirante );
-        assertTrue( "No se encontró el aspirante", posicion != - 1 );
+        int posicion = bolsa.buscarBinarioPorNombre(nombreAspirante);
+        assertTrue("No se encontró el aspirante", posicion != -1);
 
-        Aspirante aspiranteNuevo = ( Aspirante )aspirantes.get( posicion );
+        Aspirante aspiranteNuevo = (Aspirante)aspirantes.get(posicion);
         assertEquals("No se encontró el aspirante buscado", aspiranteNuevo.getName(), nombreAspirante);
 
         // Busca el aspirante del medio
@@ -241,8 +241,8 @@ public class JobExchangeTest extends TestCase
         assertEquals("No se encontró el aspirante buscado", aspiranteNuevo.getName(), nombreAspirante);
 
         // Busca un aspirante que no existe
-        posicion = bolsa.buscarAspirante( "el aspirante no existe" );
-        assertEquals( "No se encontró el aspirante buscado", - 1, posicion );
+        posicion = bolsa.findApplicant("el aspirante no existe");
+        assertEquals("No se encontró el aspirante buscado", -1, posicion);
     }
 
     /**
@@ -257,15 +257,14 @@ public class JobExchangeTest extends TestCase
     public void testOrdenarPorAniosDeExperiencia( )
     {
         // Configura los datos de prueba
-        setupEscenario2( );
+        setupEscenario2();
 
-        bolsa.ordenarPorAniosDeExperiencia( );
-        ArrayList aspirantes = bolsa.darAspirantes( );
+        bolsa.sortByExperienceYears();
+        ArrayList aspirantes = bolsa.copy();
 
-        for( int i = 1; i < aspirantes.size( ); i++ )
-        {
-            Aspirante a0 = ( Aspirante )aspirantes.get( i - 1 );
-            Aspirante a1 = ( Aspirante )aspirantes.get( i );
+        for (int i = 1; i < aspirantes.size(); i++) {
+            Aspirante a0 = (Aspirante)aspirantes.get(i - 1);
+            Aspirante a1 = (Aspirante)aspirantes.get(i);
 
             assertTrue("No se ordenó bien por aóos de experiencia", a0.getExperienceYears() <= a1.getExperienceYears());
         }
@@ -283,14 +282,13 @@ public class JobExchangeTest extends TestCase
     public void testOrdenarPorEdad( )
     {
         // Configura los datos de prueba
-        setupEscenario2( );
+        setupEscenario2();
 
-        bolsa.ordenarPorEdad( );
-        ArrayList aspirantes = bolsa.darAspirantes( );
-        for( int i = 1; i < aspirantes.size( ); i++ )
-        {
-            Aspirante a0 = ( Aspirante )aspirantes.get( i - 1 );
-            Aspirante a1 = ( Aspirante )aspirantes.get( i );
+        bolsa.sortByAge();
+        ArrayList aspirantes = bolsa.copy();
+        for (int i = 1; i < aspirantes.size(); i++) {
+            Aspirante a0 = (Aspirante)aspirantes.get(i - 1);
+            Aspirante a1 = (Aspirante)aspirantes.get(i);
 
             assertTrue("No se ordenó bien por edad", a0.getAge() <= a1.getAge());
         }
@@ -308,14 +306,13 @@ public class JobExchangeTest extends TestCase
     public void testOrdenarPorProfesion( )
     {
         // Configura los datos de prueba
-        setupEscenario2( );
+        setupEscenario2();
 
-        bolsa.ordenarPorProfesion( );
-        ArrayList aspirantes = bolsa.darAspirantes( );
-        for( int i = 1; i < aspirantes.size( ); i++ )
-        {
-            Aspirante a0 = ( Aspirante )aspirantes.get( i - 1 );
-            Aspirante a1 = ( Aspirante )aspirantes.get( i );
+        bolsa.sortByProfession();
+        ArrayList aspirantes = bolsa.copy();
+        for (int i = 1; i < aspirantes.size(); i++) {
+            Aspirante a0 = (Aspirante)aspirantes.get(i - 1);
+            Aspirante a1 = (Aspirante)aspirantes.get(i);
 
             assertTrue("No se ordenó bien por profesión", a0.getProfessionName().compareTo(a1.getProfessionName()) <= 0);
         }
@@ -334,21 +331,21 @@ public class JobExchangeTest extends TestCase
     public void testBuscarAspiranteMasJoven( )
     {
         // Configura los datos de prueba
-        setupEscenario2( );
+        setupEscenario2();
 
-        int posMenor = bolsa.buscarAspiranteMasJoven( );
-        ArrayList aspirantes = bolsa.darAspirantes( );
-        Aspirante menorBusqueda = ( Aspirante )aspirantes.get( posMenor );
+        int posMenor = bolsa.findApplicantYounger();
+        ArrayList aspirantes = bolsa.copy();
+        Aspirante menorBusqueda = (Aspirante)aspirantes.get(posMenor);
 
-        bolsa.ordenarPorEdad( );
-        aspirantes = bolsa.darAspirantes( );
-        Aspirante menorOrdenamiento = ( Aspirante )aspirantes.get( 0 );
+        bolsa.sortByAge();
+        aspirantes = bolsa.copy();
+        Aspirante menorOrdenamiento = (Aspirante)aspirantes.get(0);
 
-        assertEquals( "El aspirante de menor edad (el mós joven) no es el correcto", menorBusqueda, menorOrdenamiento );
+        assertEquals("El aspirante de menor edad (el mós joven) no es el correcto", menorBusqueda, menorOrdenamiento);
 
-        setupEscenario3( );
-        posMenor = bolsa.buscarAspiranteMasJoven( );
-        assertEquals( "El aspirante de menor edad no debe existir", -1, posMenor );
+        setupEscenario3();
+        posMenor = bolsa.findApplicantYounger();
+        assertEquals("El aspirante de menor edad no debe existir", -1, posMenor);
 
     }
 
@@ -365,21 +362,21 @@ public class JobExchangeTest extends TestCase
     public void testBuscarAspiranteMayorExperiencia( )
     {
         // Configura los datos de prueba
-        setupEscenario2( );
+        setupEscenario2();
 
-        int posMayor = bolsa.buscarAspiranteMayorExperiencia( );
-        ArrayList aspirantes = bolsa.darAspirantes( );
-        Aspirante mayorBusqueda = ( Aspirante )aspirantes.get( posMayor );
+        int posMayor = bolsa.buscarAspiranteMayorExperiencia();
+        ArrayList aspirantes = bolsa.copy();
+        Aspirante mayorBusqueda = (Aspirante)aspirantes.get(posMayor);
 
-        bolsa.ordenarPorAniosDeExperiencia( );
-        aspirantes = bolsa.darAspirantes( );
-        Aspirante mayorOrdenamiento = ( Aspirante )aspirantes.get( aspirantes.size( ) - 1 );
+        bolsa.sortByExperienceYears();
+        aspirantes = bolsa.copy();
+        Aspirante mayorOrdenamiento = (Aspirante)aspirantes.get(aspirantes.size() - 1);
 
-        assertEquals( "El aspirante de mayor experiencia no es el correcto", mayorBusqueda, mayorOrdenamiento );
+        assertEquals("El aspirante de mayor experiencia no es el correcto", mayorBusqueda, mayorOrdenamiento);
 
-        setupEscenario3( );
-        posMayor = bolsa.buscarAspiranteMayorExperiencia( );
-        assertEquals( "El aspirante de mayor experiencia no debe existir", -1, posMayor );
+        setupEscenario3();
+        posMayor = bolsa.buscarAspiranteMayorExperiencia();
+        assertEquals("El aspirante de mayor experiencia no debe existir", -1, posMayor);
 
     }
 
@@ -395,17 +392,17 @@ public class JobExchangeTest extends TestCase
     public void testContratarAspirante( )
     {
         // Configura los datos de prueba
-        setupEscenario2( );
+        setupEscenario2();
 
-        bolsa.ordenarPorProfesion( );
-        ArrayList aspirantes = bolsa.darAspirantes( );
+        bolsa.sortByProfession();
+        ArrayList aspirantes = bolsa.copy();
         Aspirante a0 = (Aspirante)aspirantes.get(0);
         String nombreAspirante = a0.getName();
-        bolsa.ordenarPorEdad( );
+        bolsa.sortByAge();
 
-        bolsa.contratarAspirante( nombreAspirante );
-        int posicionEncontrado = bolsa.buscarAspirante( nombreAspirante );
-        assertTrue( "No se contrató bien al aspirante", posicionEncontrado == - 1 );
+        bolsa.contratarAspirante(nombreAspirante);
+        int posicionEncontrado = bolsa.findApplicant(nombreAspirante);
+        assertTrue("No se contrató bien al aspirante", posicionEncontrado == -1);
     }
 
     /**
@@ -421,16 +418,16 @@ public class JobExchangeTest extends TestCase
      */
     public void testEliminarAspirantesPorExperiencia( )
     {
-        setupEscenario2( );
+        setupEscenario2();
 
-        assertEquals( "Se debieron eliminar 3 aspirantes", 3, bolsa.eliminarAspirantesPorExperiencia( 5 ) );
+        assertEquals("Se debieron eliminar 3 aspirantes", 3, bolsa.deleteApplicantByExperience(5));
 
-        assertEquals( "Se debieron eliminar 3 aspirantes", cantidadAspirantes - 3, bolsa.darAspirantes( ).size( ) );
+        assertEquals("Se debieron eliminar 3 aspirantes", cantidadAspirantes - 3, bolsa.copy().size());
 
-        setupEscenario1( );
+        setupEscenario1();
 
-        assertEquals( "Se debió eliminar 1 aspirante", 1, bolsa.eliminarAspirantesPorExperiencia( 2 ) );
-        assertEquals( "Se debió eliminar 1 aspirante", cantidadAspirantes - 1, bolsa.darAspirantes( ).size( ) );
+        assertEquals("Se debió eliminar 1 aspirante", 1, bolsa.deleteApplicantByExperience(2));
+        assertEquals("Se debió eliminar 1 aspirante", cantidadAspirantes - 1, bolsa.copy().size());
     }
 
     // -----------------------------------------------------------------
@@ -486,7 +483,7 @@ public class JobExchangeTest extends TestCase
                 dato = "aspirante" + cont + ".imagen";
                 imagen = propiedades.getProperty( dato );
 
-                bolsa.agregarAspirante( nombre, profesion, experiencia, edad, telefono, imagen );
+                bolsa.addApplicant(nombre, profesion, experiencia, edad, telefono, imagen);
             }
         }
         catch( Exception e )

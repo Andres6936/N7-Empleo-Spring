@@ -63,7 +63,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
 
     public InterfazBolsaDeEmpleo()
     {
-
+        loadApplicants(ARCHIVO_ASPIRANTES);
     }
 
     /**
@@ -160,7 +160,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
      */
     private void actualizarLista( )
     {
-        panelLista.actualizarLista(jobExchange.darAspirantes());
+        panelLista.actualizarLista(jobExchange.copy());
     }
 
     /**
@@ -168,7 +168,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
      */
     void ordenarPorAniosExperiencia( )
     {
-        jobExchange.ordenarPorAniosDeExperiencia();
+        jobExchange.sortByExperienceYears();
         panelInformacion.limpiarDatos();
         actualizarLista( );
     }
@@ -178,7 +178,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
      */
     void ordenarPorEdad( )
     {
-        jobExchange.ordenarPorEdad();
+        jobExchange.sortByAge();
         panelInformacion.limpiarDatos();
         actualizarLista( );
     }
@@ -188,7 +188,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
      */
     void ordenarPorProfesion( )
     {
-        jobExchange.ordenarPorProfesion();
+        jobExchange.sortByProfession();
         panelInformacion.limpiarDatos();
         actualizarLista( );
     }
@@ -201,13 +201,13 @@ public class InterfazBolsaDeEmpleo extends JFrame
         String NombreBuscar = JOptionPane.showInputDialog( this, "Nombre" );
         if( NombreBuscar != null )
         {
-            int posicion = jobExchange.buscarAspirante(NombreBuscar);
+            int posicion = jobExchange.findApplicant(NombreBuscar);
 
             actualizarLista( );
             if( posicion != -1 )
             {
                 panelLista.seleccionar( posicion );
-                Aspirante p = jobExchange.darAspirantes().get(posicion);
+                Aspirante p = jobExchange.copy().get(posicion);
                 verDatos( p );
             }
             else
@@ -237,7 +237,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
      */
     void agregarAspirante( String nombreA, String profesionA, int aniosExperienciaA, int edadA, String telefonoA, String imagenA )
     {
-        boolean agregado = jobExchange.agregarAspirante(nombreA, profesionA, aniosExperienciaA, edadA, telefonoA, imagenA);
+        boolean agregado = jobExchange.addApplicant(nombreA, profesionA, aniosExperienciaA, edadA, telefonoA, imagenA);
         if( agregado )
         {
             actualizarLista( );
@@ -289,7 +289,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
 
                 // Sólo se carga el aspirante si los datos son correctos
                 if( nombre != null && profesion != null && telefono != null && imagen != null && edad >= 0 && experiencia > 0 )
-                    jobExchange.agregarAspirante(nombre, profesion, experiencia, edad, telefono, imagen);
+                    jobExchange.addApplicant(nombre, profesion, experiencia, edad, telefono, imagen);
             }
         }
         catch( FileNotFoundException e )
@@ -311,13 +311,13 @@ public class InterfazBolsaDeEmpleo extends JFrame
      */
     void buscarMasJoven( )
     {
-        int posicion = jobExchange.buscarAspiranteMasJoven();
+        int posicion = jobExchange.findApplicantYounger();
 
         actualizarLista( );
         if( posicion != -1 )
         {
             panelLista.seleccionar( posicion );
-            Aspirante a = jobExchange.darAspirantes().get(posicion);
+            Aspirante a = jobExchange.copy().get(posicion);
             verDatos( a );
         }
         else
@@ -337,7 +337,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
         if( posicion != -1 )
         {
             panelLista.seleccionar( posicion );
-            Aspirante a = jobExchange.darAspirantes().get(posicion);
+            Aspirante a = jobExchange.copy().get(posicion);
             verDatos( a );
         }
         else
@@ -357,7 +357,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
         if( posicion != -1 )
         {
             panelLista.seleccionar( posicion );
-            Aspirante a = jobExchange.darAspirantes().get(posicion);
+            Aspirante a = jobExchange.copy().get(posicion);
             verDatos( a );
         }
         else
@@ -417,7 +417,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
                 }
                 else
                 {
-                    int eliminados = jobExchange.eliminarAspirantesPorExperiencia(cantidadAnios);
+                    int eliminados = jobExchange.deleteApplicantByExperience(cantidadAnios);
 
                     if( eliminados > 0 )
                     {
