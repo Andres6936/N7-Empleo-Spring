@@ -12,9 +12,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import com.formdev.flatlaf.FlatIntelliJLaf;
 import edu.jobs.mundo.Aspirante;
-import edu.jobs.mundo.BolsaDeEmpleo;
+import edu.jobs.mundo.JobExchange;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -41,7 +40,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
     /**
      * Es una referencia a la bolsa de empleo
      */
-    private BolsaDeEmpleo bolsa;
+    private final JobExchange jobExchange = new JobExchange();
 
     // -----------------------------------------------------------------
     // Atributos de la Interfaz
@@ -72,7 +71,6 @@ public class InterfazBolsaDeEmpleo extends JFrame
      */
     private InterfazBolsaDeEmpleo(String archivoAspirantes)
     {
-        bolsa = new BolsaDeEmpleo();
         cargarAspirantes(archivoAspirantes);
         setLayout(new GridBagLayout());
         setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
@@ -160,7 +158,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
      */
     private void actualizarLista( )
     {
-        panelLista.actualizarLista( bolsa.darAspirantes( ) );
+        panelLista.actualizarLista(jobExchange.darAspirantes());
     }
 
     /**
@@ -168,8 +166,8 @@ public class InterfazBolsaDeEmpleo extends JFrame
      */
     void ordenarPorAniosExperiencia( )
     {
-        bolsa.ordenarPorAniosDeExperiencia( );
-        panelInformacion.limpiarDatos( );
+        jobExchange.ordenarPorAniosDeExperiencia();
+        panelInformacion.limpiarDatos();
         actualizarLista( );
     }
 
@@ -178,8 +176,8 @@ public class InterfazBolsaDeEmpleo extends JFrame
      */
     void ordenarPorEdad( )
     {
-        bolsa.ordenarPorEdad( );
-        panelInformacion.limpiarDatos( );
+        jobExchange.ordenarPorEdad();
+        panelInformacion.limpiarDatos();
         actualizarLista( );
     }
 
@@ -188,8 +186,8 @@ public class InterfazBolsaDeEmpleo extends JFrame
      */
     void ordenarPorProfesion( )
     {
-        bolsa.ordenarPorProfesion( );
-        panelInformacion.limpiarDatos( );
+        jobExchange.ordenarPorProfesion();
+        panelInformacion.limpiarDatos();
         actualizarLista( );
     }
 
@@ -201,13 +199,13 @@ public class InterfazBolsaDeEmpleo extends JFrame
         String NombreBuscar = JOptionPane.showInputDialog( this, "Nombre" );
         if( NombreBuscar != null )
         {
-            int posicion = bolsa.buscarAspirante( NombreBuscar );
+            int posicion = jobExchange.buscarAspirante(NombreBuscar);
 
             actualizarLista( );
             if( posicion != -1 )
             {
                 panelLista.seleccionar( posicion );
-                Aspirante p = ( Aspirante )bolsa.darAspirantes( ).get( posicion );
+                Aspirante p = jobExchange.darAspirantes().get(posicion);
                 verDatos( p );
             }
             else
@@ -237,7 +235,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
      */
     void agregarAspirante( String nombreA, String profesionA, int aniosExperienciaA, int edadA, String telefonoA, String imagenA )
     {
-        boolean agregado = bolsa.agregarAspirante( nombreA, profesionA, aniosExperienciaA, edadA, telefonoA, imagenA );
+        boolean agregado = jobExchange.agregarAspirante(nombreA, profesionA, aniosExperienciaA, edadA, telefonoA, imagenA);
         if( agregado )
         {
             actualizarLista( );
@@ -254,45 +252,42 @@ public class InterfazBolsaDeEmpleo extends JFrame
      */
     private void cargarAspirantes( String archivo )
     {
-
-        try
-        {
-            InputStream in = getClass( ).getClassLoader( ).getResourceAsStream( archivo );
-            Properties propiedades = new Properties( );
+        try {
+            InputStream in = getClass().getClassLoader().getResourceAsStream(archivo);
+            Properties properties = new Properties();
             assert in != null;
-            propiedades.load( in );
+            properties.load(in);
 
             // Cargar los aspirantes
             String dato = "total.aspirantes";
-            String aux = propiedades.getProperty( dato );
-            int cantidad = Integer.parseInt( aux );
+            String aux = properties.getProperty(dato);
+            int size = Integer.parseInt(aux);
 
-            for( int cont = 1; cont <= cantidad; cont++ )
-            {
+            for (int cont = 1; cont <= size; cont++) {
                 // Carga un aspirante
                 dato = "aspirante" + cont + ".nombre";
-                String nombre = propiedades.getProperty( dato );
+                String nombre = properties.getProperty(dato);
 
                 dato = "aspirante" + cont + ".profesion";
-                String profesion = propiedades.getProperty( dato );
+                String profesion = properties.getProperty(dato);
 
                 dato = "aspirante" + cont + ".experiencia";
-                aux = propiedades.getProperty( dato );
+                aux = properties.getProperty(dato);
                 int experiencia = Integer.parseInt( aux );
 
                 dato = "aspirante" + cont + ".edad";
-                aux = propiedades.getProperty( dato );
+                aux = properties.getProperty(dato);
                 int edad = Integer.parseInt( aux );
 
                 dato = "aspirante" + cont + ".telefono";
-                String telefono = propiedades.getProperty( dato );
+                String telefono = properties.getProperty(dato);
 
                 dato = "aspirante" + cont + ".imagen";
-                String imagen = propiedades.getProperty( dato );
+                String imagen = properties.getProperty(dato);
 
                 // Sólo se carga el aspirante si los datos son correctos
                 if( nombre != null && profesion != null && telefono != null && imagen != null && edad >= 0 && experiencia > 0 )
-                    bolsa.agregarAspirante( nombre, profesion, experiencia, edad, telefono, imagen );
+                    jobExchange.agregarAspirante(nombre, profesion, experiencia, edad, telefono, imagen);
             }
         }
         catch( FileNotFoundException e )
@@ -314,13 +309,13 @@ public class InterfazBolsaDeEmpleo extends JFrame
      */
     void buscarMasJoven( )
     {
-        int posicion = bolsa.buscarAspiranteMasJoven( );
+        int posicion = jobExchange.buscarAspiranteMasJoven();
 
         actualizarLista( );
         if( posicion != -1 )
         {
             panelLista.seleccionar( posicion );
-            Aspirante a = ( Aspirante )bolsa.darAspirantes( ).get( posicion );
+            Aspirante a = jobExchange.darAspirantes().get(posicion);
             verDatos( a );
         }
         else
@@ -334,13 +329,13 @@ public class InterfazBolsaDeEmpleo extends JFrame
      */
     void buscarMayorEdad( )
     {
-        int posicion = bolsa.buscarAspiranteMayorEdad( );
+        int posicion = jobExchange.buscarAspiranteMayorEdad();
 
         actualizarLista( );
         if( posicion != -1 )
         {
             panelLista.seleccionar( posicion );
-            Aspirante a = ( Aspirante )bolsa.darAspirantes( ).get( posicion );
+            Aspirante a = jobExchange.darAspirantes().get(posicion);
             verDatos( a );
         }
         else
@@ -354,13 +349,13 @@ public class InterfazBolsaDeEmpleo extends JFrame
      */
     void buscarMayorExperiencia( )
     {
-        int posicion = bolsa.buscarAspiranteMayorExperiencia( );
+        int posicion = jobExchange.buscarAspiranteMayorExperiencia();
 
         actualizarLista( );
         if( posicion != -1 )
         {
             panelLista.seleccionar( posicion );
-            Aspirante a = ( Aspirante )bolsa.darAspirantes( ).get( posicion );
+            Aspirante a = jobExchange.darAspirantes().get(posicion);
             verDatos( a );
         }
         else
@@ -382,7 +377,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
         }
         else
         {
-            boolean contratado = bolsa.contratarAspirante( nombre );
+            boolean contratado = jobExchange.contratarAspirante(nombre);
 
             if( !contratado )
             {
@@ -420,7 +415,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
                 }
                 else
                 {
-                    int eliminados = bolsa.eliminarAspirantesPorExperiencia( cantidadAnios );
+                    int eliminados = jobExchange.eliminarAspirantesPorExperiencia(cantidadAnios);
 
                     if( eliminados > 0 )
                     {
@@ -449,7 +444,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
      */
     void reqFuncOpcion1( )
     {
-        String respuesta = bolsa.metodo1( );
+        String respuesta = jobExchange.metodo1();
         JOptionPane.showMessageDialog( this, respuesta, "Respuesta", JOptionPane.INFORMATION_MESSAGE );
     }
 
@@ -458,7 +453,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
      */
     void reqFuncOpcion2( )
     {
-        String respuesta = bolsa.metodo2( );
+        String respuesta = jobExchange.metodo2();
         JOptionPane.showMessageDialog( this, respuesta, "Respuesta", JOptionPane.INFORMATION_MESSAGE );
     }
 
@@ -477,8 +472,7 @@ public class InterfazBolsaDeEmpleo extends JFrame
                 //FlatIntelliJLaf.install();
 
                 try {
-                    var interfaz = new InterfazBolsaDeEmpleo(ARCHIVO_ASPIRANTES);
-                    interfaz.setVisible(true);
+                    new InterfazBolsaDeEmpleo(ARCHIVO_ASPIRANTES).setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

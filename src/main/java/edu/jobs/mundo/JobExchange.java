@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * aspirantes != null <br>
  * En el vector de aspirantes no hay dos o mós con el mismo nombre
  */
-public class BolsaDeEmpleo extends ArrayList<Aspirante>
+public class JobExchange extends ArrayList<Aspirante>
 {
     // -----------------------------------------------------------------
     // Constructores
@@ -17,7 +17,7 @@ public class BolsaDeEmpleo extends ArrayList<Aspirante>
     /**
      * Construye una nueva bolsa de emplea sin aspirantes.
      */
-    public BolsaDeEmpleo()
+    public JobExchange()
     {
         super();
     }

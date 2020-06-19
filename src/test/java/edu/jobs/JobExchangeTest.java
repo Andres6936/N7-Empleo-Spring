@@ -7,12 +7,12 @@ import java.util.Properties;
 import edu.jobs.mundo.Profession;
 import junit.framework.TestCase;
 import edu.jobs.mundo.Aspirante;
-import edu.jobs.mundo.BolsaDeEmpleo;
+import edu.jobs.mundo.JobExchange;
 
 /**
  * Esta es la clase usada para verificar que los mótodos de la clase BolsaDeEmpleo estón correctamente implementados
  */
-public class BolsaDeEmpleoTest extends TestCase
+public class JobExchangeTest extends TestCase
 {
     // -----------------------------------------------------------------
     // Atributos
@@ -21,7 +21,7 @@ public class BolsaDeEmpleoTest extends TestCase
     /**
      * Es la bolsa de empleo sobre la que se van a realizar las pruebas
      */
-    private BolsaDeEmpleo bolsa;
+    private JobExchange bolsa;
 
     /**
      * La cantidad de aspirantes que hay en la bolsa de empleo.
@@ -37,7 +37,7 @@ public class BolsaDeEmpleoTest extends TestCase
      */
     private void setupEscenario1( )
     {
-        bolsa = new BolsaDeEmpleo( );
+        bolsa = new JobExchange();
 
         cargarAspirantes( "data/aspirantes1.properties" );
 
@@ -48,8 +48,8 @@ public class BolsaDeEmpleoTest extends TestCase
      */
     private void setupEscenario2( )
     {
-        bolsa = new BolsaDeEmpleo( );
-        cargarAspirantes( "data/aspirantes2.properties" );
+        bolsa = new JobExchange();
+        cargarAspirantes("data/aspirantes2.properties");
     }
 
     /**
@@ -57,7 +57,7 @@ public class BolsaDeEmpleoTest extends TestCase
      */
     private void setupEscenario3( )
     {
-        bolsa = new BolsaDeEmpleo( );
+        bolsa = new JobExchange();
         cantidadAspirantes = 0;
     }
 
