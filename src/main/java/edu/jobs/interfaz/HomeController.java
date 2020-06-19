@@ -16,7 +16,7 @@ public class HomeController
     {
         model.addAttribute("applicant", new Aspirante(
                 "Joan", Profession.SOFTWARE_ENGINEER, 4, 22,
-                "319 656 9458", "data/andres.jpg"));
+                "319 656 9458", "img/andres.jpg"));
 
         return "home";
     }
