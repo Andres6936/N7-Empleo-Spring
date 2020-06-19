@@ -1,5 +1,6 @@
 package edu.jobs;
 
+import edu.jobs.mundo.Profession;
 import junit.framework.TestCase;
 import edu.jobs.mundo.Aspirante;
 
@@ -32,8 +33,8 @@ public class AspiranteTest extends TestCase
      */
     private void setupEscenario1( )
     {
-        aspirante1 = new Aspirante( "nombre1", Aspirante.ADMINISTRADOR , 10, 35, "1234567", "imagen1" );
-        aspirante2 = new Aspirante( "nombre2", Aspirante.CONTADOR , 11, 40, "987654", "imagen2" );
+        aspirante1 = new Aspirante("nombre1", Profession.ADMINISTRATOR, 10, 35, "1234567", "imagen1");
+        aspirante2 = new Aspirante("nombre2", Profession.COUNTER, 11, 40, "987654", "imagen2");
     }
 
     /**

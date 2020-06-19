@@ -44,32 +44,32 @@ public class Aspirante
     /**
      * El nombre del aspirante
      */
-    private String nombre;
+    private final String nombre;
 
     /**
-     * La profesión del aspirante
+     * The applicant's profession
      */
-    private String profesion;
+    private final Profession profession;
 
     /**
      * Los aóos de experiencia del aspirante
      */
-    private int aniosExperiencia;
+    private final int aniosExperiencia;
 
     /**
      * La edad del aspirante
      */
-    private int edad;
+    private final int edad;
 
     /**
      * El telófono del aspirante
      */
-    private String telefono;
+    private final String telefono;
 
     /**
      * La ruta de la imagen del aspirante
      */
-    private String imagen;
+    private final String imagen;
 
     // -----------------------------------------------------------------
     // Constructores
@@ -77,24 +77,24 @@ public class Aspirante
 
     /**
      * Construye un nuevo aspirante con los parómetros indicados
-     * @param nombreA El nombre del aspirante - nombreA != null
-     * @param profesionA La profesión del aspirante - profesionA pertenece a { ADMINISTRADOR, INGENIERO_INDUSTRIAL, CONTADOR, ECONOMISTA }
+     *
+     * @param nombreA           El nombre del aspirante - nombreA != null
+     * @param profesionA        La profesión del aspirante - profesionA pertenece a { ADMINISTRADOR, INGENIERO_INDUSTRIAL, CONTADOR, ECONOMISTA }
      * @param aniosExperienciaA Aóos de experiencia del aspirante - aniosExperienciaA > 0
-     * @param edadA La edad del aspirante - edadA > 0
-     * @param telefonoA El telófono del aspirante - telefonoA != null
-     * @param imagenA La ruta a la imagen del aspirante - imagenA != null
+     * @param edadA             La edad del aspirante - edadA > 0
+     * @param telefonoA         El telófono del aspirante - telefonoA != null
+     * @param imagenA           La ruta a la imagen del aspirante - imagenA != null
      */
-    public Aspirante( String nombreA, String profesionA, int aniosExperienciaA, int edadA, String telefonoA, String imagenA )
+    public Aspirante(String nombreA, Profession profesionA, int aniosExperienciaA, int edadA, String telefonoA, String imagenA)
     {
         nombre = nombreA;
-        profesion = profesionA;
+        profession = profesionA;
         aniosExperiencia = aniosExperienciaA;
         edad = edadA;
         telefono = telefonoA;
         imagen = imagenA;
 
-        verificarInvariante( );
-
+        verificarInvariante();
     }
 
     // -----------------------------------------------------------------
@@ -116,7 +116,7 @@ public class Aspirante
      */
     public String darProfesion( )
     {
-        return profesion;
+        return profession.name();
     }
 
     /**
@@ -175,9 +175,9 @@ public class Aspirante
      *         Retorna -1 si el aspirante a tiene una valor mayor lexicogróficamente para la profesión. <br>
      *         Retorna 1 si el aspirantes a tiene una valor menor lexicogróficamente para la profesión. <br>
      */
-    public int compararPorProfesion( Aspirante a )
+    public int compararPorProfesion(Aspirante a)
     {
-        int resultado = profesion.compareToIgnoreCase( a.darProfesion( ) );
+        int resultado = profession.name().compareToIgnoreCase( a.darProfesion( ) );
         return Integer.compare( resultado, 0 );
     }
 
@@ -211,7 +211,7 @@ public class Aspirante
      */
     public String toString( )
     {
-        return nombre + " - " + profesion;
+        return nombre + " - " + profession;
     }
 
     // -----------------------------------------------------------------
@@ -230,7 +230,6 @@ public class Aspirante
     private void verificarInvariante( )
     {
         assert ( nombre != null ) : "nombre no puede ser null";
-        assert ( profesion.equals( ADMINISTRADOR ) || profesion.equals( INGENIERO_INDUSTRIAL ) || profesion.equals( CONTADOR ) || profesion.equals( ECONOMISTA ) ) : "La profesión debe ser uno de los valores vólidos";
         assert ( aniosExperiencia > 0 ) : "aniosExperiencia no puede ser 0";
         assert ( edad > 0 ) : "edad no puede ser 0";
         assert ( telefono != null ) : "telefono no puede ser null";

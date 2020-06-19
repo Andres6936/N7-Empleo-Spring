@@ -194,7 +194,7 @@ public class BolsaDeEmpleo extends ArrayList<Aspirante>
         int inicio = 0;
         int fin = size() - 1;
 
-        Aspirante aBuscar = new Aspirante( nombre, Aspirante.INGENIERO_INDUSTRIAL, 1, 1, "", "" );
+        Aspirante aBuscar = new Aspirante(nombre, Profession.NONE, 1, 1, "", "");
         while( inicio <= fin && posicion == -1 )
         {
             int medio = (inicio + fin) / 2;
@@ -232,7 +232,7 @@ public class BolsaDeEmpleo extends ArrayList<Aspirante>
         boolean agregado = false;
         if( aspiranteBuscado == -1 )
         {
-            Aspirante nuevoAspirante = new Aspirante( nombreA, profesionA, aniosExperienciaA, edadA, telefonoA, imagenA );
+            Aspirante nuevoAspirante = new Aspirante(nombreA, Profession.valueOf(profesionA), aniosExperienciaA, edadA, telefonoA, imagenA);
             add(nuevoAspirante);
             agregado = true;
 
