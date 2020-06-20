@@ -12,8 +12,15 @@
 <body class="container-fluid">
 <div class="col-lg-6 mx-auto">
 
-    <section class="row row-cols-2 border bg-light rounded-lg mt-lg-5">
-        <h5 class="col-12 border-bottom mb-3">Home Here ... Not work</h5>
+    <section class="row row-cols-1 mt-lg-5">
+        <nav class="nav nav-tabs">
+            <a class="nav-item nav-link active bg-light" href="#">Home</a>
+            <a class="nav-item nav-link" href="#">Create</a>
+        </nav>
+    </section>
+
+    <section class="row row-cols-2 border border-top-0 bg-light">
+        <h5 class="col-12 border-bottom mb-3 mt-lg-2">Home Here ... Not work</h5>
 
         <div class="col">
             <img class="img-thumbnail" th:src="${applicant.getImage()}" alt="Photo">
