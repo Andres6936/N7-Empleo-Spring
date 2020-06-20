@@ -1,5 +1,6 @@
 package edu.jobs.interfaz;
 
+import edu.jobs.mundo.Aspirante;
 import edu.jobs.mundo.Profession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,7 @@ public class AddController
     public String showAddPage(Model model)
     {
         model.addAttribute("professions", Profession.values());
+        model.addAttribute("applicant", new Aspirante());
 
         return "add";
     }

@@ -20,11 +20,11 @@
     </section>
 
     <section class="row border border-top-0 bg-light">
-        <form method="post" class="col-12 p-3" th:action="@{/add}">
+        <form method="post" class="col-12 p-3" th:action="@{/add}" th:object="${applicant}">
             <div class="form-group row">
                 <label for="input-name" class="col-2 col-form-label">Name</label>
                 <div class="col-10">
-                    <input type="text" class="form-control" id="input-name">
+                    <input type="text" class="form-control" id="input-name" th:field="*{name}">
                 </div>
             </div>
 
@@ -48,21 +48,22 @@
             <div class="form-group row">
                 <label for="input-experience" class="col-2 col-form-label">Experience</label>
                 <div class="col-10">
-                    <input class="form-control" id="input-experience" placeholder="Experience in years">
+                    <input type="number" class="form-control" id="input-experience"
+                           placeholder="Experience in years" th:field="*{experienceYears}">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="input-age" class="col-2 col-form-label">Age</label>
                 <div class="col-10">
-                    <input type="text" class="form-control" id="input-age">
+                    <input type="number" class="form-control" id="input-age" th:field="*{age}">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="input-telephone" class="col-2 col-form-label">Telephone</label>
                 <div class="col-10">
-                    <input type="text" class="form-control" id="input-telephone">
+                    <input type="text" class="form-control" id="input-telephone" th:field="*{telephone}">
                 </div>
             </div>
 
