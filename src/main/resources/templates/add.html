@@ -32,8 +32,15 @@
                 <label for="select-profession" class="col-2 col-form-label">Profession</label>
                 <div class="col-10">
                     <select class="form-control" id="select-profession">
-                        <option>Software Engineer</option>
-                        <option>Software Industrial</option>
+                        <span th:each="profession : ${professions}">
+                            <!-- Generally the Enum to apply the method name return the name
+                             of element in UpperCase, we wanna the name in Capital Case.
+                             substring(0, 1) return the first character in uppercase, then
+                             added the rest of string (skip the first character) in
+                             lowercase and replace the character {_} for spaces-->
+                            <option th:text="${profession.name().substring(0, 1) +
+                            profession.name().substring(1).toLowerCase().replace('_', ' ')}"></option>
+                        </span>
                     </select>
                 </div>
             </div>
