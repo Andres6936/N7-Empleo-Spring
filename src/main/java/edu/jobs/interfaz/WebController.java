@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class WebController
 {
     @Autowired
-    private JobRepository repository;
+    JobRepository repository;
 
-    WebController()
+    @RequestMapping("/save")
+    public String process()
     {
         repository.save(new Aspirante(
                 "Pilar Duque", Profession.COUNTER,
@@ -42,5 +43,7 @@ public class WebController
         repository.save(new Aspirante("Juan Rodríguez", Profession.INDUSTRIAL_ENGINEER,
                 6, 32, "4158877",
                 "static/img/Liam-Neeson.jpg"));
+
+        return "successful";
     }
 }
