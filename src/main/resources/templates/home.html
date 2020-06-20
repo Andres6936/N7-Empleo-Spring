@@ -28,39 +28,44 @@
 
         <div class="col">
 
-            <div class="input-group mb-1">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Name</span>
+            <div class="row input-group mb-1 border-bottom">
+                <label for="show-name" class="col-4 col-form-label border-right">Name</label>
+                <div class="col-8">
+                    <input type="text" class="form-control-plaintext" id="show-name" th:value="${applicant.getName()}"
+                           readonly>
                 </div>
-                <input type="text" class="form-control" th:value="${applicant.getName()}" readonly>
             </div>
 
-            <div class="input-group mb-1">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Age</span>
+            <div class="row input-group mb-1 border-bottom">
+                <label for="show-age" class="col-4 col-form-label border-right">Age</label>
+                <div class="col-8">
+                    <input type="text" class="form-control-plaintext" id="show-age" th:value="${applicant.getAge()}"
+                           readonly>
                 </div>
-                <input type="text" class="form-control" th:value="${applicant.getAge()}" readonly>
             </div>
 
-            <div class="input-group mb-1">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Profession</span>
+            <div class="row input-group mb-1 border-bottom">
+                <label for="show-profession" class="col-4 col-form-label border-right">Profession</label>
+                <div class="col-8">
+                    <input type="text" class="form-control-plaintext" id="show-profession"
+                           th:value="${applicant.getProfessionName()}" readonly>
                 </div>
-                <input type="text" class="form-control" th:value="${applicant.getProfessionName()}" readonly>
             </div>
 
-            <div class="input-group mb-1">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Experience</span>
+            <div class="row input-group mb-1 border-bottom">
+                <label for="show-experience" class="col-4 col-form-label border-right">Experience</label>
+                <div class="col-8">
+                    <input type="text" class="form-control-plaintext" id="show-experience"
+                           th:value="${applicant.getExperienceYears()}" readonly>
                 </div>
-                <input type="text" class="form-control" th:value="${applicant.getExperienceYears()}" readonly>
             </div>
 
-            <div class="input-group mb-1">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Telephone</span>
+            <div class="row input-group mb-1 border-bottom">
+                <label for="show-telephone" class="col-4 col-form-label border-right">Telephone</label>
+                <div class="col-8">
+                    <input type="text" class="form-control-plaintext" id="show-telephone"
+                           th:value="${applicant.getTelephone()}" readonly>
                 </div>
-                <input type="text" class="form-control" th:value="${applicant.getTelephone()}" readonly>
             </div>
 
         </div>
