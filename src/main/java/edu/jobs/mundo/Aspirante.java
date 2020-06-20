@@ -1,7 +1,6 @@
 package edu.jobs.mundo;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Range;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -47,16 +46,19 @@ public class Aspirante implements Serializable
     /**
      * The applicant's age
      */
+    @Column(name = "age")
     private int age;
 
     /**
      * The applicant's telephone
      */
+    @Column(name = "telephone")
     private String telephone;
 
     /**
      * The applicant's image
      */
+    @Column(name = "image")
     private String image;
 
     // Constructs
@@ -90,69 +92,7 @@ public class Aspirante implements Serializable
         verificarInvariante();
     }
 
-    // Getters
-
-    /**
-     * Retorna el nombre del aspirante
-     *
-     * @return nombre
-     */
-    public String getName()
-    {
-        return name;
-    }
-
-    /**
-     * Retorna la profesión del aspirante
-     *
-     * @return profesion
-     */
-    public String getProfessionName()
-    {
-        String professionName = profession.name().toLowerCase().replace("_", " ");
-        // Convert the name of Uppercase to Capitalize
-        return professionName.substring(0, 1).toUpperCase() + professionName.substring(1);
-    }
-
-    /**
-     * Retorna los aóos de experiencia del aspirante
-     *
-     * @return aniosExperiencia
-     */
-    public int getExperienceYears()
-    {
-        return experienceYears;
-    }
-
-    /**
-     * Retorna la edad del aspirante
-     *
-     * @return edad
-     */
-    public int getAge()
-    {
-        return age;
-    }
-
-    /**
-     * Retorna el telófono del aspirante
-     *
-     * @return telefono
-     */
-    public String getTelephone()
-    {
-        return telephone;
-    }
-
-    /**
-     * Retorna la ruta de la imagen del aspirante
-     *
-     * @return imagen
-     */
-    public String getImage()
-    {
-        return image;
-    }
+    // Methods
 
     /**
      * Compara dos aspirantes segón el nombre. <br>
@@ -224,9 +164,105 @@ public class Aspirante implements Serializable
      * aniosExperiencia > 0 <br>
      * edad > 0 <br>
      */
-    private void verificarInvariante( )
+    private void verificarInvariante()
     {
         assert (experienceYears > 0) : "aniosExperiencia no puede ser 0";
         assert (age > 0) : "edad no puede ser 0";
+    }
+
+    // Getters
+
+    /**
+     * Retorna el nombre del aspirante
+     *
+     * @return nombre
+     */
+    public String getName()
+    {
+        return name;
+    }
+
+    /**
+     * Retorna la profesión del aspirante
+     *
+     * @return profesion
+     */
+    public String getProfessionName()
+    {
+        String professionName = profession.name().toLowerCase().replace("_", " ");
+        // Convert the name of Uppercase to Capitalize
+        return professionName.substring(0, 1).toUpperCase() + professionName.substring(1);
+    }
+
+    /**
+     * Retorna los aóos de experiencia del aspirante
+     *
+     * @return aniosExperiencia
+     */
+    public int getExperienceYears()
+    {
+        return experienceYears;
+    }
+
+    /**
+     * Retorna la edad del aspirante
+     *
+     * @return edad
+     */
+    public int getAge()
+    {
+        return age;
+    }
+
+    /**
+     * Retorna el telófono del aspirante
+     *
+     * @return telefono
+     */
+    public String getTelephone()
+    {
+        return telephone;
+    }
+
+    /**
+     * Retorna la ruta de la imagen del aspirante
+     *
+     * @return imagen
+     */
+    public String getImage()
+    {
+        return image;
+    }
+
+    // Setters
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public void setProfession(Profession profession)
+    {
+        this.profession = profession;
+    }
+
+    public void setExperienceYears(int experienceYears)
+    {
+        this.experienceYears = experienceYears;
+    }
+
+    public void setAge(int age)
+    {
+        this.age = age;
+    }
+
+    public void setTelephone(String telephone)
+    {
+        this.telephone = telephone;
+    }
+
+    public void setImage(String image)
+    {
+        this.image = image;
     }
 }
