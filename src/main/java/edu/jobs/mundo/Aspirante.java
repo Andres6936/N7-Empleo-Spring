@@ -3,6 +3,9 @@ package edu.jobs.mundo;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Range;
 
+import javax.persistence.*;
+import java.io.Serializable;
+
 /**
  * Es la clase que representa a un Aspirante <br>
  * <b>inv: </b> <br>
@@ -12,43 +15,56 @@ import org.jetbrains.annotations.Range;
  * edad > 0 <br>
  * telefono != null <br>
  */
-
-public class Aspirante
+@Entity
+@Table(name = "applicant")
+public class Aspirante implements Serializable
 {
 
     // Fields
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
     /**
      * The applicant's name
      */
-    private final String name;
+    @Column(name = "name")
+    private String name;
 
     /**
      * The applicant's profession
      */
-    private final Profession profession;
+    @Column(name = "profession")
+    private Profession profession;
 
     /**
      * The applicant's experience in years
      */
-    private final int experienceYears;
+    @Column(name = "experience")
+    private int experienceYears;
 
     /**
      * The applicant's age
      */
-    private final int age;
+    private int age;
 
     /**
      * The applicant's telephone
      */
-    private final String telephone;
+    private String telephone;
 
     /**
      * The applicant's image
      */
-    private final String image;
+    private String image;
 
     // Constructs
+
+    public Aspirante()
+    {
+
+    }
 
     /**
      * Construye un nuevo aspirante con los parómetros indicados

@@ -18,10 +18,12 @@ import edu.jobs.mundo.JobExchange;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 /**
  * Es la clase principal de la interfaz
  */
+@EntityScan("edu.jobs.mundo")
 @SpringBootApplication
 public class InterfazBolsaDeEmpleo extends JFrame
 {
