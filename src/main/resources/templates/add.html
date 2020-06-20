@@ -20,7 +20,7 @@
     </section>
 
     <section class="row border border-top-0 bg-light">
-        <form class="col-12 p-3">
+        <form method="post" class="col-12 p-3" th:action="@{/add}">
             <div class="form-group row">
                 <label for="input-name" class="col-2 col-form-label">Name</label>
                 <div class="col-10">
@@ -64,6 +64,10 @@
                 <div class="col-10">
                     <input type="text" class="form-control" id="input-telephone">
                 </div>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="col-6 offset-3 btn btn-primary btn-block">Add Applicant</button>
             </div>
         </form>
     </section>
